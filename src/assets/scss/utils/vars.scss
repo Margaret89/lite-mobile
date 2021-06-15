@@ -1,0 +1,31 @@
+//Path
+$path-img: "../img";
+$path-fonts: "../fonts";
+
+//Font
+$font-site:  'IBM Plex Sans', Arial, sans-serif;
+
+// Site
+$color-text: #0e0c31;
+$color-dark-grey: #7f829f;
+$color-orange: #ff8339;
+$color-red: #ed4577;
+$color-pink: #eb3b76;
+
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1350px
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1296px
+) !default;
+
+$grid-gutter-width: 16px !default;

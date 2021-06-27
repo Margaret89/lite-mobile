@@ -1,0 +1,126 @@
+/*-------------- form-search -----------------*/
+.form-search{
+	position: relative;
+
+	&__content{position: relative;}
+
+	input[type="text"],
+	input[type="search"]{
+		display: inline-block;
+		height: 4.8rem;
+		width: 100%;
+		font-family: $font-site;
+		@include font(normal, normal, 1.6rem, 4.6rem, $color-dark-grey);
+		padding: 0 48px 0 18px;
+		border-radius: 2.4rem;
+		border: 1px solid #e5e6f0;
+		outline: 0;
+		margin: 0;
+		background: #fafafe;
+		box-shadow: none;
+		transition: border 0.2s ease 0s;
+	}
+
+	input[type="text"]:focus,
+	input[type="search"]:focus{
+		border-color: $color-orange;
+	}
+
+	input[type="text"]::placeholder,
+	input[type="search"]::placeholder{
+		color: $color-dark-grey;
+	}
+
+	button[type="submit"]{
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		@include top-center;
+		right: 15px;
+		background: transparent;
+		border: 0;
+		outline: 0;
+		box-shadow: none;
+		font-size: 0;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+
+		.icon{
+			fill: $color-grey;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	button[type="submit"]:hover .icon{fill: $color-dark-grey;}
+
+	&__popup{
+		display: none;
+		width: 100%;
+		background: #fff;
+		box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 10;
+	}
+
+	&__title,
+	&__item{
+		display: block;
+		padding: 11px 18px;
+		@include font(normal, normal, 1.4rem, 1.2, $color-text);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border-bottom: 1px solid #e5e6f0;
+		transition: background 0.2s ease 0s;
+	}
+
+	&__title{
+		background: #fafafe;
+		color: $color-dark-grey;
+	}
+
+	&__res{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 11px 18px;
+		background: #fafafe;
+	}
+
+	&__more{
+		@include font(normal, normal, 1.4rem, 1.2, $color-orange);
+		text-decoration: none;
+		transition: color 0.2s ease 0s;
+		margin-right: 15px;
+
+		.icon{
+			flex: 0 0 14px;
+			margin-right: 8px;
+			fill: $color-orange;
+			transition: color 0.2s ease 0s;
+		}
+	}
+
+	&__more-text{vertical-align: middle;}
+
+	&__more:hover{color: $color-dark-orange;}
+	&__more:hover .icon{fill: $color-dark-orange;}
+
+	&__count{
+		@include font(normal, normal, 1.4rem, 1.2, $color-text);
+	}
+
+	&__item:hover{background: #fafafe;}
+
+	&:hover input[type="text"],
+	&:hover input[type="search"]{
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	
+	&:hover &__popup{display: block;}
+}

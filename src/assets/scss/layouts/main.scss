@@ -81,43 +81,187 @@ main{
 	width: 100%;
 }
 
-// .btn,
-// input[type="submit"].btn,
-// button.btn{
-// 	display: inline-block;
-// 	height: 6rem;
-// 	min-width: 200px;
-// 	background: $color-text;
-// 	border: 1px solid $color-text;
-// 	@include font(normal, 500, 1.3rem, 5.8rem, #fff);
-// 	text-transform: uppercase;
-// 	text-decoration: none;
-// 	text-align: center;
-// 	padding: 0 30px;
-// 	cursor: pointer;
-// 	transition: all 0.2s ease 0s;
-// }
+.btn,
+input[type="submit"].btn,
+button.btn{
+	display: inline-block;
+	height: 6.4rem;
+	background: $color-orange;
+	border: none;
+	outline: none;
+	border-radius: 3.2rem;
+	@include font(normal, 600, 1.6rem, 6.4rem, #fff);
+	text-decoration: none;
+	text-align: center;
+	padding: 0 35px;
+	cursor: pointer;
+	box-shadow: 0px 3px 12px rgba(115, 117, 136, 0.18), inset 0px -1px 0px rgba(28, 29, 32, 0.1);
+	transition: all 0.2s ease 0s;
+	overflow: hidden;
+	position: relative;
 
-// .btn:hover,
-// input[type="submit"].btn:hover,
-// button.btn:hover{
-// 	background: transparent;
-// 	color: $color-text;
-// }
+	span,
+	img,
+	.icon{
+		position: relative;
+	}
 
-// .btn_border,
-// input[type="submit"].btn_border,
-// button.btn_border{
-// 	background: transparent;
-// 	color: $color-text;
-// }
+	.icon{
+		fill: #fff;
+		transition: fill 0.2s ease 0s;
+	}
 
-// .btn_border:hover,
-// input[type="submit"].btn_border:hover,
-// button.btn_border:hover{
-// 	background: $color-text;
-// 	color: #fff;
-// }
+	&:hover{color: #fff;}
+}
+
+.btn::before,
+button.btn::before{
+	content: '';
+	display: block;
+	width: 0;
+	height: 100%;
+	background: $color-dark-orange;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: width 0.2s ease 0s;
+}
+
+.btn:hover::before,
+button.btn:hover::before{
+	width: 100%;
+}
+
+.btn_border,
+input[type="submit"].btn_border,
+button.btn_border{
+	border: 1px solid $color-orange;
+	background: #fff;
+	color: $color-text;
+
+	.icon{fill: $color-text;}
+}
+
+.btn_border::before,
+button.btn_border::before{
+	background: $color-orange;
+}
+
+.btn_border:hover,
+input[type="submit"].btn_border:hover,
+button.btn_border:hover{
+	color: #fff;
+
+	.icon{fill: #fff;}
+}
+
+.btn_small,
+input[type="submit"].btn_small,
+button.btn_small{
+	height: 4.8rem;
+	line-height: 4.8rem;
+}
+
+
+.btn{
+	.icon:first-child,
+	img:first-child{
+		margin-right: 12px;
+	}
+
+	.icon:last-child,
+	img:last-child{
+		margin-left: 12px;
+	}
+}
+
+.btn-icon,
+input[type="submit"].btn-icon,
+button.btn-icon{
+	display: inline-flex;
+	height: 4rem;
+	background: #fff;
+	border: none;
+	outline: none;
+	border-radius: 2rem;
+	@include font(normal, 600, 1.6rem, 4rem, $color-text);
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	box-shadow: 0px 3px 12px rgba(115, 117, 136, 0.18), inset 0px -1px 0px rgba(28, 29, 32, 0.1);
+	transition: all 0.2s ease 0s;
+	overflow: hidden;
+	position: relative;
+
+	&__img,
+	&__text{
+		position: relative;
+	}
+
+	&__img{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 48px;
+		width: 48px;
+		background: $color-orange;
+		padding: 5px;
+
+		.icon{fill: #fff;}
+	}
+
+	&__text{padding: 0 12px;}
+	&:hover{color: #fff;}
+}
+
+.btn-icon::before,
+button.btn-icon::before{
+	content: '';
+	display: block;
+	width: 0;
+	height: 100%;
+	background: $color-orange;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: width 0.2s ease 0s;
+}
+
+.btn-icon:hover::before,
+button.btn-icon:hover::before{
+	width: 100%;
+}
+
+.btn-icon_pink,
+input[type="submit"].btn-icon_pink,
+button.btn-icon_pink{
+	.btn-icon__img{background: $color-pink;}
+}
+
+.btn-icon_pink::before,
+button.btn-icon_pink::before{
+	background: $color-pink;
+}
+.btn-icon_purple,
+input[type="submit"].btn-icon_purple,
+button.btn-icon_purple{
+	.btn-icon__img{background: $color-purple;}
+}
+
+.btn-icon_purple::before,
+button.btn-icon_purple::before{
+	background: $color-purple;
+}
+.btn-icon_brown,
+input[type="submit"].btn-icon_brown,
+button.btn-icon_brown{
+	.btn-icon__img{background: $color-brown;}
+}
+
+.btn-icon_brown::before,
+button.btn-icon_brown::before{
+	background: $color-brown;
+}
 
 .code{
 	background-color: #f7f7f7;

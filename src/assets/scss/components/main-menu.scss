@@ -1,0 +1,116 @@
+/*-------------- main-menu -----------------*/
+.main-menu{
+	border-bottom: 1px solid #e5e6f0;
+
+	&__list,
+	&__item{
+		@include reset-list;
+	}
+
+	&__list{
+		display: flex;
+		justify-content: space-between;
+		background: #fafafe;
+	}
+
+	&__item{
+		width: 100%;
+		border-right: 1px solid #e5e6f0;
+		position: relative;
+		cursor: pointer;
+	}
+
+	&__link{
+		display: block;
+		height: 100%;
+		min-height: 120px;
+		padding: 23px 10px 15px;
+		text-align: center;
+		text-decoration: none;
+		transition: all 0.2s ease 0s;
+
+		.icon{fill: $color-text;}
+	}
+
+	&__icon{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 34px;
+		margin-bottom: 16px;
+	}
+
+	&__text{
+		@include font(normal, normal, 1.3rem, 1.2, $color-text);
+	}
+
+	&__item_orange &__link{background: $color-orange;}
+	&__item_dark-grey &__link{background: $color-dark-grey;}
+	&__item_grey &__link{background: #e5e6f0;}
+	&__item_red &__link{background: $color-red;}
+
+	&__item_orange .icon,
+	&__item_dark-grey .icon,
+	&__item_red .icon{
+		fill: #fff;
+	}
+
+	&__item_orange &__text,
+	&__item_dark-grey &__text,
+	&__item_red &__text{
+		color: #fff;
+	}
+
+	&__sub{
+		display: none;
+		width: 215px;
+		border: 1px solid #e5e6f0;
+		background: #fff;
+		padding: 8px;
+		box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 10;
+	}
+
+	&__sub-list,
+	&__sub-item{
+		@include reset-list;
+	}
+
+	&__sub-item{
+		width: 50%;
+		padding: 4px 10px;
+	}
+
+	&__sub-link{
+		@include font(normal, normal, 1.4rem, 1.2, $color-text);
+		text-decoration: none;
+		transition: color 0.2s ease 0s;
+	}
+
+	&__sub-link:hover{color: $color-orange;}
+
+	&__item:hover &__sub{
+		display: inline-flex;
+		flex-wrap: wrap;
+	}
+
+	&__item:hover &__link{
+		background: #fff;
+		box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+	}
+
+	&__item_orange:hover &__link,
+	&__item_dark-grey:hover &__link,
+	&__item_grey:hover &__link,
+	&__item_red:hover &__link{
+		box-shadow: none;
+	}
+
+	&__item_orange:hover &__link{background: $color-light-orange;}
+	&__item_dark-grey:hover &__link{background: #989bb7;}
+	&__item_grey:hover &__link{background: #f4f5fc;}
+	&__item_red:hover &__link{background: #ff749e;}
+}

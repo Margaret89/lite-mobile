@@ -1,0 +1,83 @@
+.footer{
+	padding: 20px 0 64px;
+
+	&__info{margin-top: 55px;}
+
+	&__logo{
+		display: block;
+		max-width: 146px;
+	}
+
+	&__copyright{
+		@include font(normal, normal, 1.2rem, 1.2, $color-dark-grey);
+		margin-top: 15px;
+	}
+
+	&__phone{
+		@include font(normal, 600, 2.4rem, 1.2, $color-text);
+
+		a{
+			color: $color-text;
+			text-decoration: none;
+			transition: color 0.2s ease 0s;
+		}
+
+		a:hover{color: $color-orange}
+	}
+
+	&__address{
+		@include font(normal, normal, 1.2rem, 1.2, $color-text);
+		margin-top: 13px;
+	}
+
+	.social{
+		margin-top: -6px;
+		&__item:hover .icon{fill: $color-orange;}
+	}
+
+	.form-search{
+		width: 240px;
+
+		input[type="search"]:hover,
+		input[type="text"]:hover{
+			border-radius: 2.4rem;
+		}
+	}
+
+	&__bottom{margin-top: 63px;}
+
+	&__text{
+		@include font(normal, normal, 1.2rem, 1.5, $color-grey);
+	}
+}
+
+.footer-menu{
+	&,
+	&__item,
+	&__sub,
+	&__sub-item{
+		@include reset-list;
+	}
+
+	&__item:not(:last-child){margin-bottom: 20px;}
+
+	&__link{
+		@include font(normal, 600, 1.6rem, 1.2, $color-text);
+		text-decoration: none;
+		transition: color 0.2s ease 0s;
+	}
+
+	&__sub{margin-top: 10px;}
+	&__sub-item:not(:last-child){margin-bottom: 10px;}
+
+	&__sub-link{
+		@include font(normal, normal, 1.4rem, 1.2, $color-dark-grey);
+		text-decoration: none;
+		transition: color 0.2s ease 0s;
+	}
+
+	&__link:hover,
+	&__sub-link:hover{
+		color: $color-orange;
+	}
+}

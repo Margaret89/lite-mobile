@@ -58,7 +58,7 @@
 }
 
 .social{
-	display: inline-flex;
+	&__list{display: inline-flex;}
 
 	&__item{
 		margin: 6px;
@@ -69,6 +69,12 @@
 	}
 
 	&__item:hover .icon{fill: $color-dark-grey;}
+
+	&__label{
+		@include font(normal, normal, 1.2rem, 1.2, $color-text);
+		margin-top: 8px;
+		margin-left: 6px;
+	}
 }
 
 .top-menu{

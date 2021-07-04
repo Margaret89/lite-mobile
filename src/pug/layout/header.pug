@@ -2,12 +2,13 @@ header.header
 	.header-top
 		.header-top__info
 			.social
-				-
-					var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
-				
-				each item in list
-					.social__item
-						+svg(item, item, '24', '24')
+				.social__list
+					-
+						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+					
+					each item in list
+						.social__item
+							+svg(item, item, '24', '24')
 
 			ul.top-menu
 				-

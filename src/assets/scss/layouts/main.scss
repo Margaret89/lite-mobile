@@ -77,9 +77,11 @@ h5,.h5{
 
 main{
 	flex: 1 1 auto;
-	padding-bottom: 76px;
+	padding-bottom: 45px;
 	width: 100%;
 }
+
+.last-elem{margin-bottom: -45px;}
 
 .btn,
 input[type="submit"].btn,

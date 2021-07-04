@@ -611,3 +611,146 @@
 		font-weight: 600;
 	}
 }
+
+.top-panel{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	background: $color-dark-grey;
+	color: #fff;
+	position: fixed;
+	top: -100px;
+	left: 0;
+	z-index: 900;
+	transition: top 0.2s ease 0s;
+
+	&.visible{top: 0;}
+
+	&__info{
+		display: flex;
+		align-items: center;
+	}
+
+	&__menu{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 56px;
+		height: 56px;
+		background: $color-orange;
+		transition: background 0.2s ease 0s;
+		cursor: pointer;
+		margin-right: 24px;
+
+		.icon{fill: #fff;}
+	}
+
+	&__menu:hover{background: $color-light-orange;}
+
+	.form-search{
+		width: 175px;
+		margin-right: 10px;
+	}
+
+	.tp-msg{margin-right: 25px;}
+
+	&__phone{
+		@include font(normal, 600, 2rem, 1.2, #fff);
+		margin-right: 25px;
+
+		a{
+			color: #fff;
+			text-decoration: none;
+			transition: color 0.2s ease 0s;
+		}
+
+		a:hover{color: $color-grey;}
+	}
+}
+
+.tp-msg{
+	display: flex;
+	align-items: center;
+
+	&__item .icon{
+		display: block;
+		fill: #fff;
+		transition: fill 0.2s ease 0s;
+	}
+
+	&__item:not(:last-child){margin-right: 10px;}
+	&__item:hover .icon{fill: $color-grey;}
+}
+
+.tp-action{
+	display: flex;
+	align-items: center;
+	padding: 0 25px;
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	&__item:not(:last-child){margin-right: 25px;}
+
+	&__icon{
+		flex: 0 0 23px;
+		width: 23px;
+		margin-right: 10px;
+
+		.icon{
+			display: block;
+			fill: $color-grey;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.2, $color-grey);
+		transition: color 0.2s ease 0s;
+	}
+
+	&__count{font-weight: 600;}
+
+	&__item.active &__icon .icon,
+	&__item:hover &__icon .icon{
+		fill: #fff;
+	}
+
+	&__item.active &__text,
+	&__item:hover &__text{
+		color: #fff;
+	}
+
+	&__item.active:hover &__icon .icon{fill: $color-orange;}
+	&__item.active:hover &__text{color: $color-orange;}
+}
+
+.tp-callback{
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+
+	&__icon{
+		flex: 0 0 16px;
+		width: 16px;
+		margin-right: 8px;
+
+		.icon{
+			display: block;
+			fill: #fff;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.2, #fff);
+		transition: color 0.2s ease 0s;
+	}
+
+	&:hover &__icon .icon{fill: $color-grey;}
+	&:hover &__text{color: $color-grey;}
+}

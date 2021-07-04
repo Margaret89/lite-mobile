@@ -123,4 +123,35 @@
 	}
 	
 	&:hover &__popup{display: block;}
+
+	&_white input[type="text"],
+	&_white input[type="search"]{
+		height: 4rem;
+		padding: 0 10px 0 30px;
+		background: transparent;
+		border-color: transparent;
+		font-size: 1.4rem;
+		color: #fff;
+		line-height: 3.8rem;
+		border-radius: 0;
+	}
+
+	&_white input[type="text"]::placeholder,
+	&_white input[type="search"]::placeholder{
+		color: $color-grey;
+	}
+
+	&_white input[type="text"]:focus,
+	&_white input[type="search"]:focus{
+		border-color: transparent;
+		border-bottom-color: #fff;
+	}
+
+	&_white button[type="submit"]{
+		left: 0;
+		right: auto;
+	}
+
+	&_white button[type="submit"] .icon{fill: #fff;}
+	&_white button[type="submit"]:hover .icon{fill: $color-grey;}
 }

@@ -355,14 +355,14 @@ header.header
 												li.cat-menu__sub-item
 													a(href="#").cat-menu__sub-link= subsect
 
-	.top-panel
+	.top-panel.js-top-panel
 		.top-panel__info
-			.top-panel__menu
+			.top-panel__menu.js-main-menu-cat
 				+svg('ic-menu','ic-menu', '26', '26')
 
 			form.form-search.form-search_white
 				.form-search__content
-					input(type="text", placeholder="Введите название или бренд. Найдем все!", title="Введите название или бренд. Найдем все!")
+					input(type="text", placeholder="Поиск по каталогу...", title="Поиск по каталогу")
 					button(type="submit")
 						+svg('ic-search','ic-search', '18', '18')
 
@@ -415,10 +415,11 @@ header.header
 					{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина:', count:'1', status:'active'},
 				]
 			each item in list
-				.tp-action__item
+				a(href="#").tp-action__item(class=item.status?'active':'')
 					.tp-action__icon
 						+svg(item.icon, item.icon, item.icon_width, item.icon_height)
 					.tp-action__text= item.text
 						if(item.count)
+							| 
 							span.tp-action__count= item.count
 

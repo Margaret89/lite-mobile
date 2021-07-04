@@ -42,3 +42,12 @@ if($('.js-main-menu-cat').length){
 		$('.js-cat-menu').toggleClass('active inactive');
 	});
 }
+
+// Показываем фиксированное меню при прокрутке
+$(window).on('scroll', function(){
+	if($(this).scrollTop()>300){
+		$('.js-top-panel').addClass('visible');
+	}else{
+		$('.js-top-panel').removeClass('visible');
+	}
+});

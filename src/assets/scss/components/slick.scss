@@ -1,0 +1,31 @@
+/*-------------- slick -----------------*/
+.slick-dots{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	&,
+	li{
+		@include reset-list;
+	}
+
+	button{
+		display: inline-block;
+		width: 4px;
+		height: 8px;
+		border-radius: 2px;
+		background: #e5e6f0;
+		padding: 0;
+		margin: 8px;
+		border: none;
+		outline: none;
+		font-size: 0;
+		cursor: pointer;
+		transition: background 0.2s ease 0s;
+	}
+
+	button:hover,
+	.slick-active button{
+		background: $color-grey;
+	}
+}

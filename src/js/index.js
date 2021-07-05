@@ -51,3 +51,54 @@ $(window).on('scroll', function(){
 		$('.js-top-panel').removeClass('visible');
 	}
 });
+
+// Слайдер инфокарточек
+if ($('.js-card-slider').length) {
+	$('.js-card-slider').slick({
+		infinite: true,
+		slidesToShow: 2,
+		slidesToScroll: 2,
+		arrows: false,
+		dots: true,
+	});
+}
+
+// Слайдер каталога
+function catalogSlider() {
+	if ($('.js-catalog-slider').length) {
+		$('.js-catalog-slider').slick({
+			infinite: true,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			arrows: false,
+			dots: true,
+		});
+	}
+}
+
+catalogSlider();
+
+// Табуляция
+if ($('.js-tabs-page').length) {
+	$('.js-tabs-page-list').each(function(){
+		$(this).find('.js-tabs-page-item:first').addClass("active");
+	});
+
+	$('.js-tabs-page-content').each(function(){
+		$(this).find('.js-tabs-page-content-item:first').fadeIn();
+	});
+
+	$('.js-tabs-page-item').on('click',function(e) {
+		e.preventDefault();
+		var $parent = $(this).parents('.js-tabs-page');
+
+		$parent.find('.js-tabs-page-content-item').hide();
+		$parent.find('.js-tabs-page-item').removeClass('active');
+
+		$(this).addClass("active");
+		$parent.find('#' + $(this).attr('data-item')).fadeIn();
+
+		$('.js-catalog-slider').slick('unslick');
+		catalogSlider();
+	});
+}

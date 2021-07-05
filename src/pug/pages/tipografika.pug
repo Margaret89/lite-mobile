@@ -107,6 +107,26 @@ block content
 
 				br
 				br
+				br
+				.h2 Табуляция
+				.tabs-page.js-tabs-page
+					ul.tabs-page__list.js-tabs-page-list
+						li.tabs-page__item.js-tabs-page-item(data-item='tab1') Tab1
+						li.tabs-page__item.js-tabs-page-item(data-item='tab2') Tab2
+						li.tabs-page__item.js-tabs-page-item(data-item='tab3') Tab3
+						li.tabs-page__item.js-tabs-page-item(data-item='tab4') Tab4
+					.tabs-page__content.js-tabs-page-content
+						#tab1.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+							| Первый контент
+						#tab2.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+							| Второй контент
+						#tab3.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+							| Третий контент
+						#tab4.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+							| Четвёртый контент
+
+				br
+				br
 				div.h2 Иконки
 				.type-icon
 					.type-icon__item
@@ -118,6 +138,11 @@ block content
 						.type-icon__img
 							+svg('ic-cart-add','ic-cart-add', '22', '18')
 						.type-icon__name ic-cart-add
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-cart-del','ic-cart-del', '22', '18')
+						.type-icon__name ic-cart-del
 
 					.type-icon__item
 						.type-icon__img
@@ -288,4 +313,9 @@ block content
 						.type-icon__img
 							+svg('ic-close','ic-close', '20', '20')
 						.type-icon__name ic-close
+						
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-layers','ic-layers', '20', '20')
+						.type-icon__name ic-layers
 						

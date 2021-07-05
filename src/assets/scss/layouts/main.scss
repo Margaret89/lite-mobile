@@ -207,12 +207,12 @@ button.btn-icon{
 		flex: 0 0 48px;
 		width: 48px;
 		background: $color-orange;
-		padding: 5px;
+		padding: 5px 5px 5px 10px;
 
 		.icon{fill: #fff;}
 	}
 
-	&__text{padding: 0 12px;}
+	&__text{padding: 0 17px 0 12px;}
 	&:hover{color: #fff;}
 }
 
@@ -254,6 +254,7 @@ button.btn-icon_purple{
 button.btn-icon_purple::before{
 	background: $color-purple;
 }
+
 .btn-icon_brown,
 input[type="submit"].btn-icon_brown,
 button.btn-icon_brown{
@@ -263,6 +264,17 @@ button.btn-icon_brown{
 .btn-icon_brown::before,
 button.btn-icon_brown::before{
 	background: $color-brown;
+}
+
+.btn-icon_grey,
+input[type="submit"].btn-icon_grey,
+button.btn-icon_grey{
+	.btn-icon__img{background: $color-dark-grey;}
+}
+
+.btn-icon_grey::before,
+button.btn-icon_grey::before{
+	background: $color-dark-grey;
 }
 
 .code{
@@ -281,3 +293,30 @@ button.btn-icon_brown::before{
 .text-justify{text-align: justify !important;}
 .text-uppercase{text-transform: uppercase !important;}
 .text-bold {font-weight: 700 !important;}
+
+.container-fluid{
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.link-more{
+	display: inline-flex;
+	align-items: center;
+	@include font(normal, normal, 1.4rem, 1.2, $color-text);
+
+	&__icon{
+		flex: 0 0 14px;
+		width: 14px;
+		margin-right: 8px;
+
+		.icon{
+			display: block;
+			fill: $color-grey;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__count{color: $color-dark-grey;}
+	&:hover &__icon .icon{fill: $color-dark-grey;}
+	&:hover{color: $color-dark-grey;}
+}

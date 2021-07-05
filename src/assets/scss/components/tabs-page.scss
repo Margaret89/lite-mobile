@@ -1,0 +1,40 @@
+/*-------------- tabs-page -----------------*/
+.tabs-page{
+	&__list,
+	&__item{
+		@include reset-list;
+	}
+
+	&__top{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 8px;
+		margin-bottom: 10px;
+
+		h2, .h2{
+			margin-bottom: 0;
+			margin-top: -12px;
+		}
+	}
+
+	&__list{display: flex;}
+
+	&__item{
+		display: inline-block;
+		@include font(normal, 600, 1.6rem, 1.2, $color-grey);
+		cursor: pointer;
+		margin: 8px 16px;
+		transition: color 0.2s ease 0s;
+	}
+
+	&__item:hover{color: $color-dark-grey;}
+
+	&__item.active,
+	&__item.active:hover{
+		color: $color-text;
+		cursor: auto;
+	}
+
+	&__content-item{display: none;}
+}

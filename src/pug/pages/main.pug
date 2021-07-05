@@ -1,0 +1,539 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Главная';
+
+block content
+	section.card-slider-wrap
+		.container-fluid
+			.card-slider.js-card-slider
+				.info-card(style="background-image: url(assets/img/info-card1.jpg)")
+					.info-card__content
+						.info-card__title
+							span(style="color: #fff;") Новые 
+							|Samsung Galaxy S21
+
+						.info-card__text Вся линейка в магазине Lite Mobile:<br>выбирай S21, S21+, S21 Ultra
+
+						a.btn-icon(href='#')
+							span.btn-icon__img
+								+svg('ic-cart','ic-cart', '22', '18')
+							span.btn-icon__text Купить
+					
+				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+					.info-card__content
+						.info-card__title Узнай цену на&nbsp;свой девайс в&nbsp;трейд-ин
+
+						.info-card__text Отдавай старое железо<br>в счет цены нового!
+
+						a.btn-icon.btn-icon_pink(href='#')
+							span.btn-icon__img
+								+svg('ic-link','ic-link', '18', '18')
+							span.btn-icon__text Оценить
+
+				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+					.info-card__content
+						.info-card__title Узнай цену
+
+						.info-card__text Отдавай старое железо<br>в счет цены нового!
+
+						a.btn-icon.btn-icon_pink(href='#')
+							span.btn-icon__img
+								+svg('ic-link','ic-link', '18', '18')
+							span.btn-icon__text Оценить
+
+				.info-card(style="background-image: url(assets/img/info-card1.jpg)")
+					.info-card__content
+						.info-card__title Samsung Galaxy S21
+
+						.info-card__text Вся линейка в магазине Lite Mobile
+
+						a.btn-icon(href='#')
+							span.btn-icon__img
+								+svg('ic-cart','ic-cart', '22', '18')
+							span.btn-icon__text Купить
+
+				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+					.info-card__content
+						.info-card__title Узнай цену на&nbsp;свой девайс в&nbsp;трейд-ин
+
+						.info-card__text Отдавай старое железо<br>в счет цены нового!
+
+						a.btn-icon.btn-icon_pink(href='#')
+							span.btn-icon__img
+								+svg('ic-link','ic-link', '18', '18')
+							span.btn-icon__text Оценить
+
+				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+					.info-card__content
+						.info-card__title Узнай цену
+
+						.info-card__text Отдавай старое железо<br>в счет цены нового!
+
+						a.btn-icon.btn-icon_pink(href='#')
+							span.btn-icon__img
+								+svg('ic-link','ic-link', '18', '18')
+							span.btn-icon__text Оценить
+
+	section.catalog-offers
+		.container
+			.row
+				.col-12
+					.tabs-page.js-tabs-page
+						.tabs-page__top
+							h2 Топ за сегодня
+
+							ul.tabs-page__list.js-tabs-page-list
+								li.tabs-page__item.js-tabs-page-item(data-item='today') За сегодня
+								li.tabs-page__item.js-tabs-page-item(data-item='week') За неделю
+								li.tabs-page__item.js-tabs-page-item(data-item='month') В этом месяце
+
+							a(href="#").link-more
+								span.link-more__icon
+									+svg('ic-link','ic-link', '14', '14')
+								span.link-more__text Показать все&nbsp;
+								span.link-more__count (31)
+
+
+						.tabs-page__content.js-tabs-page-content
+							#today.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'ic-camera.svg',
+												img_empty:'true',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+
+							#week.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+
+							#month.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+
+	section.cat-sect-wrap
+		.container
+			.row
+				.col-12
+					h2 Товары по категориям
+
+		.cat-sect
+			.container
+				.row
+					-
+						var list=[
+							{img:'catalog-sect1.jpg', title:'Телефоны', count:'Товаров: 819'},
+							{img:'catalog-sect2.jpg', title:'Видео и медиа', count:'Товаров: 422'},
+							{img:'catalog-sect3.jpg', title:'Компьютерные комплектующие', count:'Товаров: 1867'},
+							{img:'catalog-sect4.jpg', title:'Сетевое оборудование', count:'Товаров: 990'},
+							{img:'catalog-sect5.jpg', title:'Умные часы и браслеты', count:'Товаров: 116'},
+							{img:'catalog-sect6.jpg', title:'Кухонная техника', count:'Товаров: 2208'},
+						]
+					each item in list
+						.col-2
+							.cat-sect-item
+								.cat-sect-item__img-wrap
+									a(href="#").cat-sect-item__img
+										img(src="assets/img/"+item.img, alt="")
+								.cat-sect-item__content
+									.cat-sect-item__title
+										a(href="#")= item.title
+
+									.cat-sect-item__count= item.count
+
+				.row
+					.col-12
+						a(href="#").cat-sect-more
+							span.cat-sect-more__icon
+								+svg('ic-layers','ic-layers', '14', '14')
+							span.cat-sect-more__text Раскрыть все категории&nbsp;
+								span.cat-sect-more__count (21)

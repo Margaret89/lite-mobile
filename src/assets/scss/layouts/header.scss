@@ -760,3 +760,15 @@
 	&:hover &__icon .icon{fill: $color-grey;}
 	&:hover &__text{color: $color-grey;}
 }
+
+@media (max-height: 800px) {
+	.cat-menu{
+		&__list{
+			display: flex;
+			flex-wrap: wrap;
+			width: 528px;
+		}
+
+		&__item{width: 50%;}
+	}
+}

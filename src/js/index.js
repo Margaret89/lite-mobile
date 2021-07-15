@@ -1,13 +1,45 @@
 import {$} from './common';
 
-// $(window).scroll(function(){
-// 	if($(this).scrollTop()>300){
-// 		$('.js-move-up').addClass('visible');
-// 	}else{
-// 		$('.js-move-up').removeClass('visible');
-// 	}
-// });
-// $('.js-move-up').click(function(){$('body,html').animate({scrollTop:0},800);return false;});
+var widthWindow = $(window).width();
+var heightWindow = $(window).height();
+var deviceType = 'desktop';
+var changeDevice = false;
+
+if(widthWindow < 768){
+	deviceType = 'mobile';
+}else if(widthWindow >= 768 && widthWindow < 992){
+	deviceType = 'tablet';
+}else{
+	deviceType = 'desktop';
+}
+
+$(window).on('resize', function(){
+	widthWindow = $(window).width();
+	heightWindow = $(window).height();
+
+	if(widthWindow < 768 && deviceType == 'tablet'){
+		deviceType = 'mobile';
+		changeDevice = true;
+	}else if((widthWindow >= 768 && deviceType == 'mobile') ||(widthWindow < 992 && deviceType == 'desktop')){
+		deviceType = 'tablet';
+		changeDevice = true;
+	}else if(widthWindow >= 992 && deviceType == 'tablet'){
+		deviceType = 'desktop';
+		changeDevice = true;
+	}else{
+		changeDevice = false;
+	}
+});
+
+// move-up
+$(window).on('scroll', function(){
+	if($(this).scrollTop()>300){
+		$('.js-move-up').addClass('visible');
+	}else{
+		$('.js-move-up').removeClass('visible');
+	}
+});
+$('.js-move-up').on('click', function(){$('body,html').animate({scrollTop:0},800);return false;});
 
 // hover main menu
 if($('.js-cat-menu-item').length){
@@ -113,4 +145,10 @@ if ($('.js-slider-offer').length) {
 }
 
 // Обрезание текста
-Clamps($('.js-catalog-item-title'));
+// Clamps($('.js-catalog-item-title'));
+
+// if(deviceType != 'mobile' && heightWindow <= 800){
+// 	var moveMenu = $('.js-header-top').outerHeight() + $('.js-header-middle').outerHeight();
+// 	console.log(moveMenu);
+// 	$('.js-cat-menu').css({'height': 'calc(100vh - '+moveMenu+'px)', 'top': moveMenu+'px'})
+// }

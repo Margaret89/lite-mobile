@@ -1,0 +1,34 @@
+/*-------------- move-up -----------------*/
+.move-up{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	background: $color-dark-grey;
+	padding: 5px;
+	text-align: center;
+	position: fixed;
+	right: -100px;
+	bottom: 50px;
+	cursor: pointer;
+	opacity: 0;
+	transition: box-shadow 0.2s ease 0s,
+				right 0.3s ease 0s;
+
+	.icon{fill: #fff;}
+
+	&:hover{box-shadow: inset 0 -6.8rem 0 0 #989bb7;}
+
+	&.visible{
+		right: 50px;
+		opacity: 1;
+	}
+}
+
+@media (max-width: 767px) {
+	.move-up{
+		bottom: 20px;
+		&.visible{right: 20px;}
+	}
+}

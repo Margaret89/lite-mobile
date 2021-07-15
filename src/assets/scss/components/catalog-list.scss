@@ -48,6 +48,11 @@
 
 	&__title{
 		@include font(normal, normal, 1.6rem, 1.5, $color-text);
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		max-height: 72px;
 
 		a{
 			color: $color-text;

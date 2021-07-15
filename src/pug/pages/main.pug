@@ -6,74 +6,76 @@ block variables
 block content
 	section.card-slider-wrap
 		.container-fluid
-			.card-slider.js-card-slider
-				.info-card(style="background-image: url(assets/img/info-card1.jpg)")
-					.info-card__content
-						.info-card__title
-							span(style="color: #fff;") Новые 
-							|Samsung Galaxy S21
+			.row
+				.col-12
+					.card-slider.js-card-slider
+						.info-card(style="background-image: url(assets/img/info-card1.jpg)")
+							.info-card__content
+								.info-card__title
+									span(style="color: #fff;") Новые 
+									|Samsung Galaxy S21
 
-						.info-card__text Вся линейка в магазине Lite Mobile:<br>выбирай S21, S21+, S21 Ultra
+								.info-card__text Вся линейка в магазине Lite Mobile:<br>выбирай S21, S21+, S21 Ultra
 
-						a.btn-icon(href='#')
-							span.btn-icon__img
-								+svg('ic-cart','ic-cart', '22', '18')
-							span.btn-icon__text Купить
-					
-				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
-					.info-card__content
-						.info-card__title Узнай цену на&nbsp;свой девайс в&nbsp;трейд-ин
+								a.btn-icon(href='#')
+									span.btn-icon__img
+										+svg('ic-cart','ic-cart', '22', '18')
+									span.btn-icon__text Купить
+							
+						.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+							.info-card__content
+								.info-card__title Узнай цену на&nbsp;свой девайс в&nbsp;трейд-ин
 
-						.info-card__text Отдавай старое железо<br>в счет цены нового!
+								.info-card__text Отдавай старое железо<br>в счет цены нового!
 
-						a.btn-icon.btn-icon_pink(href='#')
-							span.btn-icon__img
-								+svg('ic-link','ic-link', '18', '18')
-							span.btn-icon__text Оценить
+								a.btn-icon.btn-icon_pink(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Оценить
 
-				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
-					.info-card__content
-						.info-card__title Узнай цену
+						.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+							.info-card__content
+								.info-card__title Узнай цену
 
-						.info-card__text Отдавай старое железо<br>в счет цены нового!
+								.info-card__text Отдавай старое железо<br>в счет цены нового!
 
-						a.btn-icon.btn-icon_pink(href='#')
-							span.btn-icon__img
-								+svg('ic-link','ic-link', '18', '18')
-							span.btn-icon__text Оценить
+								a.btn-icon.btn-icon_pink(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Оценить
 
-				.info-card(style="background-image: url(assets/img/info-card1.jpg)")
-					.info-card__content
-						.info-card__title Samsung Galaxy S21
+						.info-card(style="background-image: url(assets/img/info-card1.jpg)")
+							.info-card__content
+								.info-card__title Samsung Galaxy S21
 
-						.info-card__text Вся линейка в магазине Lite Mobile
+								.info-card__text Вся линейка в магазине Lite Mobile
 
-						a.btn-icon(href='#')
-							span.btn-icon__img
-								+svg('ic-cart','ic-cart', '22', '18')
-							span.btn-icon__text Купить
+								a.btn-icon(href='#')
+									span.btn-icon__img
+										+svg('ic-cart','ic-cart', '22', '18')
+									span.btn-icon__text Купить
 
-				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
-					.info-card__content
-						.info-card__title Узнай цену на&nbsp;свой девайс в&nbsp;трейд-ин
+						.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+							.info-card__content
+								.info-card__title Узнай цену на&nbsp;свой девайс в&nbsp;трейд-ин
 
-						.info-card__text Отдавай старое железо<br>в счет цены нового!
+								.info-card__text Отдавай старое железо<br>в счет цены нового!
 
-						a.btn-icon.btn-icon_pink(href='#')
-							span.btn-icon__img
-								+svg('ic-link','ic-link', '18', '18')
-							span.btn-icon__text Оценить
+								a.btn-icon.btn-icon_pink(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Оценить
 
-				.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
-					.info-card__content
-						.info-card__title Узнай цену
+						.info-card.info-card_white(style="background-image: url(assets/img/info-card2.jpg)")
+							.info-card__content
+								.info-card__title Узнай цену
 
-						.info-card__text Отдавай старое железо<br>в счет цены нового!
+								.info-card__text Отдавай старое железо<br>в счет цены нового!
 
-						a.btn-icon.btn-icon_pink(href='#')
-							span.btn-icon__img
-								+svg('ic-link','ic-link', '18', '18')
-							span.btn-icon__text Оценить
+								a.btn-icon.btn-icon_pink(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Оценить
 
 	section.catalog-offers
 		.container
@@ -296,7 +298,7 @@ block content
 											.catalog-item__content
 												.catalog-item__info
 													.catalog-item__tag= item.tag
-													.catalog-item__title
+													.catalog-item__title.js-catalog-item-title
 														a(href="#")= item.name
 
 												.catalog-item__bottom
@@ -381,7 +383,7 @@ block content
 											.catalog-item__content
 												.catalog-item__info
 													.catalog-item__tag= item.tag
-													.catalog-item__title
+													.catalog-item__title.js-catalog-item-title
 														a(href="#")= item.name
 
 												.catalog-item__bottom
@@ -478,7 +480,7 @@ block content
 											.catalog-item__content
 												.catalog-item__info
 													.catalog-item__tag= item.tag
-													.catalog-item__title
+													.catalog-item__title.js-catalog-item-title
 														a(href="#")= item.name
 
 												.catalog-item__bottom
@@ -532,8 +534,861 @@ block content
 
 				.row
 					.col-12
-						a(href="#").cat-sect-more
-							span.cat-sect-more__icon
+						a(href="#").btn-more
+							span.btn-more__icon
 								+svg('ic-layers','ic-layers', '14', '14')
-							span.cat-sect-more__text Раскрыть все категории&nbsp;
-								span.cat-sect-more__count (21)
+							span.btn-more__text Раскрыть все категории&nbsp;
+								span.btn-more__count (21)
+
+	section.slider-offer-wrap
+		.container-fluid
+			.row
+				.col-12
+					.slider-offer.js-slider-offer
+						-
+							var list=[
+								{text:'переплаты!'},
+								{text:'переплаты 2!'},
+								{text:'переплаты 3!'},
+							]
+						each item in list
+							.slider-offer__item(style="background-image: url(assets/img/bg-phone.jpg)")
+								.container
+									.row
+										.col-5
+											.slider-offer__info
+												.slider-offer__logo
+													img(src="assets/img/logo-sumsung.svg", alt="")
+
+												.slider-offer__title Рассрочка без&nbsp;
+													= item.text
+
+												.slider-offer-cond
+													.slider-offer-cond__item
+														.slider-offer-cond__count 0
+															span.slider-offer-cond__currency &#8381;
+
+														.slider-offer-cond__text Первый<br>взнос
+
+													.slider-offer-cond__item
+														.slider-offer-cond__count 0
+															span.slider-offer-cond__currency &#8381;
+
+														.slider-offer-cond__text Будущая<br>переплата
+
+													.slider-offer-cond__item
+														.slider-offer-cond__count 24
+
+														.slider-offer-cond__text Месяца<br>рассрочки
+
+										.col-7.d-flex.align-items-end.justify-content-end
+											a.btn-icon.btn-icon_purple(href='#')
+												span.btn-icon__img
+													+svg('ic-link','ic-link', '18', '18')
+												span.btn-icon__text Подробнее
+
+	section.catalog-offers
+		.container
+			.row
+				.col-12
+					.tabs-page.js-tabs-page
+						.tabs-page__top
+							h2 Популярное
+
+							ul.tabs-page__list.js-tabs-page-list
+								li.tabs-page__item.js-tabs-page-item(data-item='new') Новинки
+								li.tabs-page__item.js-tabs-page-item(data-item='hit') Хиты продаж
+								li.tabs-page__item.js-tabs-page-item(data-item='popular') Популярное
+								li.tabs-page__item.js-tabs-page-item(data-item='recomend') Рекомендуем
+
+							a(href="#").link-more
+								span.link-more__icon
+									+svg('ic-link','ic-link', '14', '14')
+								span.link-more__text Показать все&nbsp;
+								span.link-more__count (63)
+
+
+						.tabs-page__content.js-tabs-page-content
+							#new.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'ic-camera.svg',
+												img_empty:'true',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title.js-catalog-item-title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+
+							#hit.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title.js-catalog-item-title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+
+							#popular.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item5.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Электроинструмент',
+												name:'Дрель ударная Bort BSM-1100 (Цвет: Blue)',
+												price:'3 570 ₽',
+											},
+
+											{
+												img:'catalog-item6.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Ноутбуки',
+												name:'Ноутбук Asus M509DA-BQ206 Ryzen 3 3200U / 4Gb / 500Gb / AMD Radeon Vega 3 / 15.6 / 4Gb / 500Gb / AMD Radeon Vega 3',
+												price:'38 720 ₽',
+											},
+
+											{
+												img:'catalog-item7.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Аудио, Hi-Fi',
+												name:'Наушники AccesStyle Denim TWS (Цвет: Blue)',
+												price:'780 ₽',
+											},
+
+											{
+												img:'catalog-item8.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Сетевое оборудование',
+												name:'Wi-Fi роутер TP-Link Archer C20',
+												price:'1 830 ₽',
+												price_old:'2 100 ₽'
+											},
+											{
+												img:'catalog-item6.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Ноутбуки',
+												name:'Ноутбук Asus M509DA-BQ206 Ryzen 3 3200U / 4Gb / 500Gb / AMD Radeon Vega 3 / 15.6 / 4Gb / 500Gb / AMD Radeon Vega 3',
+												price:'38 720 ₽',
+											},
+
+											{
+												img:'catalog-item7.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Аудио, Hi-Fi',
+												name:'Наушники AccesStyle Denim TWS (Цвет: Blue)',
+												price:'780 ₽',
+											},
+
+											{
+												img:'catalog-item8.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Сетевое оборудование',
+												name:'Wi-Fi роутер TP-Link Archer C20',
+												price:'1 830 ₽',
+												price_old:'2 100 ₽'
+											},
+											{
+												img:'catalog-item7.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Аудио, Hi-Fi',
+												name:'Наушники AccesStyle Denim TWS (Цвет: Blue)',
+												price:'780 ₽',
+											},
+											{
+												img:'catalog-item6.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Ноутбуки',
+												name:'Ноутбук Asus M509DA-BQ206 Ryzen 3 3200U / 4Gb / 500Gb / AMD Radeon Vega 3 / 15.6 / 4Gb / 500Gb / AMD Radeon Vega 3',
+												price:'38 720 ₽',
+											},
+
+											{
+												img:'catalog-item7.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Аудио, Hi-Fi',
+												name:'Наушники AccesStyle Denim TWS (Цвет: Blue)',
+												price:'780 ₽',
+											},
+
+											{
+												img:'catalog-item8.jpg',
+												stickers:[
+													{text:'хит продаж', color:'black'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Сетевое оборудование',
+												name:'Wi-Fi роутер TP-Link Archer C20',
+												price:'1 830 ₽',
+												price_old:'2 100 ₽'
+											},
+											{
+												img:'catalog-item6.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Ноутбуки',
+												name:'Ноутбук Asus M509DA-BQ206 Ryzen 3 3200U / 4Gb / 500Gb / AMD Radeon Vega 3 / 15.6 / 4Gb / 500Gb / AMD Radeon Vega 3',
+												price:'38 720 ₽',
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title.js-catalog-item-title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+							
+							#recomend.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+								.catalog-slider.js-catalog-slider
+									-
+										var list=[
+											{
+												img:'catalog-item1.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'акция', color:'grey'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+												price:'17 360 ₽',
+												price_old:'20 580 ₽'
+											},
+
+											{
+												img:'catalog-item2.jpg',
+												stickers:[
+													{text:'Новинка'},
+												],
+												tag:'Аксессуары',
+												name:'Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)',
+												price:'450 ₽',
+												wish:'active',
+											},
+
+											{
+												img:'catalog-item3.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'+ подарок', color:'orange'},
+												],
+												tag:'Гаджеты',
+												name:'Смарт-часы Realme Watch RMA 161 (Цвет: Black)',
+												price:'3 340 ₽',
+												price_old:'3 880 ₽',
+												compare:'active',
+												in_cart:'true'
+											},
+
+											{
+												img:'catalog-item4.jpg',
+												stickers:[
+													{text:'Новинка'},
+													{text:'хит продаж', color:'black'},
+												],
+												tag:'Телефоны',
+												name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+												price:'27 650 ₽',
+												price_old:'28 999 ₽'
+											},
+										]
+									each item in list
+										.catalog-item
+											.catalog-item__img-wrap
+												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+													img(src="assets/img/"+item.img, alt="")
+
+											if(item.stickers)
+												.cat-item-stickers
+													each sticker in item.stickers
+														.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+											.cat-item-action
+												a(href="#").cat-item-action__item(class=item.wish?'active':'')
+													+svg('ic-heart','ic-heart', '22', '18')
+
+												a(href="#").cat-item-action__item(class=item.compare?'active':'')
+													+svg('ic-compare','ic-compare', '23', '18')
+
+											.catalog-item__content
+												.catalog-item__info
+													.catalog-item__tag= item.tag
+													.catalog-item__title.js-catalog-item-title
+														a(href="#")= item.name
+
+												.catalog-item__bottom
+													.catalog-item__price-wrap
+														.catalog-item__price= item.price
+
+														if(item.price_old)
+															.catalog-item__old-price= item.price_old
+
+													a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+														span.btn-icon__img
+															if(item.in_cart)
+																+svg('ic-cart-del','ic-cart-del', '22', '18')
+															else
+																+svg('ic-cart-add','ic-cart-add', '22', '18')
+														span.btn-icon__text
+															if(item.in_cart)
+																| В корзине
+															else
+																| Купить
+
+	section.brends-wrap
+		.container
+			.row
+				.col-12
+					h2 Товары по брендам
+
+					.brends
+						-
+							var list=[
+								{img:'lenovo.jpg'},
+								{img:'apple.jpg'},
+								{img:'sumsung.jpg'},
+								{img:'alcatel.jpg'},
+								{img:'huawei.jpg'},
+								{img:'xiaomi.jpg'},
+								{img:'asus.jpg'},
+								{img:'sony.jpg'},
+							]
+						each item in list
+							a(href="#").brends__item
+								img(src="assets/img/"+item.img, alt="")
+
+			.row
+				.col-12
+					a(href="#").btn-more
+						span.btn-more__icon
+							+svg('ic-layers','ic-layers', '14', '14')
+						span.btn-more__text Раскрыть все бренды&nbsp;
+							span.btn-more__count (46)
+
+	section.card-slider-wrap
+		.container-fluid
+			.row
+				.col-12
+					.card-slider.js-card-slider
+						.info-card.info-card_white.info-card_right(style="background-image: url(assets/img/info-card3.jpg)")
+							.info-card__content
+								.info-card__title Яндекс Станция в&nbsp;подарок
+
+								.info-card__text Купи смартфон Galaxy S21, S21+,<br>S21 Ultra и получи большую Яндекс Станция в&nbsp;подарок!
+
+								a.btn-icon.btn-icon_purple(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Подробнее
+							
+						.info-card.info-card_white.info-card_right(style="background-image: url(assets/img/info-card4.jpg)")
+							.info-card__content
+								.info-card__title Монитор Gigabyte в&nbsp;подарок
+
+								.info-card__text Купи игровой ноутбук GIGABYTE AERO / AORUS, оставь свой отзыв и получи игровой монитор GIGABYTE в&nbsp;подарок!
+
+								a.btn-icon.btn-icon_brown(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Подробнее
+
+						.info-card.info-card_white.info-card_right(style="background-image: url(assets/img/info-card4.jpg)")
+							.info-card__content
+								.info-card__title Монитор Gigabyte в&nbsp;подарок
+
+								.info-card__text Купи игровой ноутбук GIGABYTE AERO / AORUS, оставь свой отзыв и получи игровой монитор GIGABYTE в&nbsp;подарок!
+
+								a.btn-icon.btn-icon_brown(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Подробнее
+
+						.info-card.info-card_white.info-card_right(style="background-image: url(assets/img/info-card3.jpg)")
+							.info-card__content
+								.info-card__title Яндекс Станция в&nbsp;подарок
+
+								.info-card__text Купи смартфон Galaxy S21, S21+,<br>S21 Ultra и получи большую Яндекс Станция в&nbsp;подарок!
+
+								a.btn-icon.btn-icon_purple(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Подробнее
+
+						.info-card.info-card_white.info-card_right(style="background-image: url(assets/img/info-card3.jpg)")
+							.info-card__content
+								.info-card__title Яндекс Станция в&nbsp;подарок
+
+								.info-card__text Купи смартфон Galaxy S21, S21+,<br>S21 Ultra и получи большую Яндекс Станция в&nbsp;подарок!
+
+								a.btn-icon.btn-icon_purple(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Подробнее
+							
+						.info-card.info-card_white.info-card_right(style="background-image: url(assets/img/info-card4.jpg)")
+							.info-card__content
+								.info-card__title Монитор Gigabyte в&nbsp;подарок
+
+								.info-card__text Купи игровой ноутбук GIGABYTE AERO / AORUS, оставь свой отзыв и получи игровой монитор GIGABYTE в&nbsp;подарок!
+
+								a.btn-icon.btn-icon_brown(href='#')
+									span.btn-icon__img
+										+svg('ic-link','ic-link', '18', '18')
+									span.btn-icon__text Подробнее
+
+	section.events-wrap
+		.container
+			.row
+				.col-6
+					h2 Новости
+
+					.events
+						-
+							var list=[
+								{img:'event1.jpg', date:'12 / 02', title:'Xiaomi Mi TV Pro E32S - новый супер доступный телевизор с голосовым управлением и мощной начинкой.'},
+								{img:'event2.jpg', date:'09 / 02', title:'Представлены недорогие беспроводные наушники Realme Buds Air Neo'},
+							]
+						each item in list
+							.events__item
+								.events__img-wrap
+									a(href="#").events__img
+										img(src="assets/img/"+item.img, alt="")
+								
+								.events__content
+									.events__info
+										.events__date= item.date
+
+										.events__title
+											a(href="#")= item.title
+
+									a(href="#").events__more ...
+
+					a(href="#").link-more
+						span.link-more__icon
+							+svg('ic-link','ic-link', '14', '14')
+						span.link-more__text Больше новостей
+				
+				.col-6
+					h2 Обзоры
+
+					.events
+						-
+							var list=[
+								{img:'event3.jpg', date:'01 / 03', title:'Честный видеообзор смартфона Honor 8X'},
+								{img:'event4.jpg', date:'31 / 01', title:'Наушники Redmi AirDots: честный видеообзор'},
+							]
+						each item in list
+							.events__item
+								.events__img-wrap
+									a(href="#").events__img
+										img(src="assets/img/"+item.img, alt="")
+								
+								.events__content
+									.events__info
+										.events__date= item.date
+
+										.events__title
+											a(href="#")= item.title
+
+									a(href="#").events__more ...
+
+					a(href="#").link-more
+						span.link-more__icon
+							+svg('ic-link','ic-link', '14', '14')
+						span.link-more__text Больше обзоров
+
+
+	section.about-wrap
+		.container-fluid
+			.row
+				.col-12
+					.about-wrap__content
+						.container
+							.row
+								.col-2
+									.ya-market
+										img(src="assets/img/ym.png", alt="")
+
+								.offset-1.col-9
+									.about
+										h2 Магазин цифровой техники
+
+										p В далеком 2006 году основным направлением нашей компании являлась розничная продажа сотовых телефонов. <b>Сегодня мы готовы предложить Вам широкий спектр цифровой техники. К сотовым телефонам добавились планшеты, фототехника, игровые приставки, навигаторы, MP3 плееры, мультимедиа для автомобилей и даже бытовая техника.</b> К каждой номенклатуре мы стараемся предложить большой ассортимент аксессуаров, которые Вы можете найти на страницах нашего сайта. Мы ценим Ваше время и деньги, стараясь отпускать товар по максимально низким ценам, добиваясь этого за счет жесткой экономии ресурсов, правильной организации процесса закупки и складирования, гибкой арендной политики.
+
+										h3 Что нас отличает от других? И почему мы лучше?
+
+										.advant
+											-
+												var list=[
+													{num:'/ 01', text_bold:'Мы никогда не торгуем «воздухом» – весь товар, который мы предлагаем, есть в наличии ', text:'в Петербурге у наших поставщиков и будет ждать Вас в нашем магазине, либо будет доставлен Вам по адресу в указанные сроки.'},
+													{num:'/ 02', text_bold:'Мы уверены - у нас лучшая цена в городе ', text:'и, если Вы найдете дешевле, то это, скорее всего, компания однодневка или некачественный товар.'},
+													{num:'/ 03', text_bold:'Мы не просто продаем товар, но и обеспечиваем достойный сервис, ', text:'гарантийный, а также постгарантийный. За это нас ценят постоянные клиенты.'},
+												]
+											each item in list
+												.advant__item
+													.advant__num= item.num
+													.advant__text
+														b= item.text_bold
+														=item.text

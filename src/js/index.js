@@ -102,3 +102,15 @@ if ($('.js-tabs-page').length) {
 		catalogSlider();
 	});
 }
+
+// Слайдер предложений
+if ($('.js-slider-offer').length) {
+	$('.js-slider-offer').slick({
+		infinite: true,
+		arrows: false,
+		dots: true,
+	});
+}
+
+// Обрезание текста
+Clamps($('.js-catalog-item-title'));

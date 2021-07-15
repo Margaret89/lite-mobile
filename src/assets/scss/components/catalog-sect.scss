@@ -2,11 +2,7 @@
 .cat-sect-wrap{
 	margin: 40px 0;
 	
-	h2, .h2{
-		padding-left: 8px;
-		padding-right: 8px;
-		margin-bottom: 2.5rem;
-	}
+	h2, .h2{margin-bottom: 2.5rem;}
 }
 
 .cat-sect-item{
@@ -66,7 +62,7 @@
 	}
 }
 
-.cat-sect-more{
+.btn-more{
 	display: flex;
 	justify-content: center;
 	align-items: center;

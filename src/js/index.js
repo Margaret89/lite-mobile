@@ -104,6 +104,15 @@ function catalogSlider() {
 			slidesToScroll: 4,
 			arrows: false,
 			dots: true,
+			responsive: [
+				{
+					breakpoint: 1350,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3,
+					}
+				},
+			]
 		});
 	}
 }

@@ -1,7 +1,7 @@
 header.header
 	.header-top.js-header-top
 		.header-top__info
-			.social
+			.social.d-none.d-xl-flex
 				.social__list
 					-
 						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
@@ -32,7 +32,7 @@ header.header
 		.header-top__action
 			.header-top__btn
 				.header-auth
-					if(auth != true)
+					if(auth == true)
 						.header-auth__content-wrap
 							.header-auth__content
 								.header-auth__top
@@ -209,7 +209,7 @@ header.header
 				+svg('ic-incoming','ic-incoming', '16', '16')
 			span.btn-callback__text Заказать обратный звонок
 
-		.header-time
+		.header-time.d-none.d-xl-flex
 			.header-time__item
 				.header-time__label Будние дни
 				.header-time__text <span class="header-time__hour">9</span>:00–<span class="header-time__hour">20</span>:00
@@ -395,14 +395,14 @@ header.header
 
 						.form-search__count 83
 
-			.tp-msg
+			.tp-msg.d-none.d-xl-flex
 				a(href="#").tp-msg__item
 					+svg('ic-whatsapp','ic-whatsapp', '20', '20')
 
-			.top-panel__phone
+			.top-panel__phone.d-none.d-xl-block
 				a(href="tel:+78123325432") 8 812 332-54-32
 
-			a(href="#").tp-callback
+			a(href="#").tp-callback.d-none.d-xl-flex
 				span.tp-callback__icon
 					+svg('ic-incoming','ic-incoming', '16', '16')
 				span.tp-callback__text Обратный звонок
@@ -410,13 +410,13 @@ header.header
 		.tp-action
 			-
 				var list=[
-					{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет', status:'active'},
-					{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное'},
-					{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению:', count:'3', status:'active'},
+					{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет', status:'active', class_name:"d-none d-md-inline-flex"},
+					{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', class_name:"d-none d-md-inline-flex"},
+					{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению:', count:'3', status:'active', class_name:"d-none d-md-inline-flex"},
 					{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина:', count:'1', status:'active'},
 				]
 			each item in list
-				a(href="#").tp-action__item(class=item.status?'active':'')
+				a(href="#").tp-action__item(class=item.status?'active':'', class=item.class_name?item.class_name:'')
 					.tp-action__icon
 						+svg(item.icon, item.icon, item.icon_width, item.icon_height)
 					.tp-action__text= item.text

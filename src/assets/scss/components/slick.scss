@@ -29,3 +29,7 @@
 		background: $color-grey;
 	}
 }
+
+@media (max-width: 767px) {
+	.slick-dots button{vertical-align: top;}
+}

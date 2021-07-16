@@ -81,3 +81,52 @@
 
 	&__more:hover{color: $color-dark-grey;}
 }
+
+@media (max-width: 991px) {
+	.events-wrap{
+		&__item{margin-bottom: 30px;}
+	}
+	
+	.events{height: auto;}
+}
+
+@media (max-width: 767px) {
+	.events-wrap{
+		margin: 8px 0 0;
+
+		.h2, h2{
+			margin-bottom: 1.8rem;
+			padding-right: 50px;
+		}
+
+		&__item{
+			position: relative;
+			margin-bottom: 27px;
+		}
+
+		.link-more{
+			margin: 0;
+			position: absolute;
+			top: 8px;
+			right: 8px;
+
+			&__text{display: none;}
+		}
+	}
+
+	.events{
+		&__item{padding: 16px;}
+
+		&__date{
+			font-size: 1.6rem;
+			margin-bottom: 10px;
+		}
+
+		&__img-wrap{
+			padding-bottom: 100%;
+			margin-bottom: 28px;
+		}
+
+		&__more{margin-top: -2px;}
+	}
+}

@@ -155,3 +155,15 @@
 	&_white button[type="submit"] .icon{fill: #fff;}
 	&_white button[type="submit"]:hover .icon{fill: $color-grey;}
 }
+
+@media (max-width: 991px) {
+	.form-search{
+		input[type="text"],
+		input[type="search"]{
+			height: 4rem;
+			font-size: 1.4rem;
+			line-height: 3.8rem;
+			border-radius: 2rem;
+		}
+	}
+}

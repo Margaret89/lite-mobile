@@ -1,6 +1,12 @@
 header.header
 	.header-top.js-header-top
 		.header-top__info
+			.header-top__menu.js-header-top-menu.d-lg-none
+				+svg('ic-burger','ic-burger', '22', '16')
+
+			a(href="#").header-top__logo.d-lg-none
+				img(src="assets/img/logo.svg", alt="")
+
 			.social.d-none.d-xl-flex
 				.social__list
 					-
@@ -10,7 +16,7 @@ header.header
 						.social__item
 							+svg(item, item, '24', '24')
 
-			ul.top-menu
+			ul.top-menu.d-none.d-lg-inline-flex
 				-
 					var list=[
 						{text:'О магазине'},
@@ -24,13 +30,17 @@ header.header
 					li.top-menu__item(class=item.status?'active':'')
 						a(href="#").top-menu__link= item.text
 
-			a(href="#").warning
+			a(href="#").warning.d-none.d-lg-inline-flex
 				span.warning__icon
 					+svg('ic-info','ic-info', '2', '10')
 				span.warning__text Опасайтесь мошенников!
 
 		.header-top__action
-			.header-top__btn
+			.header-top__btn.active.d-lg-none
+				a(href="#").header-top__icon
+					+svg('ic-call','ic-call ic-stroke', '16', '16')
+
+			.header-top__btn.d-none.d-lg-block
 				.header-auth
 					if(auth == true)
 						.header-auth__content-wrap
@@ -67,7 +77,7 @@ header.header
 						a(href="#").header-auth__btn
 							+svg('ic-user','ic-user', '18', '18')
 
-			.header-top__btn
+			.header-top__btn.d-none.d-lg-block
 				a(href="#").header-top__icon
 					+svg('ic-heart','ic-heart', '22', '18')
 
@@ -340,9 +350,16 @@ header.header
 			each item in list
 				li.cat-menu__item.js-cat-menu-item
 					a(href="#").cat-menu__link= item.text
+						if(item.sub)
+							span.cat-menu__arr.js-cat-menu-arr
+								+svg('ic-arrow-right','ic-arrow-right', '6', '12')
 		
 					if(item.sub)
 						ul.cat-menu__sect.js-cat-menu-sect
+							li.cat-menu__back.js-cat-menu-back
+								+svg('ic-arrow-left','ic-arrow-left', '6', '12')
+								= item.text
+								
 							li.cat-menu__sect-icon
 								+svg(item.sub.icon, item.sub.icon, item.sub.icon_width, item.sub.icon_height)
 
@@ -423,4 +440,80 @@ header.header
 						if(item.count)
 							| 
 							span.tp-action__count= item.count
+
+	.mobile-sidebar.js-mobile-sidebar
+		ul.mobile-menu
+			-
+				var list=[
+					{text:'Как купить?', status:'active'},
+					{text:'О магазине'},
+					{text:'Доставка'},
+					{text:'Вопросы и ответы'},
+					{text:'Скидка 300 ₽'},
+					{text:'Контакты'},
+					{text:'Новости'},
+					{text:'Обратная связь'},
+					{text:'Обзоры'},
+					{text:'Обратный звонок'},
+					{text:'Условия приема в трейд-ин'},
+					{text:'Пользовательское соглашение'},
+				]
+
+			each item in list
+				li.mobile-menu__item(class=item.status?'active':'')
+					a(href="#").mobile-menu__link= item.text
+
+		.mobile-bar-action
+			-
+				var list=[
+					{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет'},
+					{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', count:'(0)', status:'inactive'},
+					{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению', count:'(3)'},
+					{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина', count:'(1)'},
+				]
+			each item in list
+				a(href="#").mobile-bar-action__item
+					.mobile-bar-action__icon
+						+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+					.mobile-bar-action__text= item.text
+						if(item.count)
+							| 
+							span.mobile-bar-action__count(class=item.status?'inactive':'')= item.count
+
+		.mobile-sidebar__item
+			a(href="#").btn-callback
+				span.btn-callback__icon
+					+svg('ic-incoming','ic-incoming', '16', '16')
+				span.btn-callback__text Заказать обратный звонок
+
+		.mobile-sidebar__item
+			.mobile-sidebar__content-wrap
+				.mobile-sidebar__contact
+					.mobile-sidebar__phone
+						a(href="tel:+78123325432") 8 812 332-54-32
+					.mobile-sidebar__address СПб, ул. Рубинштейна, 23, оф. 98
+
+				.header-msg
+					a(href="#").header-msg__item
+						+svg('ic-whatsapp','ic-whatsapp', '20', '20')
+
+		.mobile-sidebar__item
+			.header-time
+				.header-time__item
+					.header-time__label Будние дни
+					.header-time__text <span class="header-time__hour">9</span>:00–<span class="header-time__hour">20</span>:00
+
+				.header-time__item
+					.header-time__label Выходные
+					.header-time__text <span class="header-time__hour">12</span>:00–<span class="header-time__hour">19</span>:00
+
+		.mobile-sidebar__item
+			.social
+				.social__list
+					-
+						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+					
+					each item in list
+						.social__item
+							+svg(item, item, '24', '24')
 

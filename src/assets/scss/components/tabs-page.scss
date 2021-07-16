@@ -16,6 +16,8 @@
 			padding: 0;
 			margin-bottom: 0;
 			margin-top: -12px;
+
+			span{text-transform: lowercase;}
 		}
 	}
 
@@ -38,4 +40,29 @@
 	}
 
 	&__content-item{display: none;}
+}
+
+@media (max-width: 991px) {
+	.tabs-page{
+		&__top{
+			.link-more{
+				&__text,
+				&__count{
+					display: none;
+				}
+
+				&__icon{margin: 0;}
+			}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.tabs-page{
+		&__top{
+			padding: 0 16px;
+			margin-bottom: 5px;
+			h2, .h2{margin-top: 0;}
+		}
+	}
 }

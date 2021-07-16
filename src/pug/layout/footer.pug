@@ -1,5 +1,5 @@
 footer.footer
-	.footer__menu
+	.footer__menu.d-none.d-lg-block
 		.container
 			.row
 				.col-3
@@ -73,20 +73,20 @@ footer.footer
 	.footer__info
 		.container
 			.row
-				.col-3
+				.col-lg-3
 					a(href="#").footer__logo
 						img(src="assets/img/logo.svg", alt="")
 
 					.footer__copyright © 2021 Lite-mobile.ru
 				
-				.col-3
+				.col-lg-3
 					.footer__contacts
 						.footer__phone
 							a(href="tel:+78123325432") 8 812 332-54-32
 
 						.footer__address СПб, ул. Рубинштейна, 23, оф. 98
 
-				.col-3
+				.col-lg-3
 					.social
 						.social__list
 							-
@@ -96,9 +96,9 @@ footer.footer
 								.social__item
 									+svg(item, item, '24', '24')
 						
-						.social__label Lite Mobile в соцсетях
+						.social__label.d-none.d-lg-block Lite Mobile в соцсетях
 
-				.col-3
+				.col-lg-3.d-none.d-lg-block
 					form.form-search
 						.form-search__content
 							input(type="text", placeholder="Поиск по сайту...", title="Поиск по сайту")

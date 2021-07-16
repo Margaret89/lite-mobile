@@ -98,3 +98,25 @@
 	&:hover &__text{color: $color-dark-grey;}
 	&:hover &__icon .icon{fill: $color-dark-grey;}
 }
+
+@media (max-width: 767px) {
+	.cat-sect-wrap{margin: 16px 0 8px;}
+
+	.cat-sect-item{
+		height: calc(100% - 8px);
+		padding: 16px;
+		margin-bottom: 8px;
+
+		&__title{
+			font-size: 1.4rem;
+			line-height: 1.4;
+		}
+
+		&__img-wrap{margin-bottom: 18px;}
+		&__count{margin-top: 16px;}
+	}
+
+	.btn-more{
+		&__text{font-size: 1.2rem;}
+	}
+}

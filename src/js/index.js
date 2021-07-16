@@ -45,8 +45,10 @@ $('.js-move-up').on('click', function(){$('body,html').animate({scrollTop:0},800
 if($('.js-cat-menu-item').length){
 	$('.js-cat-menu-item').hover(
 		function() {
-			$('.js-cat-menu-item').removeClass('hover');
-			$(this).addClass('hover');
+			if(deviceType == 'desktop'){
+				$('.js-cat-menu-item').removeClass('hover');
+				$(this).addClass('hover');
+			}
 		}
 	);
 
@@ -68,10 +70,39 @@ if($('.js-cat-menu-item').length){
 if($('.js-main-menu-cat').length){
 	$('.js-main-menu-cat').on('click', function() {
 		$('.js-cat-menu').toggleClass('active inactive');
+
+		if(deviceType != 'desktop'){
+			$('.js-body').addClass('no-scroll');
+		}
 	});
 
 	$('.js-cat-menu-close').on('click', function() {
 		$('.js-cat-menu').toggleClass('active inactive');
+
+		if(deviceType != 'desktop'){
+			$('.js-body').removeClass('no-scroll');
+		}
+	});
+}
+
+// Открыть/Закрыть подменю
+if($('.js-cat-menu-arr').length){
+	$('.js-cat-menu-arr').on('click', function(e){
+		e.preventDefault();
+		$(this).closest('.js-cat-menu-item').children('.js-cat-menu-sect').addClass('open');
+	});
+
+	$('.js-cat-menu-back').on('click', function(e){
+		$(this).closest('.js-cat-menu-sect').removeClass('open');
+	});
+}
+
+// Открыть/Закрыть мобильный сайдбар
+if($('.js-header-top-menu').length){
+	$('.js-header-top-menu').on('click', function(e){
+		$(this).toggleClass('active');
+		$('.js-mobile-sidebar').toggleClass('active');
+		$('.js-body').toggleClass('no-scroll');
 	});
 }
 
@@ -92,6 +123,15 @@ if ($('.js-card-slider').length) {
 		slidesToScroll: 2,
 		arrows: false,
 		dots: true,
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				}
+			},
+		]
 	});
 }
 
@@ -110,6 +150,13 @@ function catalogSlider() {
 					settings: {
 						slidesToShow: 3,
 						slidesToScroll: 3,
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
 					}
 				},
 			]
@@ -138,6 +185,11 @@ if ($('.js-tabs-page').length) {
 
 		$(this).addClass("active");
 		$parent.find('#' + $(this).attr('data-item')).fadeIn();
+
+		
+		if($(this).closest('.js-tabs-page').find('.js-tabs-page-title').length){
+			$(this).closest('.js-tabs-page').find('.js-tabs-page-title').html($(this).html());
+		}
 
 		$('.js-catalog-slider').slick('unslick');
 		catalogSlider();

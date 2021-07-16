@@ -26,6 +26,8 @@
 	margin-left: 8px;
 }
 
+.advant-wrap{margin-top: 4rem;}
+
 .advant{
 	display: flex;
 	flex-wrap: wrap;
@@ -48,3 +50,64 @@
 }
 
 h3+ .advant, .h3+.advant{margin-top: 3.7rem;}
+
+@media (max-width: 991px) {
+	.ya-market{margin-left: 0;}
+}
+
+@media (max-width: 767px) {
+	.about-wrap{
+		margin-top: -18px;
+		&__content{padding: 0;}
+	}
+
+	.ya-market{
+		height: auto;
+		max-width: none;
+		margin-bottom: 8px;
+	}
+
+	.about{
+		padding: 16px;
+
+		h2,.h2{margin-top: 0;}
+	}
+
+	.advant-wrap{
+		margin-top: 2.2rem;
+		padding-top: 2.5rem;
+		position: relative;
+
+		&::before{
+			content: '';
+			height: 1px;
+			background: #e5e6f0;
+			position: absolute;
+			top: 0;
+			left: -16px;
+			right: -16px;
+		}
+	}
+
+	.advant{
+		margin-left: 0;
+		margin-right: 0;
+
+		&__item{
+			width: 100%;
+			margin: 10px 0;
+		}
+
+		&__num{
+			font-size: 1.6rem;
+			margin-bottom: 10px;
+		}
+
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+
+	.h3 + .advant, h3 + .advant{margin-top: 10px;}
+}

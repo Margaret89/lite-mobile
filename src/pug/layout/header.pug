@@ -36,9 +36,7 @@ header.header
 				span.warning__text Опасайтесь мошенников!
 
 		.header-top__action
-			.header-top__btn.active.d-lg-none
-				a(href="#").header-top__icon
-					+svg('ic-call','ic-call ic-stroke', '16', '16')
+			
 
 			.header-top__btn.d-none.d-lg-block
 				.header-auth
@@ -80,6 +78,10 @@ header.header
 			.header-top__btn.d-none.d-lg-block
 				a(href="#").header-top__icon
 					+svg('ic-heart','ic-heart', '22', '18')
+
+			.header-top__btn.active.d-lg-none
+				a(data-fancybox='' data-src='#feadback-form' href='javascript:;').header-top__icon
+					+svg('ic-call','ic-call ic-stroke', '16', '16')
 
 			.header-top__btn.active
 				a(href="#").header-top__icon
@@ -214,7 +216,7 @@ header.header
 				a(href="tel:+78123325432") 8 812 332-54-32
 			.header-middle__address СПб, ул. Рубинштейна, 23, оф. 98
 
-		a(href="#").btn-callback
+		a(data-fancybox='' data-src='#feadback-form' href='javascript:;').btn-callback
 			span.btn-callback__icon
 				+svg('ic-incoming','ic-incoming', '16', '16')
 			span.btn-callback__text Заказать обратный звонок
@@ -481,7 +483,7 @@ header.header
 							span.mobile-bar-action__count(class=item.status?'inactive':'')= item.count
 
 		.mobile-sidebar__item
-			a(href="#").btn-callback
+			a(data-fancybox='' data-src='#feadback-form' href='javascript:;').btn-callback
 				span.btn-callback__icon
 					+svg('ic-incoming','ic-incoming', '16', '16')
 				span.btn-callback__text Заказать обратный звонок

@@ -204,6 +204,8 @@ button.btn-icon{
 	transition: all 0.2s ease 0s;
 	overflow: hidden;
 	position: relative;
+	padding: 0;
+	margin: 0;
 
 	&__img,
 	&__text{

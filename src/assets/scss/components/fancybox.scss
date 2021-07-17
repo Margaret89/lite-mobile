@@ -1,0 +1,12 @@
+/*-------------- fancybox -----------------*/
+.fancybox-content{
+	padding: 32px;
+	border: 6px solid $color-orange;
+}
+
+.fancybox-slide--html .fancybox-close-small{padding: 6px;}
+.fancybox-button svg path{fill: $color-dark-grey;}
+
+@media (max-width: 767px) {
+	.fancybox-content{padding: 32px 24px;}
+}

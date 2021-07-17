@@ -141,3 +141,31 @@ footer.footer
 
 .move-up.js-move-up
 	+svg('ic-arrow-up','ic-arrow-up', '20', '10')
+
+#feadback-form(style='display: none;')
+	.popup-form
+		.popup-form__title Обратный звонок
+
+		.js-valid-form
+			form.form-site
+				.form-site__item.js-form-site-item
+					.form-site__label Номер вашего телефона
+					.form-site__field
+						input.js-phone(type="text", placeholder="Телефон", required="required")
+
+				.form-site__item.js-form-site-item
+					.form-site__label Комментарий
+					.form-site__field
+						textarea(placeholder="Время, в которое вам будет удобно, прочие комментарии...")
+
+				.form-site__btn
+					button(type="submit").btn-icon.js-btn-submit
+						span.btn-icon__img
+							+svg('ic-incoming','ic-incoming', '16', '16')
+						span.btn-icon__text Позвоните мне
+
+
+#msg-success(style='display: none;')
+	.success-alert.js-success-alert
+		.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
+		.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер и обсудит все детали.

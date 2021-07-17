@@ -1,4 +1,4 @@
-import {$, Inputmask} from './common';
+import {$, Inputmask, noUiSlider} from './common';
 
 var widthWindow = $(window).width();
 var heightWindow = $(window).height();
@@ -165,6 +165,35 @@ function catalogSlider() {
 }
 
 catalogSlider();
+
+// Открыть быстрый просмотр
+if ($('.js-btn-quick-view').length) {
+	$('.js-btn-quick-view').on('click', function() {
+		var idElem = $(this).closest('.js-catalog-item').data('count');
+
+		$('.js-quick-view-item').removeClass('active');
+		$('.js-quick-view').find('.js-quick-view-item[data-count='+idElem+']').addClass('active');
+
+	
+		$.fancybox.open({
+			src  : '#quick-view',
+			type : 'inline',
+			opts : {}
+		});
+		
+		if($('.js-view-slider').hasClass('slick-initialized')){
+			$('.js-view-slider').slick('unslick');
+		}
+
+		$('.js-quick-view-item').find('.js-view-slider').slick({
+			infinite: true,
+			dots: true,
+			prevArrow: '<button id="prev" type="button" class="btn-arr btn-arr_left"><svg class="icon ic-arrow-left" width="8" height="16"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-left"></use></svg></button>',
+			nextArrow: '<button id="next" type="button" class="btn-arr btn-arr_right"><svg class="icon ic-arrow-right" width="8" height="16"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-right"></use></svg></button>',
+		});
+	});
+}
+
 
 // Табуляция
 if ($('.js-tabs-page').length) {
@@ -349,6 +378,116 @@ if($('.js-btn-foget').length){
 			opts : {}
 		});
 	})
+}
+
+// Открыть/Закрыть пункты фильтра
+if($('.js-filter-head').length){
+	$('.js-filter-head').on('click', function(){
+		$(this).closest('.js-filter-item').toggleClass('active');
+		$(this).siblings('.js-filter-content').slideToggle(300);
+	});
+}
+
+if($('.js-filter-more').length){
+	$('.js-filter-more').on('click',function(){
+		$(this).addClass('hide');
+		$(this).siblings('.js-filter-param').removeClass('hide');
+	});
+}
+
+// range-slider
+if($('.js-slider-range').length){
+	var slider = document.getElementById('slider-range');
+	var minRange = parseFloat(slider.getAttribute('data-min'));
+	var maxRange = parseFloat(slider.getAttribute('data-max'));
+	var start = parseFloat(slider.getAttribute('data-cur-min'));
+	var finish = parseFloat(slider.getAttribute('data-cur-max'));
+	
+	noUiSlider.create(slider, {
+		start: [start, finish],
+		// step: 5,
+		connect: true,
+		range: {
+			'min': minRange,
+			'max': maxRange
+		},
+	});
+
+	var snapValues = [
+		document.getElementById('slider-range-min'),
+		document.getElementById('slider-range-max')
+	];
+
+	var initRange = false;
+
+	slider.noUiSlider.on('update', function (values, handle) {
+		snapValues[handle].value = Math.round(values[handle]);
+		// snapValues[handle].value = values[handle];
+
+		if(initRange == false){
+			if(handle == 1){
+			  initRange = true;
+			}
+		}else{
+			$('.js-slider-range-min').trigger("change");
+			$('.js-slider-range-max').trigger("change");
+		}
+	});
+
+	snapValues.forEach(function (input, handle) {
+		input.addEventListener('change', function () {
+			var valItem = this.value;
+			var minValItem = parseFloat(snapValues[0].value);
+			var maxValItem = parseFloat(snapValues[1].value);
+
+			if(handle == 0){
+				if((valItem < minRange) || (valItem > maxRange) || (valItem >= maxValItem)){
+					valItem = minRange;
+				}
+			}else{
+				if((valItem < minRange) || (valItem > maxRange) || (valItem <= minValItem)){
+					valItem = maxRange;
+				}
+			}
+			slider.noUiSlider.setHandle(handle, valItem);
+		});
+	});
+
+	// Проверка полей на ввод цифор
+	$('.js-slider-range-min').on("change keyup input click", function() {
+		if (this.value.match(/[^0-9. ]/g)) {
+			this.value = this.value.replace(/[^0-9. ]/g, '');
+		}
+	});
+
+	$('.js-slider-range-max').on("change keyup input click", function() {
+		if (this.value.match(/[^0-9. ]/g)) {
+			this.value = this.value.replace(/[^0-9. ]/g, '');
+		}
+	});
+}
+
+// Открыть/Закрыть фильтр
+if($('.js-filter-open').length){
+	$('.js-filter-open').on('click', function() {
+		$('.js-filter').addClass('active');
+		$('.js-body').addClass('no-scroll');
+	});
+}
+
+if($('.js-filter-close').length){
+	$('.js-filter-close').on('click', function() {
+		$('.js-filter').removeClass('active');
+		$('.js-body').removeClass('no-scroll');
+	});
+}
+
+// Открыть/Закрыть сортировку
+if($('.js-sort-head').length){
+	$('.js-sort-head').on('click', function() {
+		$(this).find('.js-sort-head-arr').toggleClass('active');
+		$(this).siblings('.js-sort-list').slideToggle(300);
+	});
 }
 
 // Обрезание текста

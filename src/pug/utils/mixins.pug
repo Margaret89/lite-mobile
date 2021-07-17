@@ -1,13 +1,14 @@
 mixin h1(v)
-	.container
-		.row
-			.col-12
-				h1= v
+	.page-header
+		.container
+			.row
+				.col-12
+					h1= v
 
 
 mixin breadcrumbs(links)
 	- var len=links.length
-	.container.d-none.d-md-block
+	.container
 		.row
 			.col-12
 				ul.breadcrumb
@@ -15,6 +16,8 @@ mixin breadcrumbs(links)
 					while i < len-1
 						li.breadcrumb__item
 							a(href=links[i].href).breadcrumb__link=links[i].name
+							.breadcrumb__arr
+								+svg('ic-arrow-right','ic-arrow-right', '4', '8')
 						- i++
 					li.breadcrumb__item
 						span=links[i].name

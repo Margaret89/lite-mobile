@@ -1,0 +1,43 @@
+/*-------------- breadcrumb -----------------*/
+.breadcrumb{
+	&,
+	&__item{
+		@include reset-list;
+	}
+
+	&{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 40px 8px 5px;
+	}
+
+	&__item{
+		display: inline-flex;
+		@include font(normal, normal, 1.4rem, 1.2, $color-dark-grey);
+		margin-top: 5px;
+		margin-bottom: 5px;
+
+		a{
+			color: $color-text;
+			text-decoration: none;
+			transition: color 0.2s ease 0s;
+		}
+
+		a:hover{color: $color-orange;}
+	}
+
+	&__link{margin-right: 12px;}
+
+	&__arr{
+		flex: 0 0 4px;
+		width: 4px;
+		margin-right: 12px;
+	}
+}
+
+@media (max-width: 767px) {
+	.breadcrumb{
+		padding: 18px 16px 3px;
+		&__item{font-size: 1.2rem;}
+	}
+}

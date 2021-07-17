@@ -1,6 +1,6 @@
 html,
 body{
-	background: #fff;
+	background: #fafafe;
 	font-family: $font-site;
 	@include font(normal, normal, 10px, 1.75, $color-text);
 	box-sizing:border-box;
@@ -30,6 +30,7 @@ a{
 }
 
 a:hover{text-decoration: none;}
+b{font-weight: 600;}
 
 p{
 	padding: 0;
@@ -77,6 +78,15 @@ h5,.h5{
 h2+p, .h2+p{margin-top: 4rem;}
 p+h3, p+.h3{margin-top: 4rem;}
 
+.page-header{
+	margin-bottom: 0.7rem;
+
+	h1,.h1{
+		margin-bottom: 0;
+		padding: 0 8px;
+	}
+}
+
 .wrapper{
 	display: flex;
 	flex-direction: column;
@@ -97,6 +107,7 @@ main{
 input[type="submit"].btn,
 button.btn{
 	display: inline-block;
+	vertical-align: top;
 	height: 6.4rem;
 	background: $color-orange;
 	border: none;
@@ -105,6 +116,7 @@ button.btn{
 	@include font(normal, 600, 1.6rem, 6.4rem, #fff);
 	text-decoration: none;
 	text-align: center;
+	white-space: nowrap;
 	padding: 0 35px;
 	cursor: pointer;
 	box-shadow: 0px 3px 12px rgba(115, 117, 136, 0.18), inset 0px -1px 0px rgba(28, 29, 32, 0.1);
@@ -170,8 +182,11 @@ button.btn_border:hover{
 .btn_small,
 input[type="submit"].btn_small,
 button.btn_small{
-	height: 4.8rem;
-	line-height: 4.8rem;
+	height: 3.2rem;
+	font-size: 1.4rem;
+	font-weight: normal;
+	line-height: 3.2rem;
+	padding: 0 16px;
 }
 
 
@@ -278,6 +293,17 @@ button.btn-icon_brown::before{
 	background: $color-brown;
 }
 
+.btn-icon_black,
+input[type="submit"].btn-icon_black,
+button.btn-icon_black{
+	.btn-icon__img{background: $color-text;}
+}
+
+.btn-icon_black::before,
+button.btn-icon_black::before{
+	background: $color-text;
+}
+
 .btn-icon_grey,
 input[type="submit"].btn-icon_grey,
 button.btn-icon_grey{
@@ -349,6 +375,8 @@ button.btn-icon_grey::before{
 		line-height: 1.5;
 	}
 
+	.container, .container-sm{max-width: none!important;}
+
 	.container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
 		padding-left: 8px;
 		padding-right: 8px;
@@ -388,7 +416,7 @@ button.btn-icon_grey::before{
 		}
 	}
 
-	h1,.h1{font-size: 2.8rem;}
+	h1,.h1{font-size: 2.4rem;}
 
 	h2,.h2{
 		font-size: 2rem;
@@ -399,4 +427,8 @@ button.btn-icon_grey::before{
 	h3,.h3{font-size: 1.6rem;}
 	h4,.h4{font-size: 1.5rem;}
 	h5,.h5{font-size: 1.4rem;}
+
+	.page-header{
+		h1,.h1{padding: 0 16px;}
+	}
 }

@@ -1,0 +1,197 @@
+/*-------------- filter -----------------*/
+.filter{
+	background: #fafafe;
+	border: 1px solid #e5e6f0;
+
+	&__top{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #fff;
+		padding: 21px 20px;
+		border-bottom: 1px solid #e5e6f0;
+	}
+
+	&__res{
+		@include font(normal, normal, 1.6rem, 1.2, $color-text);
+	}
+
+	&__res-count{font-weight: 600;}
+	&__res-arr{display: none;}
+
+	&__del{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 20px;
+		width: 20px;
+		height: 20px;
+		background: transparent;
+		border: none;
+		outline: none;
+		border-radius: 0;
+		font-size: 0;
+		cursor: pointer;
+		box-shadow: none;
+		padding: 0;
+		margin: 0;
+
+		.icon{
+			fill: $color-orange;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__del:hover .icon{fill: $color-light-orange;}
+
+	&__head{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: 20px;
+		cursor: pointer;
+	}
+
+	&__title{
+		@include font(normal, 600, 1.6rem, 1.2, $color-text);
+	}
+
+	&__arr{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 20px;
+		width: 20px;
+		height: 20px;
+		margin-left: 5px;
+
+		.icon{
+			fill: $color-orange;
+			transition: transform 0.3s ease 0s;
+		}
+	}
+	
+	&__item:not(:last-child){border-bottom: 1px solid #e5e6f0;}
+	&__item.active &__arr .icon{transform: rotate(180deg);}
+
+	&__content{
+		display: none;
+		padding: 0 20px 20px;
+	}
+
+	&__param{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__param:not(:last-child){margin-bottom: 16px;}
+
+	&__count{
+		@include font(normal, normal, 1.2rem, 1.2, $color-dark-grey);
+		margin-left: 10px;
+	}
+}
+
+.range{
+	&__fields{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__separator{
+		@include font(normal, normal, 1.4rem, 1.2, $color-dark-grey);
+		margin: 0 5px;
+	}
+
+	&__slider{margin: 24px 0 7px;}
+
+	input[type="text"]{
+		height: 4rem;
+		width: 122px;
+		max-width: calc(50% - 12px);
+		outline: none;
+		border: 1px solid #e5e6f0;
+		border-radius: 2rem;
+		background: #fff;
+		font-family: $font-site;
+		@include font(normal, normal, 1.4rem, 3.8rem, $color-dark-grey);
+		padding: 0 20px;
+		margin: 0;
+		box-shadow: none;
+		transition: all 0.2s ease;
+	}
+
+	input[type="text"]:focus{
+		box-shadow: none;
+		border-color: $color-orange;
+	}
+
+	.noUi-horizontal{
+		height: 4px;
+		border-radius: 2px;
+	}
+
+	.noUi-connect{background: $color-orange;}
+
+	.noUi-target{
+		border: 0;
+		background: #fff;
+		box-shadow: none;
+	}
+
+	.noUi-horizontal .noUi-handle{
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: #fff url(../img/dots.png) no-repeat center;
+		border: 0;
+		box-shadow: 0px 4px 8px rgba(115, 117, 136, 0.2);
+		right: -10px;
+		top: -8px;
+	}
+
+	.noUi-handle::after, .noUi-handle::before{display: none;}
+}
+
+@media (max-width: 991px) {
+	.filter{
+		width: 100vw;
+		height: 100vh;
+		background: #fff;
+		position: fixed;
+		top: 0;
+		left: -1000px;
+		z-index: 1000;
+		transition: left 0.2s ease 0s;
+		overflow-y: auto;
+
+		&.active{left: 0;}
+
+		&__res{
+			font-size: 1.4rem;
+			color: #fff;
+		}
+
+		&__res-arr{
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 20px;
+			height: 20px;
+			vertical-align: top;
+			margin-right: 8px;
+
+			.icon{fill: #fff;}
+		}
+
+		&__top{
+			background: $color-orange;
+			padding: 13px;
+		}
+
+		&__del{
+			.icon{fill: #fff;}
+		}
+	}
+}

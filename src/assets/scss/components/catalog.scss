@@ -1,0 +1,87 @@
+/*-------------- catalog -----------------*/
+.catalog{margin-bottom: 60px;}
+
+.sect-offer{
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	min-height: 160px;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding: 32px;
+	margin-bottom: 16px;
+	box-shadow: 0px 4px 8px rgba(115, 117, 136, 0.2);
+
+	&__title{
+		@include font(normal, 600, 3.2rem, 1.12, $color-text);
+		margin-right: 20px;
+	}
+
+	&__title-accent{color: $color-red;}
+}
+
+.sort{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	border: 1px solid #e5e6f0;
+	padding: 7px 20px;
+	margin-bottom: 8px;
+
+	&__label{
+		@include font(normal, normal, 1.4rem, 1.2, $color-text);
+		margin: 10px 10px 10px 0;
+	}
+
+	&__list{
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		margin: 10px;
+		cursor: pointer;
+	}
+
+	&__icon{
+		display: none;
+		flex: 0 0 8px;
+		width: 8px;
+		margin-right: 8px;
+
+		.icon{
+			fill: $color-orange;
+			transition: transform 0.2s ease 0s;
+		}
+	}
+
+	&__icon_desc{
+		.icon{transform: rotate(180deg);}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.2, $color-dark-grey);
+	}
+
+	&__item.active &__icon{display: inline-block;}
+	&__item.active &__text{color: $color-text;}
+	&__item:hover &__text{color: $color-orange;}
+}
+
+@media (max-width: 767px) {
+	.catalog{margin-bottom: 8px;}
+
+	.sect-offer{
+		padding: 16px;
+		margin-bottom: 8px;
+
+		&__title{
+			font-size: 2.4rem;
+			margin-right: 10px;
+		}
+	}
+}

@@ -293,9 +293,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -378,9 +379,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -475,9 +477,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -804,9 +807,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -889,9 +893,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -1073,9 +1078,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -1170,9 +1176,10 @@ block content
 										]
 									each item in list
 										.catalog-item
-											.catalog-item__img-wrap
-												a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
-													img(src="assets/img/"+item.img, alt="")
+											.catalog-item__top
+												.catalog-item__img-wrap
+													a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+														img(src="assets/img/"+item.img, alt="")
 
 											if(item.stickers)
 												.cat-item-stickers
@@ -1241,183 +1248,8 @@ block content
 						span.btn-more__text Раскрыть все бренды&nbsp;
 							span.btn-more__count (46)
 
-	section.card-slider-wrap
-		.container-fluid
-			.row
-				.col-12
-					.card-slider.js-card-slider
-						.info-card.info-card_white.info-card_right
-							.info-card__wrap(style="background-image: url(assets/img/info-card3.jpg)")
-								.info-card__content
-									.info-card__info
-										.info-card__title Яндекс Станция в&nbsp;подарок
+	include ../components/catalog-offers
 
-										.info-card__text Купи смартфон Galaxy S21, S21+,<br>S21 Ultra и получи большую Яндекс Станция в&nbsp;подарок!
+	include ../components/events
 
-									a.btn-icon.btn-icon_purple(href='#')
-										span.btn-icon__img
-											+svg('ic-link','ic-link', '18', '18')
-										span.btn-icon__text Подробнее
-							
-						.info-card.info-card_white.info-card_right
-							.info-card__wrap(style="background-image: url(assets/img/info-card4.jpg)")
-								.info-card__content
-									.info-card__info
-										.info-card__title Монитор Gigabyte в&nbsp;подарок
-
-										.info-card__text Купи игровой ноутбук GIGABYTE AERO / AORUS, оставь свой отзыв и получи игровой монитор GIGABYTE в&nbsp;подарок!
-
-									a.btn-icon.btn-icon_brown(href='#')
-										span.btn-icon__img
-											+svg('ic-link','ic-link', '18', '18')
-										span.btn-icon__text Подробнее
-
-						.info-card.info-card_white.info-card_right
-							.info-card__wrap(style="background-image: url(assets/img/info-card4.jpg)")
-								.info-card__content
-									.info-card__info
-										.info-card__title Монитор Gigabyte в&nbsp;подарок
-
-										.info-card__text Купи игровой ноутбук GIGABYTE AERO / AORUS, оставь свой отзыв и получи игровой монитор GIGABYTE в&nbsp;подарок!
-
-									a.btn-icon.btn-icon_brown(href='#')
-										span.btn-icon__img
-											+svg('ic-link','ic-link', '18', '18')
-										span.btn-icon__text Подробнее
-
-						.info-card.info-card_white.info-card_right
-							.info-card__wrap(style="background-image: url(assets/img/info-card3.jpg)")
-								.info-card__content
-									.info-card__info
-										.info-card__title Яндекс Станция в&nbsp;подарок
-
-										.info-card__text Купи смартфон Galaxy S21, S21+,<br>S21 Ultra и получи большую Яндекс Станция в&nbsp;подарок!
-
-									a.btn-icon.btn-icon_purple(href='#')
-										span.btn-icon__img
-											+svg('ic-link','ic-link', '18', '18')
-										span.btn-icon__text Подробнее
-
-						.info-card.info-card_white.info-card_right
-							.info-card__wrap(style="background-image: url(assets/img/info-card3.jpg)")
-								.info-card__content
-									.info-card__info
-										.info-card__title Яндекс Станция в&nbsp;подарок
-
-										.info-card__text Купи смартфон Galaxy S21, S21+,<br>S21 Ultra и получи большую Яндекс Станция в&nbsp;подарок!
-
-									a.btn-icon.btn-icon_purple(href='#')
-										span.btn-icon__img
-											+svg('ic-link','ic-link', '18', '18')
-										span.btn-icon__text Подробнее
-							
-						.info-card.info-card_white.info-card_right
-							.info-card__wrap(style="background-image: url(assets/img/info-card4.jpg)")
-								.info-card__content
-									.info-card__info
-										.info-card__title Монитор Gigabyte в&nbsp;подарок
-
-										.info-card__text Купи игровой ноутбук GIGABYTE AERO / AORUS, оставь свой отзыв и получи игровой монитор GIGABYTE в&nbsp;подарок!
-
-									a.btn-icon.btn-icon_brown(href='#')
-										span.btn-icon__img
-											+svg('ic-link','ic-link', '18', '18')
-										span.btn-icon__text Подробнее
-
-	section.events-wrap
-		.container
-			.row
-				.col-lg-6
-					.events-wrap__item
-						h2 Новости
-
-						.events
-							-
-								var list=[
-									{img:'event1.jpg', date:'12 / 02', title:'Xiaomi Mi TV Pro E32S - новый супер доступный телевизор с голосовым управлением и мощной начинкой.'},
-									{img:'event2.jpg', date:'09 / 02', title:'Представлены недорогие беспроводные наушники Realme Buds Air Neo'},
-								]
-							each item in list
-								.events__item
-									.events__img-wrap
-										a(href="#").events__img
-											img(src="assets/img/"+item.img, alt="")
-									
-									.events__content
-										.events__info
-											.events__date= item.date
-
-											.events__title
-												a(href="#")= item.title
-
-										a(href="#").events__more ...
-
-						a(href="#").link-more
-							span.link-more__icon
-								+svg('ic-link','ic-link', '14', '14')
-							span.link-more__text Больше новостей
-					
-				.col-lg-6
-					.events-wrap__item
-						h2 Обзоры
-
-						.events
-							-
-								var list=[
-									{img:'event3.jpg', date:'01 / 03', title:'Честный видеообзор смартфона Honor 8X'},
-									{img:'event4.jpg', date:'31 / 01', title:'Наушники Redmi AirDots: честный видеообзор'},
-								]
-							each item in list
-								.events__item
-									.events__img-wrap
-										a(href="#").events__img
-											img(src="assets/img/"+item.img, alt="")
-									
-									.events__content
-										.events__info
-											.events__date= item.date
-
-											.events__title
-												a(href="#")= item.title
-
-										a(href="#").events__more ...
-
-						a(href="#").link-more
-							span.link-more__icon
-								+svg('ic-link','ic-link', '14', '14')
-							span.link-more__text Больше обзоров
-
-
-	section.about-wrap
-		.container-fluid
-			.row
-				.col-12
-					.about-wrap__content
-						.container
-							.row
-								.col-md-3.col-lg-2
-									.ya-market
-										img(src="assets/img/ym.png", alt="")
-
-								.offset-lg-1.col-md-9
-									.about
-										h2 Магазин цифровой техники
-
-										p В далеком 2006 году основным направлением нашей компании являлась розничная продажа сотовых телефонов. <b>Сегодня мы готовы предложить Вам широкий спектр цифровой техники. К сотовым телефонам добавились планшеты, фототехника, игровые приставки, навигаторы, MP3 плееры, мультимедиа для автомобилей и даже бытовая техника.</b> К каждой номенклатуре мы стараемся предложить большой ассортимент аксессуаров, которые Вы можете найти на страницах нашего сайта. Мы ценим Ваше время и деньги, стараясь отпускать товар по максимально низким ценам, добиваясь этого за счет жесткой экономии ресурсов, правильной организации процесса закупки и складирования, гибкой арендной политики.
-
-										.advant-wrap
-											h3 Что нас отличает от других? И почему мы лучше?
-
-											.advant
-												-
-													var list=[
-														{num:'/ 01', text_bold:'Мы никогда не торгуем «воздухом» – весь товар, который мы предлагаем, есть в наличии ', text:'в Петербурге у наших поставщиков и будет ждать Вас в нашем магазине, либо будет доставлен Вам по адресу в указанные сроки.'},
-														{num:'/ 02', text_bold:'Мы уверены - у нас лучшая цена в городе ', text:'и, если Вы найдете дешевле, то это, скорее всего, компания однодневка или некачественный товар.'},
-														{num:'/ 03', text_bold:'Мы не просто продаем товар, но и обеспечиваем достойный сервис, ', text:'гарантийный, а также постгарантийный. За это нас ценят постоянные клиенты.'},
-													]
-												each item in list
-													.advant__item
-														.advant__num= item.num
-														.advant__text
-															b= item.text_bold
-															=item.text
+	include ../components/about

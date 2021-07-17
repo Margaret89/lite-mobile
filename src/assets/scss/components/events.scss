@@ -8,12 +8,18 @@
 		margin-top: 30px;
 		margin-left: 8px;
 	}
+
+	&__item{
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
 }
 
 .events{
 	display: flex;
 	flex-wrap: wrap;
-	height: calc(100% - 126px);
+	height: 100%;
 
 	&__item{
 		display: flex;

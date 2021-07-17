@@ -1,0 +1,62 @@
+section.events-wrap
+	.container
+		.row
+			.col-lg-6
+				.events-wrap__item
+					h2 Новости
+
+					.events
+						-
+							var list=[
+								{img:'event1.jpg', date:'12 / 02', title:'Xiaomi Mi TV Pro E32S - новый супер доступный телевизор с голосовым управлением и мощной начинкой.'},
+								{img:'event2.jpg', date:'09 / 02', title:'Представлены недорогие беспроводные наушники Realme Buds Air Neo'},
+							]
+						each item in list
+							.events__item
+								.events__img-wrap
+									a(href="#").events__img
+										img(src="assets/img/"+item.img, alt="")
+								
+								.events__content
+									.events__info
+										.events__date= item.date
+
+										.events__title
+											a(href="#")= item.title
+
+									a(href="#").events__more ...
+
+					a(href="#").link-more
+						span.link-more__icon
+							+svg('ic-link','ic-link', '14', '14')
+						span.link-more__text Больше новостей
+				
+			.col-lg-6
+				.events-wrap__item
+					h2 Обзоры
+
+					.events
+						-
+							var list=[
+								{img:'event3.jpg', date:'01 / 03', title:'Честный видеообзор смартфона Honor 8X'},
+								{img:'event4.jpg', date:'31 / 01', title:'Наушники Redmi AirDots: честный видеообзор'},
+							]
+						each item in list
+							.events__item
+								.events__img-wrap
+									a(href="#").events__img
+										img(src="assets/img/"+item.img, alt="")
+								
+								.events__content
+									.events__info
+										.events__date= item.date
+
+										.events__title
+											a(href="#")= item.title
+
+									a(href="#").events__more ...
+
+					a(href="#").link-more
+						span.link-more__icon
+							+svg('ic-link','ic-link', '14', '14')
+						span.link-more__text Больше обзоров

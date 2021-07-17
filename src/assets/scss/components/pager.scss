@@ -1,0 +1,55 @@
+/*-------------- pager -----------------*/
+.pager{
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid #e5e6f0;
+	margin-top: 8px;
+
+	&__list{display: flex;}
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: top;
+		width: 48px;
+		height: 48px;
+		@include font(normal, normal, 1.4rem, 1, $color-dark-grey);
+		text-decoration: none;
+		transition: all 0.2s ease 0s;
+	}
+
+	&__item.active,
+	&__item:hover{
+		background: $color-dark-grey;
+		color: #fff;
+	}
+
+	&__nav{display: flex;}
+
+	&__arr{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: top;
+		width: 48px;
+		height: 48px;
+		background: #fff;
+		border-left: 1px solid #e5e6f0;
+		transition: background 0.2s ease 0s;
+
+		.icon{
+			fill: $color-text;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__arr:hover{
+		background: $color-dark-grey;
+		.icon{fill: #fff;}
+	}
+}
+
+@media (max-width: 767px) {
+	.pager{margin-top: 4px;}
+}

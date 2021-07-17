@@ -4,7 +4,6 @@ block variables
 	- var title = 'Типографика';
 	- var h1 = 'Типографика';
 
-
 block breadcrumb
 	-
 		var breadcrumbs=[
@@ -104,6 +103,32 @@ block content
 					span.btn-icon__img
 						+svg('ic-cart-add','ic-cart-add', '22', '18')
 					span.btn-icon__text Кнопка
+
+				br
+				br
+				a.btn-icon.btn-icon_black(href='#')
+					span.btn-icon__img
+						+svg('ic-cart-add','ic-cart-add', '22', '18')
+					span.btn-icon__text Кнопка
+
+				br
+				br
+				br
+				.h2 Нестандартный radio
+				.input-radio
+					input#radio1(type='radio' name='param1')
+					label.input-radio__label(for='radio1')
+						span.input-radio__mark
+						span.input-radio__text Текст
+				br
+				br
+				br
+				.h2 Нестандартный checkbox
+				.input-check
+					input#check1(type='checkbox')
+					label.input-check__label(for='check1')
+						span.input-check__mark
+						span.input-check__text Текст
 
 				br
 				br
@@ -238,6 +263,11 @@ block content
 						.type-icon__img
 							+svg('ic-arrow-right','ic-arrow-right', '10', '20')
 						.type-icon__name ic-arrow-right
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-direction','ic-direction', '20', '20')
+						.type-icon__name ic-direction
 						
 					.type-icon__item
 						.type-icon__img
@@ -348,4 +378,9 @@ block content
 						.type-icon__img
 							+svg('ic-warning','ic-warning', '20', '18')
 						.type-icon__name ic-warning
+						
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-eye','ic-eye', '18', '12')
+						.type-icon__name ic-eye
 						

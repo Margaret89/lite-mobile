@@ -1,0 +1,1127 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Каталог';
+	- var h1 = 'Телефоны';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Телефоны'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.catalog
+		.container
+			.row
+				.col-12
+					.res-filter
+						-
+							var list=[
+								{text:'Apple'},
+								{text:'Asus'},
+								{text:'Honor'},
+								{text:'Huawei'},
+								{text:'Телефоны с хорошей камерой'},
+								{text:'OPPO'},
+								{text:'Pocophone'},
+								{text:'Samsung'},
+								{text:'Xiaomi'},
+								{text:'Телефоны до 15000 рублей'},
+							]
+						each item in list
+							.res-filter__item= item.text
+
+					.sect-offer(style="background-image: url(assets/img/airpod.jpg)")
+						.sect-offer__title AirPods 2 
+							span.sect-offer__title-accent Color
+
+						a.btn-icon.btn-icon_black(href='#')
+							span.btn-icon__img
+								+svg('ic-cart','ic-cart', '22', '18')
+							span.btn-icon__text Купить
+
+			.row
+				.col-lg-3
+					form.filter.js-filter
+						.filter__top
+							.filter__res
+								.filter__res-arr.js-filter-close
+									+svg('ic-arrow-left','ic-arrow-left', '6', '12')
+								|Применено фильтров: 
+								span.filter__res-count 3
+							button(type="reset").filter__del
+								+svg('ic-bin','ic-bin', '12', '14')
+
+
+						.filter__item.js-filter-item.active
+							.filter__head.js-filter-head
+								.filter__title Цена, &#8381;
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content(style="display: block;")
+								.range
+									.range__fields
+										input#slider-range-min.js-slider-range-min(type="text", autocomplete="off")
+										.range__separator -
+										input#slider-range-max.js-slider-range-max(type="text", autocomplete="off")
+
+									.range__slider
+										#slider-range.js-slider-range(data-min="1000", data-max="110000",data-cur-min="13020",data-cur-max="97830", autocomplete="off")
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Производитель
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'Apple', count:'40', status:'active'},
+										{text:'Huawei', count:'3'},
+										{text:'OPPO', count:'17'},
+										{text:'Samsung', count:'51'},
+										{text:'Xiaomi', count:'6', status:'active'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param1'+index, checked='checked')
+											else
+												input(type='checkbox', id='param1'+index)
+											label.input-check__label(for='param1'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+						
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Наличие
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'В наличии', count:'40'},
+										{text:'Под закз', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param2'+index, checked='checked')
+											else
+												input(type='checkbox', id='param2'+index)
+											label.input-check__label(for='param2'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Диагональ экрана
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'21"', count:'54'},
+										{text:'24"', count:'5'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param3'+index, checked='checked')
+											else
+												input(type='checkbox', id='param3'+index)
+											label.input-check__label(for='param3'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+						
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Цвет
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'Бежевый"', count:'1', status:'active'},
+										{text:'Белый', count:'7'},
+										{text:'Бирюзовый', count:'1'},
+										{text:'Голубой', count:'1'},
+										{text:'Зеленый', count:'9', status:'active'},
+										{text:'Золотистый', count:'10'},
+										{text:'Красный', count:'3'},
+										{text:'Розовый', count:'1'},
+										{text:'Серебристый', count:'7'},
+										{text:'Серый', count:'10', status:'active'},
+										{text:'Черный', count:'15', status:'active'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param4'+index, checked='checked')
+											else
+												input(type='checkbox', id='param4'+index)
+											label.input-check__label(for='param4'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+						
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Кол-во основных камер
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'5"', count:'1'},
+										{text:'10', count:'7'},
+										{text:'16', count:'1'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param5'+index, checked='checked')
+											else
+												input(type='checkbox', id='param5'+index)
+											label.input-check__label(for='param5'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+						
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Разъем для наушников
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'3.2"', count:'100'},
+										{text:'3.5', count:'7'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param6'+index, checked='checked')
+											else
+												input(type='checkbox', id='param6'+index)
+											label.input-check__label(for='param6'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+						
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Беспроводная зарядка
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'да', count:'24'},
+										{text:'нет', count:'8'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param7'+index, checked='checked')
+											else
+												input(type='checkbox', id='param7'+index)
+											label.input-check__label(for='param7'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+						
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Процессор
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'Apple A14', count:'4', status: 'active'},
+										{text:'Exynos', count:'10'},
+										{text:'Hisilicon', count:'1'},
+										{text:'Mediatek', count:'7', status: 'active'},
+										{text:'Qualcomm Snapdragon', count:'10'},
+										{text:'Qualcomm Snapdragon 860', count:'1', status: 'active'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param8'+index, checked='checked')
+											else
+												input(type='checkbox', id='param8'+index)
+											label.input-check__label(for='param8'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Сканер отпечатка пальцев
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'да', count:'4'},
+										{text:'нет', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param9'+index, checked='checked')
+											else
+												input(type='checkbox', id='param9'+index)
+											label.input-check__label(for='param9'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Разрешение экрана
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'1920x1080px', count:'4'},
+										{text:'1024x768px', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param10'+index, checked='checked')
+											else
+												input(type='checkbox', id='param10'+index)
+											label.input-check__label(for='param10'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Влагозащита
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'да', count:'4'},
+										{text:'нет', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param11'+index, checked='checked')
+											else
+												input(type='checkbox', id='param11'+index)
+											label.input-check__label(for='param11'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Емкость аккумулятора
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'20', count:'4'},
+										{text:'30', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param12'+index, checked='checked')
+											else
+												input(type='checkbox', id='param12'+index)
+											label.input-check__label(for='param12'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Операционная система
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'Windows', count:'4'},
+										{text:'MacOS', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param13'+index, checked='checked')
+											else
+												input(type='checkbox', id='param13'+index)
+											label.input-check__label(for='param13'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+						.filter__item.js-filter-item
+							.filter__head.js-filter-head
+								.filter__title Встроенная память
+								.filter__arr
+									+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+							
+							.filter__content.js-filter-content
+								-
+									var list=[
+										{text:'8Гб', count:'4'},
+										{text:'16Гб', count:'10'},
+									]
+
+								each item, index in list
+									.filter__param.js-filter-param(class=index>=10?'hide':'')
+										.input-check
+											if(item.status)
+												input(type='checkbox', id='param14'+index, checked='checked')
+											else
+												input(type='checkbox', id='param14'+index)
+											label.input-check__label(for='param14'+index)
+												span.input-check__mark
+												span.input-check__text= item.text
+
+										.filter__count= item.count
+
+				.col-lg-9
+					.catalog-list-wrap
+						.catalog-list-action
+							.sort
+								.sort-head.js-sort-head.d-lg-none
+									.sort-head__text Упорядочить
+									.sort-head__arr.js-sort-head-arr
+										+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+
+								.sort__label.d-none.d-lg-inline-block Упорядочить <b>26</b> товаров:
+
+								.sort__list.js-sort-list
+									-
+										var list=[
+											{text:'По названию'},
+											{text:'По цене', status:'active', order:'desc'},
+											{text:'По новизне'},
+										]
+									each item in list
+										.sort__item(class=item.status?'active':'')
+											if(item.status)
+												.sort__icon.sort__icon_desc
+													+svg('ic-direction','ic-direction', '8', '8')
+
+											.sort__text= item.text
+
+							.btn-filter.js-filter-open.d-lg-none
+								.btn-filter__text Фильтр
+								.btn-filter__arr
+									+svg('ic-arrow-right','ic-arrow-right', '6', '12')
+
+						.catalog-list
+							-
+								var list=[
+									{
+										img:'catalog-item1.jpg',
+										stickers:[
+											{text:'Новинка'},
+											{text:'акция', color:'grey'},
+											{text:'+ подарок', color:'orange'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+										price:'17 360 ₽',
+										wish:'active',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item9.jpg',
+										stickers:[
+											{text:'Новинка'},
+											{text:'хит продаж', color:'black'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A32 4 / 64Gb (Цвет: Blue)',
+										price:'16 010 ₽',
+										price_old:'20 580 ₽',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item10.jpg',
+										stickers:[
+											{text:'акция', color:'grey'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+										price:'27 650 ₽',
+										wish:'active',
+									},
+
+									{
+										img:'catalog-item11.jpg',
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A31 4 / 128Gb SM-A315F / DS (Цвет: Prism Crush White)',
+										price:'16 450 ₽',
+									},
+
+									{
+										img:'catalog-item12.jpg',
+										stickers:[
+											{text:'хит продаж', color:'black'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush White)',
+										price:'18 480 ₽',
+										price_old:'20 580 ₽',
+										wish:'active',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item13.jpg',
+										stickers:[
+											{text:'+ подарок', color:'orange'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон OPPO Reno 4 Lite 8 / 128Gb (Цвет: Magic Blue)',
+										price:'20 440 ₽',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item1.jpg',
+										stickers:[
+											{text:'Новинка'},
+											{text:'акция', color:'grey'},
+											{text:'+ подарок', color:'orange'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+										price:'17 360 ₽',
+										wish:'active',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item9.jpg',
+										stickers:[
+											{text:'Новинка'},
+											{text:'хит продаж', color:'black'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A32 4 / 64Gb (Цвет: Blue)',
+										price:'16 010 ₽',
+										price_old:'20 580 ₽',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item10.jpg',
+										stickers:[
+											{text:'акция', color:'grey'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+										price:'27 650 ₽',
+										wish:'active',
+									},
+
+									{
+										img:'catalog-item11.jpg',
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A31 4 / 128Gb SM-A315F / DS (Цвет: Prism Crush White)',
+										price:'16 450 ₽',
+									},
+
+									{
+										img:'catalog-item12.jpg',
+										stickers:[
+											{text:'хит продаж', color:'black'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush White)',
+										price:'18 480 ₽',
+										price_old:'20 580 ₽',
+										wish:'active',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item13.jpg',
+										stickers:[
+											{text:'+ подарок', color:'orange'},
+										],
+										tag:'Телефоны',
+										name:'Смартфон OPPO Reno 4 Lite 8 / 128Gb (Цвет: Magic Blue)',
+										price:'20 440 ₽',
+										compare:'active',
+									},
+								]
+							each item, index in list
+								.catalog-item.js-catalog-item(data-count=index)
+									.catalog-item__top
+										.catalog-item__img-wrap
+											a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+												img(src="assets/img/"+item.img, alt="")
+
+										.catalog-item__view
+											a.btn.btn_small.js-btn-quick-view
+												+svg('ic-eye','ic-eye', '18', '12')
+												span Быстрый просмотр
+
+									if(item.stickers)
+										.cat-item-stickers
+											each sticker in item.stickers
+												.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+									.cat-item-action
+										a(href="#").cat-item-action__item(class=item.wish?'active':'')
+											+svg('ic-heart','ic-heart', '22', '18')
+
+										a(href="#").cat-item-action__item(class=item.compare?'active':'')
+											+svg('ic-compare','ic-compare', '23', '18')
+
+									.catalog-item__content
+										.catalog-item__info
+											.catalog-item__tag= item.tag
+											.catalog-item__title.js-catalog-item-title
+												a(href="#")= item.name
+
+										.catalog-item__bottom
+											.catalog-item__price-wrap
+												.catalog-item__price= item.price
+
+												if(item.price_old)
+													.catalog-item__old-price= item.price_old
+
+											a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+												span.btn-icon__img
+													if(item.in_cart)
+														+svg('ic-cart-del','ic-cart-del', '22', '18')
+													else
+														+svg('ic-cart-add','ic-cart-add', '22', '18')
+												span.btn-icon__text
+													if(item.in_cart)
+														| В корзине
+													else
+														| Купить
+
+						.pager
+							.pager__list
+								a.pager__item(href='#') 1
+								a.pager__item.active(href='#') 2
+								a.pager__item(href='#') 3
+								a.pager__item.d-md-none(href='#') ...
+								a.pager__item.d-none.d-md-inline-flex(href='#') 4
+								a.pager__item.d-none.d-md-inline-flex(href='#') 5
+								a.pager__item.d-none.d-md-inline-flex(href='#') 6
+								a.pager__item.d-none.d-md-inline-flex(href='#') 7
+								a.pager__item.d-none.d-md-inline-flex(href='#') 8
+								a.pager__item.d-none.d-md-inline-flex(href='#') 9
+								a.pager__item.d-none.d-md-inline-flex(href='#') 10
+								a.pager__item.d-none.d-md-inline-flex(href='#') 11
+								a.pager__item(href='#') 12
+
+							.pager__nav
+								.pager__arr
+									+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+								.pager__arr
+									+svg('ic-arrow-right','ic-arrow-right', '8', '16')
+
+						.res-filter.d-none.d-md-flex
+							-
+								var list=[
+									{text:'Смартфоны Apple iPhone'},
+									{text:'Смартфоны'},
+									{text:'Смартфоны Samsung'},
+									{text:'Смартфоны Xiaomi'},
+									{text:'Xiaomi Redmi Note 8 Pro'},
+									{text:'iPhone'},
+									{text:'Xiaomi Redmi Note 9 Pro'},
+									{text:'Xiaomi Redmi Note 9'},
+									{text:'Смартфоны Xiaomi Redmi'},
+								]
+							each item in list
+								.res-filter__item= item.text
+
+	#quick-view(style='display: none;')
+		.quick-view.js-quick-view
+			-
+				var list=[
+					{
+						img:'catalog-item1.jpg',
+						slider:[
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'Новинка'},
+							{text:'акция', color:'grey'},
+							{text:'+ подарок', color:'orange'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+						price:'17 360 ₽',
+						wish:'active',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item9.jpg',
+						slider:[
+							'catalog-item9.jpg',
+							'catalog-item1.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'Новинка'},
+							{text:'хит продаж', color:'black'},
+						],
+						tag:'Телефоны',
+						avaible:'false',
+						article: 'Код товара: 546121',
+						name:'Смартфон Samsung Galaxy A32 4 / 64Gb (Цвет: Blue)',
+						price:'16 010 ₽',
+						price_old:'20 580 ₽',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Синий'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item10.jpg',
+						slider:[
+							'catalog-item10.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'акция', color:'grey'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00227466',
+						name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+						price:'27 650 ₽',
+						wish:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Золотой'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item11.jpg',
+						slider:[
+							'catalog-item11.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00227777',
+						name:'Смартфон Samsung Galaxy A31 4 / 128Gb SM-A315F / DS (Цвет: Prism Crush White)',
+						price:'16 450 ₽',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Белый'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item12.jpg',
+						slider:[
+							'catalog-item12.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'хит продаж', color:'black'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00225857',
+						name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush White)',
+						price:'18 480 ₽',
+						price_old:'20 580 ₽',
+						wish:'active',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Белый'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item13.jpg',
+						slider:[
+							'catalog-item13.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+						],
+						stickers:[
+							{text:'+ подарок', color:'orange'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 002277857',
+						name:'Смартфон OPPO Reno 4 Lite 8 / 128Gb (Цвет: Magic Blue)',
+						price:'20 440 ₽',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Синий'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+					
+					{
+						img:'catalog-item1.jpg',
+						slider:[
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'Новинка'},
+							{text:'акция', color:'grey'},
+							{text:'+ подарок', color:'orange'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush Black)',
+						price:'17 360 ₽',
+						wish:'active',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item9.jpg',
+						slider:[
+							'catalog-item9.jpg',
+							'catalog-item1.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'Новинка'},
+							{text:'хит продаж', color:'black'},
+						],
+						tag:'Телефоны',
+						avaible:'false',
+						article: 'Код товара: 546121',
+						name:'Смартфон Samsung Galaxy A32 4 / 64Gb (Цвет: Blue)',
+						price:'16 010 ₽',
+						price_old:'20 580 ₽',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Синий'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item10.jpg',
+						slider:[
+							'catalog-item10.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'акция', color:'grey'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00227466',
+						name:'Смартфон Apple iPhone 7 32Gb (Цвет: Rose Gold) EU',
+						price:'27 650 ₽',
+						wish:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Золотой'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item11.jpg',
+						slider:[
+							'catalog-item11.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item12.jpg',
+							'catalog-item13.jpg',
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00227777',
+						name:'Смартфон Samsung Galaxy A31 4 / 128Gb SM-A315F / DS (Цвет: Prism Crush White)',
+						price:'16 450 ₽',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Белый'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item12.jpg',
+						slider:[
+							'catalog-item12.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item13.jpg',
+						],
+						stickers:[
+							{text:'хит продаж', color:'black'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 00225857',
+						name:'Смартфон Samsung Galaxy A51 SM-A515F / DSM 64Gb (Цвет: Prism Crush White)',
+						price:'18 480 ₽',
+						price_old:'20 580 ₽',
+						wish:'active',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Белый'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item13.jpg',
+						slider:[
+							'catalog-item13.jpg',
+							'catalog-item1.jpg',
+							'catalog-item9.jpg',
+							'catalog-item10.jpg',
+							'catalog-item11.jpg',
+							'catalog-item12.jpg',
+						],
+						stickers:[
+							{text:'+ подарок', color:'orange'},
+						],
+						tag:'Телефоны',
+						avaible:'true',
+						article: 'Код товара: 002277857',
+						name:'Смартфон OPPO Reno 4 Lite 8 / 128Gb (Цвет: Magic Blue)',
+						price:'20 440 ₽',
+						compare:'active',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Синий'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+					
+				]
+			each item, index in list
+				.quick-view__item.js-quick-view-item(data-count=index)
+					.quick-view__top
+						.view-slider.js-view-slider
+							each slide in item.slider
+								.view-slider__item
+									.view-slider__img
+										img(src="assets/img/"+slide, alt="")
+
+						if(item.stickers)
+							.cat-item-stickers
+								each sticker in item.stickers
+									.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+						.cat-item-action
+							a(href="#").cat-item-action__item(class=item.wish?'active':'')
+								+svg('ic-heart','ic-heart', '22', '18')
+
+							a(href="#").cat-item-action__item(class=item.compare?'active':'')
+								+svg('ic-compare','ic-compare', '23', '18')
+
+					.quick-view__content
+						.quick-view__info
+							if(item.avaible == 'true')
+								.quick-view__status В наличии на складе
+							else
+								.quick-view__status.quick-view__status_red Нет в наличии
+
+							.quick-view__article= item.article
+						
+						.quick-view__title
+							a(href="#")= item.name
+
+						.quick-view__bottom
+							.quick-view__price-wrap
+								.quick-view__price= item.price
+
+								if(item.price_old)
+									.quick-view__old-price= item.price_old
+
+							a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+								span.btn-icon__img
+									if(item.in_cart)
+										+svg('ic-cart-del','ic-cart-del', '22', '18')
+									else
+										+svg('ic-cart-add','ic-cart-add', '22', '18')
+								span.btn-icon__text
+									if(item.in_cart)
+										| В корзине
+									else
+										| Купить
+						
+					.quick-view-params
+						each param in item.params
+							.quick-view-params__item
+								span.quick-view-params__label= param.label
+								| 
+								span.quick-view-params__val= param.text
+
+
+	include ../components/catalog-offers
+
+	include ../components/events
+
+	include ../components/about

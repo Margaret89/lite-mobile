@@ -1,0 +1,32 @@
+/*-------------- res-filter -----------------*/
+.res-filter{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -4px 28px;
+
+	&__item{
+		min-height: 32px;
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+		border: 1px solid $color-orange;
+		border-radius: 16px;
+		padding: 5px 15px;
+		margin: 4px;
+	}
+}
+
+@media (max-width: 767px) {
+	.res-filter{
+		flex-wrap: nowrap;
+		margin: 0 -8px 20px;
+		padding: 0 12px;
+		white-space: nowrap;
+		overflow-x: auto;
+
+		&__item{
+			min-height: 24px;
+			font-size: 1.2rem;
+			padding: 3px 16px;
+			margin: 2px;
+		}
+	}
+}

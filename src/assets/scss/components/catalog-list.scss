@@ -1,6 +1,22 @@
 /*-------------- cat-list -----------------*/
 .catalog-offers{margin: 60px 0 52px;}
 
+.catalog-list-wrap{
+	.res-filter{margin: 58px -4px 0;}
+}
+
+.catalog-list{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -8px;
+	margin-right: -8px;
+
+	.catalog-item{
+		width: calc(33.33% - 16px);
+		margin: 8px;
+	}
+}
+
 .catalog-item{
 	display: flex;
 	flex-direction: column;
@@ -8,6 +24,7 @@
 	padding: 32px;
 	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
 	position: relative;
+	overflow: hidden;
 
 	&__img-wrap{
 		position: relative;
@@ -31,14 +48,18 @@
 
 	&__img:hover{transform: translate(-50%, -50%) scale(1.1);}
 
+	&__top{
+		padding-bottom: 30px;
+		border-bottom: 1px solid #e5e6f0;
+		margin-bottom: 23px;
+		position: relative;
+	}
+
 	&__content{
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		height: 100%;
-		border-top: 1px solid #e5e6f0;
-		margin-top: 30px;
-		padding-top: 23px;
 	}
 
 	&__tag{
@@ -82,6 +103,18 @@
 		text-decoration: line-through;
 		margin-top: 5px;
 	}
+
+	&__view{
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: calc(100% + 100px);
+		left: 50%;
+		transform: translateX(-50%);
+		transition: bottom 0.2s ease 0s;
+	}
+
+	&__top:hover &__view{bottom: -16px;}
 }
 
 .cat-item-stickers{
@@ -156,6 +189,129 @@
 	.catalog-item{display: flex!important;}
 }
 
+@media (max-width: 1349px) {
+	.catalog-list{
+		.catalog-item{
+			&__bottom{
+				.btn-icon{
+					flex: 0 0 4rem;
+					width: 4rem;
+					height: 4rem;
+					border-radius: 50%;
+
+					&__text{display: none;}
+
+					&__img{
+						flex: 0 0 100%;
+						width: 100%;
+						height: 100%;
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.catalog-list-action{
+		display: flex;
+
+		.sort,
+		.btn-filter{
+			width: 50%;
+			height: 4rem;
+		}
+
+		.sort{
+			position: relative;
+			padding: 0;
+
+			&__list{
+				display: none;
+				min-width: calc(100% + 2px);
+				background: #fff;
+				border: 1px solid #e5e6f0;
+				position: absolute;
+				top: 100%;
+				left: -1px;
+				z-index: 100;
+			}
+
+			&__item{
+				display: flex;
+				min-height: 45px;
+				margin: 0;
+				padding: 8px;
+			}
+
+			&__item:not(:last-child){border-bottom: 1px solid #e5e6f0;}
+		}
+
+		.sort-head{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			height: 100%;
+			padding: 8px 16px;
+			cursor: pointer;
+
+			&__text{
+				@include font(normal, normal, 1.4rem, 1.2, $color-text);
+				margin-right: 10px;
+			}
+
+			&__arr{
+				.icon{
+					fill: $color-text;
+					transition: all 0.2s ease 0s;
+				}
+			}
+
+			&__arr.active{transform: rotate(180deg);}
+		}
+
+		.btn-filter{
+			display: inline-flex;
+			align-items: center;
+			justify-content: space-between;
+			vertical-align: top;
+			background: $color-orange;
+			padding: 8px 16px;
+			transition: background 0.2s ease 0s;
+			cursor: pointer;
+
+			&__text{
+				@include font(normal, normal, 1.4rem, 1.2, #fff);
+				margin-right: 10px;
+			}
+
+			&__arr{
+				.icon{fill: #fff;}
+			}
+
+			&:hover{background: $color-light-orange;}
+		}
+	}
+
+	.catalog-item{
+		&__view{
+			.btn_small,
+			button.btn_small,
+			input[type="submit"].btn_small{
+				font-size: 1.2rem;
+				padding: 0 8px;
+			}
+
+			.btn .icon:first-child,
+			.btn img:first-child{
+				margin-right: 8px;
+			}
+		}
+	}
+}
+
 @media (max-width: 767px) {
 	.catalog-offers{margin: 16px 0;}
 
@@ -183,13 +339,15 @@
 		&__price{font-size: 1.6rem;}
 		.btn-icon{flex: 0 0 4rem;}
 
-		&__content{
-			margin-top: 22px;
-			padding-top: 15px;
+		&__top{
+			padding-bottom: 22px;
+			margin-bottom: 15px;
 		}
 
 		&__tag{margin-bottom: 10px;}
 		&__bottom{margin-top: 12px;}
+
+		&__view{display: none;}
 	}
 
 	.catalog-slider{
@@ -204,5 +362,25 @@
 		right: 8px;
 
 		&__item:not(:last-child){margin-bottom: 12px;}
+	}
+
+	.catalog-list-action{
+		.btn-filter{
+			&__text{font-size: 1.2rem;}
+		}
+
+		.sort-head{
+			&__text{font-size: 1.2rem;}
+		}
+	}
+
+	.catalog-list{
+		margin-left: -4px;
+		margin-right: -4px;
+
+		.catalog-item{
+			width: calc(50% - 8px);
+			margin: 4px;
+		}
 	}
 }

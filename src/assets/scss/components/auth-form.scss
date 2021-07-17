@@ -1,0 +1,72 @@
+/*-------------- auth-form -----------------*/
+.auth-form{
+	&__social{
+		background: #e5e6f0;
+		padding: 32px 32px 26px;
+		text-align: center;
+		margin: 32px -32px 0;
+
+		.social{
+			&__label{
+				font-size: 1.6rem;
+				font-weight: 600;
+				margin: 0 0 12px;
+			}
+		}
+	}
+
+	&__bottom{margin-top: 32px;}
+
+	&__note{
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+		padding: 0 8px;
+		margin-bottom: 18px;
+	}
+}
+
+@media (max-width: 767px) {
+	.auth-form{
+		&__social{
+			padding: 26px 24px 15px;
+			margin: 24px -24px 0;
+
+			.social{
+				&__label{
+					font-size: 1.4rem;
+					font-weight: 400;
+					margin-bottom: 10px;
+				}
+
+				&__item{margin: 8px;}
+			}
+		}
+
+		&__note{
+			font-size: 1.2rem;
+			line-height: 1.5;
+			margin-bottom: 16px;
+		}
+
+		&__bottom{
+			margin-top: 24px;
+
+			.btn-icon,
+			button.btn-icon,
+			input[type="submit"].btn-icon{
+				width: auto;
+				border-radius: 2rem;
+				
+				&__img{
+					flex: 0 0 48px;
+					width: 48px;
+					padding: 5px 5px 5px 10px;
+				}
+
+				&__text{
+					display: block;
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+}

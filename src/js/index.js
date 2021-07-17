@@ -233,6 +233,12 @@ function errorField(form, event) {
 			} else {
 				$(this).attr('placeholder','Заполните поле');
 			}
+
+			if($(this).hasClass('js-auth')){
+				var posClose = $(this).closest('.js-popup').find('.js-popup-error').outerHeight();
+				$(this).closest('.js-popup').addClass('error');
+				$(this).closest('.js-popup').siblings('.fancybox-button').css('top',posClose+'px');
+			}
 		}
 
 		if($(this).attr('type') == 'checkbox' && !$(this).prop('checked')){
@@ -250,6 +256,9 @@ function errorField(form, event) {
 }
 
 if($('.js-valid-form').length){
+	var defSuccessTitle = $('.js-success-alert-title').text();
+	var defSuccessText = $('.js-success-alert-text').text();
+
 	$('.js-valid-form').on('click', '.js-btn-submit', function(e){
 		var $form = $(this).closest('form');
 		errorField($form, e);
@@ -260,17 +269,20 @@ if($('.js-valid-form').length){
 		var $form = $(this);
 		var successTitle = $form.closest('.js-valid-form').data('success');
 		var successText = $form.closest('.js-valid-form').data('text');
-		var tempSuccessTitle = $('.js-success-alert-title').text();
 
 		if(successTitle){
 			$('.js-success-alert-title').text(successTitle);
 		} else {
-			$('.js-success-alert-title').text(tempSuccessTitle);
+			$('.js-success-alert-title').text(defSuccessTitle);
 		}
 
 		if(successText == 'none'){
 			$('.js-success-alert-text').css('display', 'none');
+		} else if(successText == undefined){
+			$('.js-success-alert-text').text(defSuccessText);
+			$('.js-success-alert-text').css('display', 'block');
 		} else {
+			$('.js-success-alert-text').text(successText);
 			$('.js-success-alert-text').css('display', 'block');
 		}
 
@@ -294,6 +306,49 @@ if($('.js-valid-form').length){
 
 		e.preventDefault();
 	});
+
+	$("[data-fancybox]").fancybox({
+		afterClose: function (e) {
+			var $authForm = $('#auth form');
+			$('#auth .js-popup').removeClass('error');
+			$authForm[0].reset();
+			$authForm.find('.js-form-site-item').removeClass('error');
+			$authForm.find('.form-site-msg-error').remove();
+		}
+	});
+}
+
+if($('.js-btn-registr').length){
+	$('.js-btn-registr').on('click', function() {
+		$.fancybox.close();
+		$.fancybox.open({
+			src  : '#registr',
+			type : 'inline',
+			opts : {}
+		});
+	})
+}
+
+if($('.js-auth-form-back').length){
+	$('.js-auth-form-back').on('click', function() {
+		$.fancybox.close();
+		$.fancybox.open({
+			src  : '#auth',
+			type : 'inline',
+			opts : {}
+		});
+	})
+}
+
+if($('.js-btn-foget').length){
+	$('.js-btn-foget').on('click', function() {
+		$.fancybox.close();
+		$.fancybox.open({
+			src  : '#foget',
+			type : 'inline',
+			opts : {}
+		});
+	})
 }
 
 // Обрезание текста

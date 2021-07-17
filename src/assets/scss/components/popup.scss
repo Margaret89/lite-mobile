@@ -1,0 +1,114 @@
+/*-------------- popup -----------------*/
+.popup{
+	width: 344px;
+	max-width: 100%;
+	padding: 32px;
+	border: 6px solid $color-orange;
+
+	&__title{
+		@include font(normal, 600, 2.4rem, 1.25, $color-text);
+		margin-bottom: 2.5rem;
+		padding: 0 6px;
+	}
+
+	&_grey{border-color: $color-dark-grey;}
+	&.error{border-color: $color-red;}
+
+	&.error .popup-error{
+		display: flex;
+		align-items: center;
+	}
+}
+
+.popup-error{
+	display: none;
+	background: $color-red;
+	color: #fff;
+	padding: 10px;
+	margin: -32px -32px 10px -32px;
+
+	&__icon{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 44px;
+		width: 44px;
+		margin-right: 10px;
+		
+		.icon{fill: #fff;}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.4, #fff);
+	}
+}
+
+.registr .popup{width: 572px;}
+.registr-form .popup-back{margin-top: 14px;}
+
+.popup-back{
+	display: block;
+	background: #fafafa;
+	border-top: 1px solid #e5e6f0;
+	padding: 24px 40px;
+	margin: 32px -32px -32px;
+	
+	&__link{
+		display: inline-flex;
+		align-items: center;		
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+		cursor: pointer;
+		transition: color 0.2s ease 0s;
+
+		.icon{
+			fill: $color-orange;
+			margin-right: 16px;
+		}
+	}
+
+	&__link:hover{color: $color-orange;}
+}
+
+.foget-form{
+	.form-site{
+		&__item{margin-bottom: 0;}
+	}
+
+	.popup-back{padding: 10px 40px;}
+}
+
+@media (max-width: 767px) {
+	.popup{
+		padding: 32px 24px;
+
+		&__title{
+			font-size: 2rem;
+			margin-bottom: 1.8rem;
+		}
+	}
+
+	.popup-error{
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+
+	.foget-form{
+		.form-site{
+			&__btn{margin-top: 16px;}
+		}
+
+		.popup-back{padding: 10px 32px;}
+	}
+
+	.popup-back{
+		margin: 24px -24px -32px;
+		padding: 10px 32px;
+
+		&__link{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+}

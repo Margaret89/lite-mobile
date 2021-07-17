@@ -93,7 +93,7 @@ footer.footer
 								var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
 							
 							each item in list
-								.social__item
+								a(href="#").social__item
 									+svg(item, item, '24', '24')
 						
 						.social__label.d-none.d-lg-block Lite Mobile в соцсетях
@@ -143,20 +143,21 @@ footer.footer
 	+svg('ic-arrow-up','ic-arrow-up', '20', '10')
 
 #feadback-form(style='display: none;')
-	.popup-form
-		.popup-form__title Обратный звонок
+	.popup
+		.popup__title Обратный звонок
 
 		.js-valid-form
 			form.form-site
-				.form-site__item.js-form-site-item
-					.form-site__label Номер вашего телефона
-					.form-site__field
-						input.js-phone(type="text", placeholder="Телефон", required="required")
+				.form-site__content
+					.form-site__item.js-form-site-item
+						.form-site__label Номер вашего телефона
+						.form-site__field
+							input.js-phone(type="text", placeholder="Телефон", required="required")
 
-				.form-site__item.js-form-site-item
-					.form-site__label Комментарий
-					.form-site__field
-						textarea(placeholder="Время, в которое вам будет удобно, прочие комментарии...")
+					.form-site__item.js-form-site-item
+						.form-site__label Комментарий
+						.form-site__field
+							textarea(placeholder="Время, в которое вам будет удобно, прочие комментарии...")
 
 				.form-site__btn
 					button(type="submit").btn-icon.js-btn-submit
@@ -164,8 +165,131 @@ footer.footer
 							+svg('ic-incoming','ic-incoming', '16', '16')
 						span.btn-icon__text Позвоните мне
 
+#auth(style='display: none;')
+	.popup.js-popup
+		.popup-error.js-popup-error
+			.popup-error__icon
+				+svg('ic-warning','ic-warning', '20', '18')
+			.popup-error__text Неправильный пароль. Если вы забыли данные для входа, нажмите на ссылку “Я не могу войти”.
+
+		.popup__title Авторизация
+
+		.auth-form
+			.js-valid-form(data-success='Вы успешно авторизовались!', data-text='none')
+				form.form-site
+					.form-site__content
+						.form-site__item.js-form-site-item
+							.form-site__label E-mail
+							.form-site__field
+								input.js-auth(type="email", placeholder="Введите e-mail...", required="required")
+
+						.form-site__item.js-form-site-item
+							.form-site__label Пароль
+							.form-site__field
+								input.js-auth(type="password", placeholder="Введите пароль", required="required")
+
+					.form-site__btn
+						.form-site-link.js-btn-foget
+							span.form-site-link__icon
+								+svg('ic-info','ic-info', '2', '10')
+							span.form-site-link__text Я не могу войти
+
+						button(type="submit").btn-icon.js-btn-submit
+							span.btn-icon__img
+								+svg('ic-tick','ic-tick', '18', '12')
+							span.btn-icon__text Войти
+
+			.auth-form__social
+				.social
+					.social__label Или войдите с помощью соцсети:
+
+					.social__list
+						-
+							var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+						
+						each item in list
+							a(href="#").social__item
+								+svg(item, item, '32', '32')
+
+			.auth-form__bottom
+				.auth-form__note Первый раз у нас? Зарегистрируйтесь, это займет буквально минуту:
+
+				a.btn-icon.js-btn-registr
+					span.btn-icon__img
+						+svg('ic-add-user','ic-add-user', '16', '16')
+					span.btn-icon__text Перейти к регистрации
+
+#registr.registr(style='display: none;')
+	.popup
+		.popup__title Регистрация
+
+		.registr-form
+			.js-valid-form(data-success='Вы успешно зарегистрированы!', data-text='none')
+				form.form-site
+					.form-site__content
+						.form-site__item.form-site__item_half.js-form-site-item
+							.form-site__label Ваше имя
+							.form-site__field
+								input(type="text", placeholder="Введите имя...", required="required")
+								
+						.form-site__item.form-site__item_half.js-form-site-item
+							.form-site__label Фамилия
+							.form-site__field
+								input(type="text", placeholder="Введите фамилию...")
+								
+						.form-site__item.form-site__item_half.js-form-site-item
+							.form-site__label E-mail
+							.form-site__field
+								input(type="email", placeholder="Введите e-mail...", required="required")
+
+						.form-site__item.form-site__item_half.js-form-site-item
+							.form-site__label Телефон
+							.form-site__field
+								input.js-phone(type="text", placeholder="Введите телефон...")
+
+						.form-site__item.form-site__item_half.js-form-site-item
+							.form-site__label Пароль
+							.form-site__field
+								input(type="password", placeholder="Придумайте пароль...", required="required")
+
+						.form-site__item.form-site__item_half.form-site__item_end
+							button(type="submit").btn-icon.js-btn-submit
+								span.btn-icon__img
+									+svg('ic-add-user','ic-add-user', '16', '16')
+								span.btn-icon__text Зарегистрироваться
+
+			.popup-back
+				.popup-back__link.js-auth-form-back
+					+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+					|Назад ко входу
+
+#foget(style='display: none;')
+	.popup.popup_grey
+		.popup__title Восстановление доступа
+
+		.foget-form
+			.js-valid-form(data-success='Ваш пароль востановлен!', data-text='Проверьте почту.')
+				form.form-site
+					.form-site__text Введите e-mail, указанный при регистрации, и мы вышлем на него временный пароль, который можно будет сменить в личном кабинете после авторизации.
+					
+					.form-site__content
+						.form-site__item.js-form-site-item
+							.form-site__field
+								input(type="email", placeholder="Введите e-mail...", required="required")
+
+					.form-site__btn
+						button(type="submit").btn-icon.js-btn-submit
+							span.btn-icon__img
+								+svg('ic-tick','ic-tick', '18', '12')
+							span.btn-icon__text Отправить
+
+			.popup-back
+				.popup-back__link.js-auth-form-back
+					+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+					|Назад ко входу
 
 #msg-success(style='display: none;')
-	.success-alert.js-success-alert
-		.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
-		.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер и обсудит все детали.
+	.popup
+		.success-alert.js-success-alert
+			.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
+			.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер и обсудит все детали.

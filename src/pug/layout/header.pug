@@ -13,7 +13,7 @@ header.header
 						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
 					
 					each item in list
-						.social__item
+						a(href="#").social__item
 							+svg(item, item, '24', '24')
 
 			ul.top-menu.d-none.d-lg-inline-flex
@@ -72,7 +72,7 @@ header.header
 												.header-auth__count= item.num
 
 					else
-						a(href="#").header-auth__btn
+						a(data-fancybox='' data-src='#auth' href='javascript:;').header-auth__btn
 							+svg('ic-user','ic-user', '18', '18')
 
 			.header-top__btn.d-none.d-lg-block
@@ -516,6 +516,6 @@ header.header
 						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
 					
 					each item in list
-						.social__item
+						a(href="#").social__item
 							+svg(item, item, '24', '24')
 

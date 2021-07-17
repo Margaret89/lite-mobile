@@ -1,0 +1,117 @@
+/*-------------- catalog-detail -----------------*/
+.product-slider-wrap{
+	display: flex;
+	// justify-content: space-between;
+	align-items: flex-start;
+}
+
+
+// .product-slider{
+// 	display: none;
+// 	width: calc(100% - 110px);
+
+// 	&.slick-initialized{display: block;}
+
+// 	&__item{
+// 		display: block!important;
+// 		padding-top: 100%;
+// 		position: relative;
+
+// 		img{max-height: 100%;}
+// 	}
+
+// 	&__link,
+// 	&__video{
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		width: 100%;
+// 		height: 100%;
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 	}
+
+// 	&__video{
+// 		iframe{
+// 			width: 100%;
+// 			height: 100%;
+// 		}
+// 	}
+// }
+
+// .product-thumb-slider{
+// 	display: none;
+// 	width: 100px;
+// 	padding: 10px 0;
+
+// 	&.slick-initialized{display: block;}
+
+// 	.slick-slide{
+// 		margin: 5px 0;
+// 		border: 0;
+// 	}
+
+// 	&__item{
+// 		vertical-align: top;
+// 		padding-top: 98%;
+// 		overflow: hidden;
+// 		position: relative;
+// 		cursor: pointer;
+// 		border: 1px solid transparent;
+// 		transition: border 0.2s ease 0s;
+// 	}
+
+// 	&__img,
+// 	&__video{
+// 		display: flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		width: 100%;
+// 		height: 100%;
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+
+// 		img{max-height: 100%;}
+// 	}
+
+// 	&__video{
+// 		display: inline-flex;
+// 		align-items: center;
+// 		justify-content: center;
+// 		background: #ebebeb;
+// 	}
+
+// 	.slick-current &__item,
+// 	&__item:hover{
+// 		border-color: $color-orange;
+// 	}
+// }
+
+// .product-arr{
+// 	display: inline-flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	background: transparent;
+// 	margin: 0;
+// 	padding: 0;
+// 	font-size: 0;
+// 	box-shadow: none;
+// 	border: none;
+// 	outline: none;
+// 	position: absolute;
+// 	left: 50%;
+// 	transform: translateX(-50%);
+// 	cursor: pointer;
+
+// 	.icon{
+// 		fill: $color-grey;
+// 		transition: fill 0.2s ease 0s;
+// 	}
+// }
+
+// .product-arr_up{top: -15px;}
+// .product-arr_down{bottom: -15px;}
+
+// .product-arr:hover .icon{fill: #000;}

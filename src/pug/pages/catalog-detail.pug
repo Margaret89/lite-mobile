@@ -1,0 +1,399 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Каталог детальная';
+	- var h1 = 'Смартфон HTC Wildfire E2 64Gb (Цвет: Gray)';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Телефоны'},
+			{href:'#',name:'Другие'},
+			{href:'#',name:'Смартфон HTC Wildfire E2 64Gb (Цвет: Gray)'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.catalog-detail
+		.container
+			.row
+				.col-12
+					.cat-detail-action
+						.cat-detail-action__item
+							span.cat-detail-action__label Модель: 
+							span.cat-detail-action__val WILDFARE E2
+
+						.cat-detail-action__item
+							span.cat-detail-action__label Код товара: 
+							span.cat-detail-action__val 00227267
+
+						.cat-detail-action__item
+							a(href="#").cat-action-link
+								.cat-action-link__icon
+									+svg('ic-heart','ic-heart', '22', '18')
+								.cat-action-link__text Добавить в избранное
+
+						.cat-detail-action__item.active
+							a(href="#").cat-action-link
+								.cat-action-link__icon
+									+svg('ic-compare','ic-compare', '23', '18')
+								.cat-action-link__text Удалить из сравнения
+			
+			.row
+				.col-9
+					.cat-detail-main
+						.product-slider-wrap
+							.product-thumb-slider.js-product-thumb-slider
+								-
+									var list=[
+										{img:'product-slide-thumb1.jpg'},
+										{img:'product-slide-thumb2.jpg'},
+										{img:'product-slide-thumb3.jpg'},
+										{img:'product-slide-thumb4.jpg'},
+										{img:'product-slide-thumb5.jpg'},
+										{img:'product-slide-thumb3.jpg'},
+										{img:'product-slide-thumb4.jpg'},
+									]
+								each item in list
+									.product-thumb-slider__item
+										.product-thumb-slider__img
+											img(src="assets/img/"+item.img, alt="")
+
+							.product-slider.js-product-slider
+								-
+									var list=[
+										{img:'product-slide1.jpg'},
+										{img:'product-slide2.jpg'},
+										{img:'product-slide3.jpg'},
+										{img:'product-slide4.jpg'},
+										{img:'product-slide5.jpg'},
+										{img:'product-slide3.jpg'},
+										{img:'product-slide4.jpg'},
+									]
+								each item in list
+									.product-slider__item.js-product-slider-item
+										a.product-slider__link(href="assets/img/"+item.img, data-fancybox='images')
+											img(src="assets/img/"+item.img, alt="")
+					
+							.product-slider__count <span class="product-slider__count-cur js-product-slider-count-cur">1</span> / <span class="js-product-slider-count">1</span>
+				
+						.cat-detail-main__info
+							.cat-offers
+								.cat-offers__item
+									.cat-offers__label Цвет:
+
+									.cat-offers-colors
+										-
+											var list=[
+												{color:'#0a3df0'},
+												{color:'#393939', status:'active'},
+												{color:'#9299b0'},
+												{color:'#f0d90a'},
+											]
+										each item in list
+											.cat-offers-colors__item(style="background:"+item.color)
+												+svg('ic-tick','ic-tick', '12', '8')
+
+
+							.cat-main-params
+								-
+									var list=[
+										{label:'Объем встроенной памяти:', tag:'64 Gb'},
+										{label:'Модель:', val:'WILDFARE E2'},
+										{label:'Артикул:', val:'00259686'},
+										{label:'Тип SIM-карты:', val:'nano SIM'},
+										{label:'Емкость аккумулятора:', val:'4000 мА⋅ч'},
+										{label:'Процессор:', val:'Mediatek Helio P22 (MT6762R), 2000 МГц'},
+										{label:'Видеопроцессор:', val:'PowerVR GE8320'},
+										{label:'Объем внутренней памяти:', val:'64 Гб'},
+										{label:'Объем оперативной памяти:', val:'4 Гб'},
+										{label:'Разрешение:', val:'1560x720'},
+										{label:'Соотношение сторон:', val:'19.5 9'},
+										{label:'Количество SIM-карт:', val:'2'},
+									]
+								each item in list
+									.cat-main-params__item
+										span.cat-main-params__label= item.label
+										| 
+										if(item.val)
+											span.cat-main-params__val= item.val
+										if(item.tag)
+											span.cat-main-params__tag= item.tag
+
+				.col-3
+					.datail-card
+						.datail-card__content
+							.datail-card__info
+								.datail-card__status Товар в наличии на складе
+
+								.datail-card__price
+									.datail-card__price-cur 9 100 ₽
+									.datail-card__price-old 20 580 ₽
+
+								.datail-card__text Цена товара не окончательная, просим Вас уточнять информацию в магазине.
+								.datail-card__note Цена указана с учетом промокода, цена без промокода составляет 9555 ₽.
+
+							.datail-card__btn
+								a.btn(href='#')
+									+svg('ic-cart-add','ic-cart-add', '22', '18')
+									span Добавить в корзину
+
+								a.btn.btn_medium(href='#')
+									+svg('ic-click','ic-click', '22', '16')
+									span Добавить в корзину
+
+								a.btn.btn_medium.btn_white.btn_sb(href='#')
+									span Добавить в корзину
+
+									.btn-info
+										.btn-info__icon
+											+svg('ic-info','ic-info', '2', '10')
+											+svg('ic-close','ic-close', '8', '8')
+
+										.btn-info__popup
+											.btn-info__text Кредит от 333 ₽ в месяц от банка Ренессанс Кредит
+											.btn-info__time
+												+svg('ic-time','ic-time', '14', '14')
+												|Перейти к оформлению
+
+						.datail-card__bottom
+							.datail-card__bottom-icon
+								+svg('ic-change','ic-change', '22', '12')
+							.datail-card__bottom-text Еще дешевле с системой Trade In!
+
+			.row
+				.col-9
+					.cat-detail-content
+						.other-products-wrap
+							.h4 Аксессуары
+
+							.other-products
+								-
+									var list=[
+										{img:'accessories1.jpg', title:'Антибактериальное средство (антисептик 70% защиты)', price:'560'},
+										{img:'accessories2.jpg', title:'Антибактериальное средство (антисептик 70% защиты)', price:'2 210', in_cart:'true'},
+										{img:'accessories3.jpg', title:'Антибактериальное средство (антисептик 70% защиты)', price:'160'},
+									]
+								each item in list
+									.other-products__item
+										.other-products__img-wrap
+											a(href="#").other-products__img
+												img(src="assets/img/"+item.img, alt="")
+										
+										.other-products__content
+											.other-products__title
+												a(href="#")= item.title
+
+											.other-products__bottom
+												.other-products__price= item.price
+												.other-products__btn(class=item.in_cart?'active':'')
+													if(item.in_cart)
+														+svg('ic-cart-del','ic-cart-del', '22', '18')
+													else
+														+svg('ic-cart-add','ic-cart-add', '22', '18')
+
+							a(href="#").btn-more
+								span.btn-more__icon
+									+svg('ic-layers','ic-layers', '14', '14')
+								span.btn-more__text Показать все аксессуары 
+									span.btn-more__count (11)
+
+						.tabs-page.js-tabs-page
+							ul.tabs-page__list.js-tabs-page-list
+								li.tabs-page__item.js-tabs-page-item(data-item='params') Характеристики
+								li.tabs-page__item.js-tabs-page-item(data-item='desc') Описание
+								li.tabs-page__item.js-tabs-page-item(data-item='reviews') Отзывы
+
+							.tabs-page__content.js-tabs-page-content
+								#params.tabs-page__content-item.js-tabs-page-content-item
+									.params
+										.params__sect
+											.params__title Общие характеристики
+
+											.params__list
+												-
+													var list=[
+														{label:'Бренд', val:'HTC'},
+														{label:'Версия ОС на начало продаж', val:'Android 10'},
+														{label:'Вес', val:'170 г'},
+														{label:'Количество SIM-карт', val:'2'},
+														{label:'Материал корпуса', val:'Пластик'},
+														{label:'Размеры (ШxВxТ)	', val:'75.9x158.4x8.95 мм'},
+														{label:'Режим работы нескольких SIM-карт', val:'Попеременный'},
+														{label:'Тип', val:'Смартфон'},
+														{label:'Тип SIM-карты', val:'Nano SIM'},
+														{label:'Тип корпуса	', val:'Классический'},
+														{label:'Цвет', val:'Черный'},
+													]
+												each item in list
+													.params__item
+														.params__label= item.label
+														.params__val= item.val
+										
+										.params__sect
+											.params__title Память и процессор
+
+											.params__list
+												-
+													var list=[
+														{label:'Видеопроцессор', val:'PowerVR GE8320'},
+														{label:'Количество ядер процессора', val:'8'},
+														{label:'Объем встроенной памяти', val:'64 Гб'},
+														{label:'Объем оперативной памяти', val:'4 Гб'},
+														{label:'Процессор', val:'Mediatek Helio P22 (MT6762R), 2000 МГц'},
+														{label:'Слот для карт памяти', val:'Есть, объемом до 128 Гб'},
+													]
+												each item in list
+													.params__item
+														.params__label= item.label
+														.params__val= item.val
+
+								#desc.tabs-page__content-item.js-tabs-page-content-item
+									.cat-detail-desc
+										.cat-desc-params
+											-
+												var list=[
+													{label:'Тип SIM-карты:', val:'nano SIM'},
+													{label:'Емкость аккумулятора:', val:'4000 мА⋅ч'},
+													{label:'Процессор:', val:'Mediatek Helio P22 (MT6762R), 2000 МГц'},
+													{label:'Видеопроцессор:', val:'PowerVR GE8320'},
+													{label:'Объем внутренней памяти:', val:'64 Гб'},
+													{label:'Объем оперативной памяти:', val:'4 Гб'},
+													{label:'Разрешение:', val:'1560x720'},
+													{label:'Соотношение сторон:', val:'19.5:9'},
+													{label:'Количество SIM-карт:', val:'2'},
+												]
+											each item in list
+												.cat-desc-params__item
+													span.cat-desc-params__label= item.label
+													| 
+													span.cat-desc-params__val= item.val
+
+									.cat-detail-desc__note Характеристики, внешний вид и комплектация товара могут быть изменены фирмой-производителем без предварительного уведомления.
+
+								#reviews.tabs-page__content-item.js-tabs-page-content-item
+									.reviews
+										.reviews__top
+											.reviews__info Отзывы зугружены с 
+												span.t-color-red Яндекс.Маркет
+
+											a(href="#").reviews__more ...
+
+										.reviews__list
+											-
+												var list=[
+													{
+														name:'Чумак Александр',
+														mark:'Обычная модель',
+														count:'3',
+														advant:'Батарея, андроид 10 (ради темной темы), мощный фонарь, не самсунг, не айфон, не китайское хуа-виво-оукител',
+														disadvant:'Мало цветов! Как будто какой то режим цветовой слепоты, картинка ненасыщенная это непривычно очень сперва. Никакой персонализации, шаблон главного экрана не меняется, нельзя скрыть приложения, настроек под себя мало, убогие камеры, интернет-сеть на фоне айфона 8 плохая, нету NFC, дизайн посредственный, Разблокировка по отпечатку через раз у всех и никак иначе, даже если откалибровать один и тот же палец все 5 раз. Кривой сенсор при приближении каких либо карт оно периодически отбрасывает назад и вращает, также свайп вверх на клавиатуре (отменить автозамену) на этом смартфоне получается редко.',
+														comment:'Камера ладно, за такие деньги я не планировал покорять инстаграм но даже фото документов сделать невозможно все мутно. Надеюсь кого то отговорил не ведитесь на бренд, очень неудачная модель не заслуживающая существовать, в 2021 они продают смартфон с такой камерой и цветами экрана. Возьмите самсунг за 10 это земля и небо за одни и те же деньги, или хуавей, кому что менее противно, не будьте как я.'
+													},
+													{
+														name:'Алмаз Мингазов',
+														mark:'Плохая модель',
+														count:'1',
+														advant:'Цена, батарея',
+														disadvant:'Сам по себе перезагружается, ужасная камера',
+													},
+													{
+														name:'Инна М',
+														mark:'Плохая модель',
+														count:'1',
+														advant:'Возможно и был бы хороший телефон,если бы не заводской брак.',
+														disadvant:' Купили смартфон htc wildfire E2 64Gb,оказался товар ненадлежащего качества.Первый раз, при использовании товара всего лишь месяц,при включении на зарядку,телефон просто выключился и больше не включился.Отдали в сервисный центр,починили,сгорела материнская плата.Ровно через месяц,такая же ситуация,требуем возврат денежных средств,за товар ненадлежащего качества.Магазин отказывает,берет опять только в ремонт,хотя понятно,что это заводской брак.Не связывайтесь с данным магазином,если не хотите себе проблем.Придется решать вопрос в судебном порядке.',
+														comment:'Некомпетентность компании,нет лояльности к покупателям,не соблюдении закона по правам потребителя РФ.'
+													},
+												]
+											each item in list
+												.review-item
+													.review-item__top
+														.review-item__author
+															.review-item__icon
+																+svg('ic-user','ic-user', '18', '18')
+															.review-item__name= item.name
+													
+														.review-item__mark= item.mark
+															span.review-item__count= item.count
+
+													.review-item__content
+														if(item.advant)
+															.review-item__sect
+																.review-item__label Достоинства: 
+																.review-item__val= item.advant
+														
+														if(item.disadvant)
+															.review-item__sect
+																.review-item__label Недостатки: 
+																.review-item__val= item.disadvant
+														
+														if(item.comment)
+															.review-item__sect
+																.review-item__label Комментарий: 
+																.review-item__val= item.comment
+														
+						.notice
+							.notice__icon
+								+svg('ic-info','ic-info', '2', '10')
+
+							.notice__text Согласно п. 16 постановления Правительства РФ от 31.12.2020 N 2463, Продавец определил, что данный товар не предназначен для осуществления продажи дистанционным способом. Также, Продавец обращает внимание Потребителя: - «Перед покупкой необходимо уточнять наличие товара, стоимость товара и доступное количество к продаже».
+
+
+						.short-info
+							.short-info__content
+								.short-info-phone
+									.short-info-phone__label Остались вопросы по товару? Звоните:
+									.short-info-phone__val
+										a(href="tel:+78123325432") 8 812 332-54-32
+
+								.short-time
+									.short-time__item
+										.short-time__label Будние дни
+										.short-time__text <span class="short-time__hour">9</span>:00–<span class="short-time__hour">20</span>:00
+
+									.short-time__item
+										.short-time__label Выходные
+										.short-time__text <span class="short-time__hour">12</span>:00–<span class="short-time__hour">19</span>:00
+
+							a.btn.btn_white(href='#')
+								+svg('ic-incoming','ic-incoming', '16', '16')
+								span Заказать обратный звонок
+								
+				.col-3
+					.dilivery-wrap
+						.h4 Доставка
+
+						.dilivery-list
+							-
+								var list=[
+									{title:'Доставка курьером:', text:'290 ₽, 30 апреля'},
+									{title:'Доставка в регионы:', text:'От 500 ₽'},
+									{title:'Самовывоз:', text:'Бесплатно 30 апреля по адресу: ул. Рубинштейна, дом 23, офис 98'},
+									{title:'Самовывоз:', text:'150 ₽ 1 мая 10-21 ч. (предзаказ) по адресу: пр. Александровской Фермы 29, лит. 2Г'},
+									{title:'Самовывоз:', text:'150 ₽ 1 мая 15-22 ч. (предзаказ) по адресу: ТЦ Питерленд, Приморский пр., д. 72, секция 1-36, Салон связи Йота'},
+									{title:'Самовывоз:', text:'150 ₽ 1 мая 15-22 ч. (предзаказ) по адресу: ТРК Континент, ул. Бухарестская д. 30/32, секция 1-2, Салон связи Йота'},
+									{title:'Самовывоз:', text:'150 ₽ 1 мая 15-22 ч. (предзаказ) по адресу: ТРЦ Леомолл, ул. Планерная, 59, Салон связи Йота'},
+								]
+							each item in list
+								.dilivery-list__item
+									.dilivery-list__top
+										.dilivery-list__title= item.title
+
+										a(href="#").dilivery-list__arr
+											+svg('ic-arrow-right','ic-arrow-right', '8', '16')
+
+						.info-new-wrap
+							.h4 COVID19
+
+							.info-new
+								.info-new__text Средства защиты, маски, антибактериальные средства и пр.
+
+								a.btn-icon(href='#')
+									span.btn-icon__img
+										+svg('ic-cart-add','ic-cart-add', '22', '18')
+									span.btn-icon__text Перейти в раздел
+
+	include ../components/catalog-offers

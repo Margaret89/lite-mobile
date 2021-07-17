@@ -179,6 +179,13 @@ button.btn_border:hover{
 	.icon{fill: #fff;}
 }
 
+.btn_medium,
+input[type="submit"].btn_medium,
+button.btn_medium{
+	height: 4.8rem;
+	line-height: 4.6rem;
+}
+
 .btn_small,
 input[type="submit"].btn_small,
 button.btn_small{

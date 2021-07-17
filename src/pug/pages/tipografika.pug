@@ -69,8 +69,19 @@ block content
 
 				br
 				br
+				a.btn.btn_white(href='#')
+					+svg('ic-cart-add','ic-cart-add', '22', '18')
+					span Кнопка
+
+				br
+				br
 				a.btn.btn_border(href='#')
 					+svg('ic-cart-add','ic-cart-add', '22', '18')
+					span Кнопка
+
+				br
+				br
+				a.btn.btn_medium(href='#')
 					span Кнопка
 
 				br
@@ -154,13 +165,13 @@ block content
 						li.tabs-page__item.js-tabs-page-item(data-item='tab3') Tab3
 						li.tabs-page__item.js-tabs-page-item(data-item='tab4') Tab4
 					.tabs-page__content.js-tabs-page-content
-						#tab1.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+						#tab1.tabs-page__content-item.js-tabs-page-content-item
 							| Первый контент
-						#tab2.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+						#tab2.tabs-page__content-item.js-tabs-page-content-item
 							| Второй контент
-						#tab3.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+						#tab3.tabs-page__content-item.js-tabs-page-content-item
 							| Третий контент
-						#tab4.tabs-page__content-item.js-tabs-page-content-item.js-tabs-page-content-item
+						#tab4.tabs-page__content-item.js-tabs-page-content-item
 							| Четвёртый контент
 
 				br
@@ -396,4 +407,14 @@ block content
 						.type-icon__img
 							+svg('ic-eye','ic-eye', '18', '12')
 						.type-icon__name ic-eye
+						
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-click','ic-click', '22', '16')
+						.type-icon__name ic-click
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-change','ic-change', '22', '12')
+						.type-icon__name ic-change
 						

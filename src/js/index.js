@@ -497,6 +497,68 @@ if($('.js-select').length){
 	});
 }
 
+// Слайдер продукта на детальной каталога
+if($('.js-product-slider').length){
+	$('.js-product-slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.js-product-thumb-slider',
+	});
+
+	$('.js-product-thumb-slider').slick({
+		vertical: true,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		asNavFor: '.js-product-slider',
+		focusOnSelect: true,
+		prevArrow: '<button id="prev" type="button" class="product-arr product-arr_up"><svg class="icon ic-arrow-up" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-up"></use></svg></button>',
+		nextArrow: '<button id="next" type="button" class="product-arr product-arr_down"><svg class="icon ic-arrow-down" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-down"></use></svg></button>',
+		// responsive: [
+		// 	{
+		// 		breakpoint: 1260,
+		// 		settings: {
+		// 			slidesToShow: 3,
+		// 			vertical: true,
+		// 			arrows: true,
+		// 		}
+		// 	},
+		// 	{
+		// 		breakpoint: 992,
+		// 		settings: {
+		// 			slidesToShow: 4,
+		// 			vertical: true,
+		// 			arrows: true,
+		// 		}
+		// 	},
+		// 	{
+		// 		breakpoint: 768,
+		// 		settings: {
+		// 			slidesToShow: 4,
+		// 			vertical: false,
+		// 			arrows: false,
+		// 		}
+		// 	},
+		// 	{
+		// 		breakpoint: 480,
+		// 		settings: {
+		// 			slidesToShow: 3,
+		// 			vertical: false,
+		// 			arrows: false,
+		// 		}
+		// 	},
+		// ]
+	});
+
+
+	$('.js-product-slider-count').text($('.js-product-slider-item').length);
+
+	$('.js-product-slider').on("afterChange", function(event, slick, currentSlide, nextSlide){
+		$('.js-product-slider-count-cur').text(currentSlide);
+	});
+}
+
 // Обрезание текста
 // Clamps($('.js-catalog-item-title'));
 

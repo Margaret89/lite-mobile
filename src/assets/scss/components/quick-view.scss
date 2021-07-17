@@ -83,6 +83,20 @@
 		text-decoration: line-through;
 		margin-top: 5px;
 	}
+
+	&__sale{
+		display: inline-flex;
+		align-items: center;
+		height: 4rem;
+		@include font(normal, 600, 2.4rem, 1, #fff);
+		padding: 5px 8px;
+		background: $color-red;
+		border-top-right-radius: 2rem;
+		border-bottom-right-radius: 2rem;
+		position: absolute;
+		top: 24px;
+		left: 0;
+	}
 }
 
 .view-slider{
@@ -147,6 +161,12 @@
 		&__title{
 			font-size: 1.4rem;
 			line-height: 1.4;
+		}
+
+		&__sale{
+			height: 3rem;
+			font-size: 2rem;
+			top: 16px;
 		}
 	}
 

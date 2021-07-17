@@ -1,0 +1,585 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Каталог';
+	- var h1 = 'Уценка';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Уценка'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.catalog
+		.container
+			.row
+				.col-12
+					.res-filter
+						-
+							var list=[
+								{text:'Скидки и распродажи'},
+								{text:'Уценка аудио и видео'},
+								{text:'Уценка бытовая техника'},
+								{text:'Уценка кухонная техника'},
+								{text:'Уценка телефоны и смартфоны'},
+							]
+						each item in list
+							.res-filter__item= item.text
+
+					.sect-offer(style="background-image: url(assets/img/airpod.jpg)")
+						.sect-offer__title AirPods 2 
+							span.sect-offer__title-accent Color
+
+						a.btn-icon.btn-icon_black(href='#')
+							span.btn-icon__img
+								+svg('ic-cart','ic-cart', '22', '18')
+							span.btn-icon__text Купить
+
+			.row
+				.col-12
+					.catalog-list-wrap
+						.catalog-list-action
+							.sort
+								.sort-head.js-sort-head.d-lg-none
+									.sort-head__text Упорядочить
+									.sort-head__arr.js-sort-head-arr
+										+svg('ic-arrow-down','ic-arrow-down', '12', '6')
+
+								.sort__label.d-none.d-lg-inline-block Упорядочить <b>45</b> товаров:
+
+								.sort__list.js-sort-list
+									-
+										var list=[
+											{text:'По названию'},
+											{text:'По цене'},
+											{text:'По новизне', status:'active', order:'asc'},
+										]
+									each item in list
+										.sort__item(class=item.status?'active':'')
+											if(item.status)
+												.sort__icon
+													+svg('ic-direction','ic-direction', '8', '8')
+
+											.sort__text= item.text
+
+						.catalog-list.catalog-list_full
+							-
+								var list=[
+									{
+										img:'catalog-item14.jpg',
+										sale:'-37%',
+										tag:'Телефоны',
+										name:'HTC Wildfire E 32Gb (Black)',
+										price:'4 990 ₽',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item15.jpg',
+										sale:'-26%',
+										tag:'Кухонная техника',
+										name:'Микроволновая печь Candy CMXG20DR (Red)',
+										price:'5 600 ₽',
+									},
+
+									{
+										img:'catalog-item16.jpg',
+										sale:'-40%',
+										tag:'Бытовая техника',
+										name:'Пылесос LG VK76W02HY (Silver)',
+										price:'17 360 ₽',
+										compare:'active',
+									},
+
+									{
+										img:'catalog-item17.jpg',
+										sale:'-15%',
+										tag:'Аудио и видео',
+										name:'Наушники Apple AirPods 2 (без беспроводной зарядки чехла)',
+										price:'8 600 ₽',
+										wish:'active',
+									},
+
+									{
+										img:'catalog-item18.jpg',
+										sale:'-31%',
+										tag:'Оргтехника и периферия',
+										name:'МФУ лазерный HP LaserJet Pro MFP M28w RU (W2G55A)',
+										price:'9 200 ₽',
+									},
+
+									{
+										img:'catalog-item19.jpg',
+										sale:'-33%',
+										tag:'Телефоны',
+										name:'Samsung Galaxy A50 4 / 64Gb (White)',
+										price:'9 500 ₽',
+										compare:'active',
+										wish:'active',
+									},
+
+									{
+										img:'catalog-item20.jpg',
+										sale:'-50%',
+										tag:'Телефоны',
+										name:'Samsung Galaxy A50 4 / 64Gb (Blue)',
+										price:'9 700 ₽',
+										wish:'active',
+									},
+
+									{
+										img:'catalog-item21.jpg',
+										sale:'-12%',
+										tag:'Бытовая техника',
+										name:'Стиральная машина Candy Aqua 114D2-07 (White)',
+										price:'16 010 ₽',
+										price_old:'10 990 ₽',
+										compare:'active',
+										wish:'active',
+									},
+								]
+							each item, index in list
+								.catalog-item.js-catalog-item(data-count=index)
+									.catalog-item__top
+										.catalog-item__img-wrap
+											a(href="#").catalog-item__img(class=item.img_empty?'catalog-item__img_empty':'')
+												img(src="assets/img/"+item.img, alt="")
+
+										.catalog-item__view
+											a.btn.btn_small.js-btn-quick-view
+												+svg('ic-eye','ic-eye', '18', '12')
+												span Быстрый просмотр
+
+									if(item.stickers)
+										.cat-item-stickers
+											each sticker in item.stickers
+												.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+									if(item.sale)
+										.catalog-item__sale= item.sale
+
+									.cat-item-action
+										a(data-fancybox='' data-src='#wish-success' href='javascript:;' class=item.wish?'active':'').cat-item-action__item
+											+svg('ic-heart','ic-heart', '22', '18')
+
+										a(data-fancybox='' data-src='#compare-success' href='javascript:;' class=item.compare?'active':'').cat-item-action__item
+											+svg('ic-compare','ic-compare', '23', '18')
+
+									.catalog-item__content
+										.catalog-item__info
+											.catalog-item__tag= item.tag
+											.catalog-item__title.js-catalog-item-title
+												a(href="#")= item.name
+
+										.catalog-item__bottom
+											.catalog-item__price-wrap
+												.catalog-item__price= item.price
+
+												if(item.price_old)
+													.catalog-item__old-price= item.price_old
+
+											a.btn-icon(class=item.in_cart?'btn-icon_grey':'' data-fancybox='' data-src='#add-basket' href='javascript:;')
+												span.btn-icon__img
+													if(item.in_cart)
+														+svg('ic-cart-del','ic-cart-del', '22', '18')
+													else
+														+svg('ic-cart-add','ic-cart-add', '22', '18')
+												span.btn-icon__text
+													if(item.in_cart)
+														| В корзине
+													else
+														| Купить
+
+						.pager
+							.pager__list
+								a.pager__item(href='#') 1
+								a.pager__item.active(href='#') 2
+								a.pager__item(href='#') 3
+								a.pager__item.d-md-none(href='#') ...
+								a.pager__item.d-none.d-md-inline-flex(href='#') 4
+								a.pager__item.d-none.d-md-inline-flex(href='#') 5
+								a.pager__item.d-none.d-md-inline-flex(href='#') 6
+								a.pager__item.d-none.d-md-inline-flex(href='#') 7
+								a.pager__item.d-none.d-md-inline-flex(href='#') 8
+								a.pager__item.d-none.d-md-inline-flex(href='#') 9
+								a.pager__item.d-none.d-md-inline-flex(href='#') 10
+								a.pager__item.d-none.d-md-inline-flex(href='#') 11
+								a.pager__item(href='#') 12
+
+							.pager__nav
+								.pager__arr
+									+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+								.pager__arr
+									+svg('ic-arrow-right','ic-arrow-right', '8', '16')
+
+	#quick-view(style='display: none;')
+		.quick-view.js-quick-view
+			-
+				var list=[
+					{
+						img:'catalog-item14.jpg',
+						slider:[
+							'catalog-item14.jpg',
+							'catalog-item15.jpg',
+							'catalog-item16.jpg',
+							'catalog-item17.jpg',
+							'catalog-item18.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-37%',
+						tag:'Телефоны',
+						name:'HTC Wildfire E 32Gb (Black)',
+						price:'4 990 ₽',
+						compare:'active',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item15.jpg',
+						slider:[
+							'catalog-item15.jpg',
+							'catalog-item14.jpg',
+							'catalog-item16.jpg',
+							'catalog-item17.jpg',
+							'catalog-item18.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-26%',
+						tag:'Кухонная техника',
+						name:'Микроволновая печь Candy CMXG20DR (Red)',
+						price:'5 600 ₽',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item16.jpg',
+						slider:[
+							'catalog-item16.jpg',
+							'catalog-item14.jpg',
+							'catalog-item15.jpg',
+							'catalog-item17.jpg',
+							'catalog-item18.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-40%',
+						tag:'Бытовая техника',
+						name:'Пылесос LG VK76W02HY (Silver)',
+						price:'17 360 ₽',
+						compare:'active',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item17.jpg',
+						slider:[
+							'catalog-item17.jpg',
+							'catalog-item14.jpg',
+							'catalog-item15.jpg',
+							'catalog-item16.jpg',
+							'catalog-item18.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-15%',
+						tag:'Аудио и видео',
+						name:'Наушники Apple AirPods 2 (без беспроводной зарядки чехла)',
+						price:'8 600 ₽',
+						wish:'active',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item18.jpg',
+						slider:[
+							'catalog-item18.jpg',
+							'catalog-item14.jpg',
+							'catalog-item15.jpg',
+							'catalog-item16.jpg',
+							'catalog-item17.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-31%',
+						tag:'Оргтехника и периферия',
+						name:'МФУ лазерный HP LaserJet Pro MFP M28w RU (W2G55A)',
+						price:'9 200 ₽',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item19.jpg',
+						slider:[
+							'catalog-item19.jpg',
+							'catalog-item14.jpg',
+							'catalog-item15.jpg',
+							'catalog-item16.jpg',
+							'catalog-item17.jpg',
+							'catalog-item18.jpg',
+						],
+						sale:'-33%',
+						tag:'Телефоны',
+						name:'Samsung Galaxy A50 4 / 64Gb (White)',
+						price:'9 500 ₽',
+						compare:'active',
+						wish:'active',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item20.jpg',
+						slider:[
+							'catalog-item20.jpg',
+							'catalog-item15.jpg',
+							'catalog-item16.jpg',
+							'catalog-item17.jpg',
+							'catalog-item18.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-50%',
+						tag:'Телефоны',
+						name:'Samsung Galaxy A50 4 / 64Gb (Blue)',
+						price:'9 700 ₽',
+						wish:'active',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+
+					{
+						img:'catalog-item21.jpg',
+						slider:[
+							'catalog-item21.jpg',
+							'catalog-item15.jpg',
+							'catalog-item16.jpg',
+							'catalog-item17.jpg',
+							'catalog-item18.jpg',
+							'catalog-item19.jpg',
+						],
+						sale:'-12%',
+						tag:'Бытовая техника',
+						name:'Стиральная машина Candy Aqua 114D2-07 (White)',
+						price:'16 010 ₽',
+						price_old:'10 990 ₽',
+						compare:'active',
+						wish:'active',
+						avaible:'true',
+						article: 'Код товара: 00227267',
+						params:[
+							{label:'Материалы корпуса:', text:'Пластик'},
+							{label:'Влагозащита:', text:'Нет'},
+							{label:'Цвет:', text:'Черный'},
+							{label:'Тип экрана:', text:'TFT'},
+							{label:'Размер экрана:', text:'Безрамочный дисплей 6,2”'},
+						]
+					},
+				]
+		
+			each item, index in list
+				.quick-view__item.js-quick-view-item(data-count=index)
+					.quick-view__top
+						.view-slider.js-view-slider
+							each slide in item.slider
+								.view-slider__item
+									.view-slider__img
+										img(src="assets/img/"+slide, alt="")
+
+						if(item.stickers)
+							.cat-item-stickers
+								each sticker in item.stickers
+									.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
+
+						if(item.sale)
+							.quick-view__sale= item.sale
+
+						.cat-item-action
+							a(href="#").cat-item-action__item(class=item.wish?'active':'')
+								+svg('ic-heart','ic-heart', '22', '18')
+
+							a(href="#").cat-item-action__item(class=item.compare?'active':'')
+								+svg('ic-compare','ic-compare', '23', '18')
+
+					.quick-view__content
+						.quick-view__info
+							if(item.avaible == 'true')
+								.quick-view__status В наличии на складе
+							else
+								.quick-view__status.quick-view__status_red Нет в наличии
+
+							.quick-view__article= item.article
+						
+						.quick-view__title
+							a(href="#")= item.name
+
+						.quick-view__bottom
+							.quick-view__price-wrap
+								.quick-view__price= item.price
+
+								if(item.price_old)
+									.quick-view__old-price= item.price_old
+
+							a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+								span.btn-icon__img
+									if(item.in_cart)
+										+svg('ic-cart-del','ic-cart-del', '22', '18')
+									else
+										+svg('ic-cart-add','ic-cart-add', '22', '18')
+								span.btn-icon__text
+									if(item.in_cart)
+										| В корзине
+									else
+										| Купить
+						
+					.quick-view-params
+						each param in item.params
+							.quick-view-params__item
+								span.quick-view-params__label= param.label
+								| 
+								span.quick-view-params__val= param.text
+
+	#compare-success(style='display: none;')
+		.msg-action
+			h3 Товар добавлен в список сравнения
+			
+			.msg-action__text Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)
+				
+			.msg-action__btn
+				a.btn-icon(href='#')
+					span.btn-icon__img
+						+svg('ic-tick','ic-tick', '18', '12')
+					span.btn-icon__text ОК
+
+	#wish-success(style='display: none;')
+		.msg-action
+			h3 Товар добавлен в список избранного
+			
+			.msg-action__text Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)
+				
+			.msg-action__btn
+				a.btn-icon(href='#')
+					span.btn-icon__img
+						+svg('ic-tick','ic-tick', '18', '12')
+					span.btn-icon__text ОК
+
+	#add-basket(style='display: none;')
+		.popup-basket
+			h3 Товар добавлен в корзину
+			
+			.popup-basket__list
+				-
+					var list=[
+						{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)', price:'16 160 ₽', count:'1 шт', sum:'16 160 ₽'},
+						{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key', price:'2 650 ₽', count:'1 шт', sum:'2 650 ₽'},
+					]
+
+				each item in list
+					.basket-product
+						a(href="#").basket-product__img-wrap
+							.basket-product__img
+								img(src="assets/img/"+item.img, alt="")
+
+						.basket-product__content
+							.basket-product__info
+								.basket-product__text
+									a(href="#")= item.text
+								a(href="#").basket-product__del
+									+svg('ic-bin','ic-bin', '12', '14')
+
+							.basket-product__data
+								.basket-product__price= item.price
+
+								.basket-product__sum-wrap
+									.counter
+										.counter__handle –
+										.counter__field
+											input(type="text", value="1шт")
+										.counter__handle +
+
+									.basket-product__sum= item.sum
+
+			.popup-basket__total
+				.popup-basket__label Итого:
+
+				.popup-basket__sum-wrap
+					.popup-basket__count 2 шт
+					.popup-basket__sum 18 810 ₽
+
+			.popup-basket__bottom
+				.popup-basket__link
+					+svg('ic-cart','ic-cart', '22', '18')
+					|Продолжить покупки
+
+				a.btn-icon(href='#')
+					span.btn-icon__img
+						+svg('ic-tick','ic-tick', '18', '12')
+					span.btn-icon__text Оформить заказ
+
+	.sale-about-wrap
+		.container-fluid
+			.row
+				.col-12
+					.sale-about
+						.container
+							.row
+								.col-md-3.d-none.d-md-block
+									.sale-about__img
+										img(src="assets/img/scissors.png", alt="")
+								.col-md-9
+									.h2 Купить уценку в магазине Lite Mobile
+
+									p В данном разделе вы можете обнаружить интересные предложения по уцененным товарам. Тут представлены новые товары с недостатками, товары из ремонта, товары, сданные в трейд-ин. Уцененный товар имеет гарантию 30 дней со дня покупки. Доставка курьером, а так же покупка уцененного товара в кредит - невозможна.

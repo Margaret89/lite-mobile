@@ -68,7 +68,7 @@
 	}
 
 	&__item.active &__icon{display: inline-block;}
-	&__item.active &__text{color: $color-text;}
+	&__item.active &__text{color: $color-text; font-weight: 600;}
 	&__item:hover &__text{color: $color-orange;}
 }
 

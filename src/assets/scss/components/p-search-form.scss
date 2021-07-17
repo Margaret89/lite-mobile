@@ -1,0 +1,158 @@
+/*-------------- p-search-form -----------------*/
+.page-search{
+	margin-top: 2.7rem;
+	margin-bottom: 6.4rem;
+}
+
+.p-search-form{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: space-between;
+	padding: 25px;
+	background: #fff;
+	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+	margin-bottom: 16px;
+
+	&__content{
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+	}
+
+	&__label{
+		@include font(normal, normal, 1.2rem, 1.2, $color-text);
+		margin-bottom: 9px;
+		padding-left: 8px;
+	}
+
+	&__item{
+		margin: 8px;
+
+		.select2{width: 300px!important;}
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	textarea{
+		display: inline-block;
+		min-width: 300px;
+		height: 4rem;
+		width: 100%;
+		font-family: $font-site;
+		@include font(normal, 500, 1.4rem, 3.8rem, $color-text);
+		padding: 0 20px;
+		border-radius: 2rem;
+		border: 1px solid #e5e6f0;
+		outline: 0;
+		margin: 0;
+		background: #fafafa;
+		box-shadow: none;
+		transition: border 0.2s ease 0s;
+	}
+
+	textarea{
+		height: 6rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		line-height: 1.4;
+	}
+
+	input[type="text"]:focus,
+	input[type="number"]:focus,
+	input[type="email"]:focus,
+	input[type="password"]:focus,
+	textarea:focus{
+		border-color: $color-orange;
+	}
+
+	input[type="text"]::placeholder,
+	input[type="number"]::placeholder,
+	input[type="email"]::placeholder,
+	input[type="password"]::placeholder,
+	textarea::placeholder{
+		color: $color-grey;
+	}
+
+	.input-check{padding: 10px 0;}
+
+	&__btn{margin: 8px;}
+}
+
+@media (max-width: 1349px) {
+	.p-search-form{
+		display: block;
+
+		input[type="text"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		textarea{
+			min-width: 220px;
+		}
+
+		&__item .select2{width: 220px!important;}
+
+		&__btn{
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.page-search .catalog-list-action .sort{width: 100%;}
+
+	.p-search-form{
+		&__item{width: calc(50% - 16px);}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		textarea{
+			min-width: auto;
+			width: 100%;
+		}
+
+		&__item .select2{width: 100%!important;}
+	}
+}
+
+@media (max-width: 767px) {
+	.page-search{
+		margin-top: 2rem;
+		margin-bottom: 0.8rem;
+	}
+
+	.p-search-form{
+		padding: 18px 8px;
+		&__item{width: calc(100% - 16px);}
+		.input-check{padding: 0 8px;}
+
+		&__btn{
+			display: block;
+			margin: 16px 8px 5px;
+
+			.btn-icon,
+			button.btn-icon,
+			input[type="submit"].btn-icon{
+				width: auto;
+				border-radius: 2rem;
+				
+				&__img{
+					flex: 0 0 48px;
+					width: 48px;
+					padding: 5px 5px 5px 10px;
+				}
+
+				&__text{
+					display: block;
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+}

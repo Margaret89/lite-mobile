@@ -490,6 +490,13 @@ if($('.js-sort-head').length){
 	});
 }
 
+// select
+if($('.js-select').length){
+	$('.js-select').select2({
+		minimumResultsForSearch: -1,
+	});
+}
+
 // Обрезание текста
 // Clamps($('.js-catalog-item-title'));
 

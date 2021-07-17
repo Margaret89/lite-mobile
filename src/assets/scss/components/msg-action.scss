@@ -1,0 +1,57 @@
+/*-------------- msg-action -----------------*/
+.msg-action{
+	width: 596px;
+	max-width: 100%;
+	text-align: center;
+	border: 6px solid $color-orange;
+
+	h3, .h3{
+		padding: 30px 24px;
+		margin: 0;
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.4, $color-dark-grey);
+		padding: 24px;
+		border-top: 1px solid #e5e6f0;
+	}
+
+	&__btn{
+		padding: 24px;
+		border-top: 1px solid #e5e6f0;
+	}
+}
+
+@media (max-width: 767px) {
+	.msg-action{
+		h3, .h3{
+			font-size: 2rem;
+			padding: 24px;
+		}
+
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+
+		&__btn{
+			.btn-icon,
+			button.btn-icon,
+			input[type="submit"].btn-icon{
+				width: auto;
+				border-radius: 2rem;
+				
+				&__img{
+					flex: 0 0 48px;
+					width: 48px;
+					padding: 5px 5px 5px 10px;
+				}
+
+				&__text{
+					display: block;
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+}

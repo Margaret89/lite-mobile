@@ -644,10 +644,10 @@ block content
 												.cat-item-stickers__item(class=sticker.color?'cat-item-stickers__item_'+sticker.color:'')= sticker.text
 
 									.cat-item-action
-										a(href="#").cat-item-action__item(class=item.wish?'active':'')
+										a(data-fancybox='' data-src='#wish-success' href='javascript:;' class=item.wish?'active':'').cat-item-action__item
 											+svg('ic-heart','ic-heart', '22', '18')
 
-										a(href="#").cat-item-action__item(class=item.compare?'active':'')
+										a(data-fancybox='' data-src='#compare-success' href='javascript:;' class=item.compare?'active':'').cat-item-action__item
 											+svg('ic-compare','ic-compare', '23', '18')
 
 									.catalog-item__content
@@ -663,7 +663,7 @@ block content
 												if(item.price_old)
 													.catalog-item__old-price= item.price_old
 
-											a.btn-icon(href='#', class=item.in_cart?'btn-icon_grey':'')
+											a.btn-icon(class=item.in_cart?'btn-icon_grey':'' data-fancybox='' data-src='#add-basket' href='javascript:;')
 												span.btn-icon__img
 													if(item.in_cart)
 														+svg('ic-cart-del','ic-cart-del', '22', '18')
@@ -1119,6 +1119,82 @@ block content
 								| 
 								span.quick-view-params__val= param.text
 
+	#compare-success(style='display: none;')
+		.msg-action
+			h3 Товар добавлен в список сравнения
+			
+			.msg-action__text Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)
+				
+			.msg-action__btn
+				a.btn-icon(href='#')
+					span.btn-icon__img
+						+svg('ic-tick','ic-tick', '18', '12')
+					span.btn-icon__text ОК
+
+	#wish-success(style='display: none;')
+		.msg-action
+			h3 Товар добавлен в список избранного
+			
+			.msg-action__text Наушники Xiaomi Mi Piston Headphones Basic (Цвет: Matte Silver)
+				
+			.msg-action__btn
+				a.btn-icon(href='#')
+					span.btn-icon__img
+						+svg('ic-tick','ic-tick', '18', '12')
+					span.btn-icon__text ОК
+
+	#add-basket(style='display: none;')
+		.popup-basket
+			h3 Товар добавлен в корзину
+			
+			.popup-basket__list
+				-
+					var list=[
+						{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)', price:'16 160 ₽', count:'1 шт', sum:'16 160 ₽'},
+						{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key', price:'2 650 ₽', count:'1 шт', sum:'2 650 ₽'},
+					]
+
+				each item in list
+					.basket-product
+						a(href="#").basket-product__img-wrap
+							.basket-product__img
+								img(src="assets/img/"+item.img, alt="")
+
+						.basket-product__content
+							.basket-product__info
+								.basket-product__text
+									a(href="#")= item.text
+								a(href="#").basket-product__del
+									+svg('ic-bin','ic-bin', '12', '14')
+
+							.basket-product__data
+								.basket-product__price= item.price
+
+								.basket-product__sum-wrap
+									.counter
+										.counter__handle –
+										.counter__field
+											input(type="text", value="1шт")
+										.counter__handle +
+
+									.basket-product__sum= item.sum
+
+			.popup-basket__total
+				.popup-basket__label Итого:
+
+				.popup-basket__sum-wrap
+					.popup-basket__count 2 шт
+					.popup-basket__sum 18 810 ₽
+
+			.popup-basket__bottom
+				.popup-basket__link
+					+svg('ic-cart','ic-cart', '22', '18')
+					|Продолжить покупки
+
+				a.btn-icon(href='#')
+					span.btn-icon__img
+						+svg('ic-tick','ic-tick', '18', '12')
+					span.btn-icon__text Оформить заказ
 
 	include ../components/catalog-offers
 

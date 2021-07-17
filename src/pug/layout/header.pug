@@ -97,16 +97,16 @@ header.header
 						]
 
 					each item in list
-						.header-product
-							a(href="#").header-product__img-wrap
-								.header-product__img
+						.basket-product
+							a(href="#").basket-product__img-wrap
+								.basket-product__img
 									img(src="assets/img/"+item.img, alt="")
 
-							.header-product__content
-								.header-product__info
-									.header-product__text
+							.basket-product__content
+								.basket-product__info
+									.basket-product__text
 										a(href="#")= item.text
-									a(href="#").header-product__del
+									a(href="#").basket-product__del
 										+svg('ic-bin','ic-bin', '12', '14')
 
 					a(href="#").header-compare__bottom
@@ -126,24 +126,24 @@ header.header
 						]
 
 					each item in list
-						.header-product
-							a(href="#").header-product__img-wrap
-								.header-product__img
+						.basket-product
+							a(href="#").basket-product__img-wrap
+								.basket-product__img
 									img(src="assets/img/"+item.img, alt="")
 
-							.header-product__content
-								.header-product__info
-									.header-product__text
+							.basket-product__content
+								.basket-product__info
+									.basket-product__text
 										a(href="#")= item.text
-									a(href="#").header-product__del
+									a(href="#").basket-product__del
 										+svg('ic-bin','ic-bin', '12', '14')
 
-								.header-product__data
-									.header-product__price= item.price
+								.basket-product__data
+									.basket-product__price= item.price
 
-									.header-product__sum-wrap
-										.header-product__count= item.count
-										.header-product__sum= item.sum
+									.basket-product__sum-wrap
+										.basket-product__count= item.count
+										.basket-product__sum= item.sum
 
 					.header-basket__total
 						.header-basket__label Итого:

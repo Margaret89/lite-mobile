@@ -72,6 +72,74 @@
 	&__item:hover &__text{color: $color-orange;}
 }
 
+.popup-basket{
+	width: 596px;
+	max-width: 100%;
+	max-height: 100vh;
+	border: 6px solid $color-orange;
+	overflow-y: auto;
+
+	h3, .h3{
+		padding: 32px 32px 28px;
+		margin: 0;
+	}
+
+	&__list{border-top: 1px solid #e5e6f0;}
+
+	&__total{
+		display: flex;
+		justify-content: space-between;
+		background: #fafafe;
+		padding: 18px 16px 18px 32px;
+		border-top: 1px solid #e5e6f0;
+		border-bottom: 1px solid #e5e6f0;
+	}
+
+	&__label{
+		@include font(normal, normal, 1.6rem, 1.2, color-text);
+		margin-right: 15px;
+	}
+
+	&__sum{
+		min-width: 80px;
+		@include font(normal, 600, 1.5rem, 1.2, $color-text);
+		text-align: right;
+	}
+
+	&__sum-wrap{
+		display: flex;
+		margin-left: 15px;
+	}
+
+	&__count{
+		@include font(normal, normal, 1.6rem, 1.2, color-text);
+		width: 125px;
+		text-align: center;
+	}
+
+	&__bottom{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 24px;
+	}
+
+	&__link{
+		display: inline-flex;
+		align-items: center;
+		@include font(normal, normal, 1.4rem, 1.4, $color-orange);
+
+		.icon{
+			fill: $color-orange;
+			margin-right: 8px;
+		}
+	}
+
+	.basket-product{
+		&__sum{min-width: 95px;}
+	}
+}
+
 @media (max-width: 767px) {
 	.catalog{margin-bottom: 8px;}
 
@@ -83,5 +151,37 @@
 			font-size: 2.4rem;
 			margin-right: 10px;
 		}
+	}
+
+	.popup-basket{
+		h3, .h3{
+			font-size: 2rem;
+			padding: 23px 24px 22px;
+		}
+
+		&__bottom{
+			display: block;
+			text-align: center;
+
+			.btn-icon,
+			button.btn-icon,
+			input[type="submit"].btn-icon{
+				width: auto;
+				border-radius: 2rem;
+				
+				&__img{
+					flex: 0 0 48px;
+					width: 48px;
+					padding: 5px 5px 5px 10px;
+				}
+
+				&__text{
+					display: block;
+					font-size: 1.4rem;
+				}
+			}
+		}
+
+		&__link{margin-bottom: 16px;}
 	}
 }

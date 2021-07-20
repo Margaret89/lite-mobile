@@ -513,8 +513,8 @@ if($('.js-product-slider').length){
 		slidesToScroll: 1,
 		asNavFor: '.js-product-slider',
 		focusOnSelect: true,
-		prevArrow: '<button id="prev" type="button" class="product-arr product-arr_up"><svg class="icon ic-arrow-up" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-up"></use></svg></button>',
-		nextArrow: '<button id="next" type="button" class="product-arr product-arr_down"><svg class="icon ic-arrow-down" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-down"></use></svg></button>',
+		prevArrow: '<button id="prev" type="button" class="product-arr product-arr_up"><svg class="icon ic-arrow-up-thin" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-up-thin"></use></svg></button>',
+		nextArrow: '<button id="next" type="button" class="product-arr product-arr_down"><svg class="icon ic-arrow-down-thin" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-down-thin"></use></svg></button>',
 		// responsive: [
 		// 	{
 		// 		breakpoint: 1260,

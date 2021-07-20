@@ -67,7 +67,9 @@ h3,.h3{
 
 h4,.h4{
 	font-size: 2rem;
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 h5,.h5{
@@ -163,7 +165,7 @@ button.btn_border{
 	background: #fff;
 	color: $color-text;
 
-	.icon{fill: $color-text;}
+	.icon{fill: $color-orange;}
 }
 
 .btn_border::before,
@@ -177,6 +179,20 @@ button.btn_border:hover{
 	color: #fff;
 
 	.icon{fill: #fff;}
+}
+
+.btn_white,
+button.btn_white,
+input[type="submit"].btn_white{
+	background: #fff;
+	color: $color-text;
+
+	.icon{fill: $color-orange;}
+}
+
+.btn_white::before,
+button.btn_white::before{
+	background: $color-orange;
 }
 
 .btn_medium,

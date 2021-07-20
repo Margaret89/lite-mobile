@@ -1,0 +1,79 @@
+/*-------------- reviews -----------------*/
+.reviews{
+	&__top{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 16px 32px;
+		border-bottom: 1px solid #e5e6f0;
+	}
+
+	&__info{
+		@include font(normal, normal, 1.4rem, 1.4, $color-dark-grey);
+		margin-right: 10px;
+	}
+
+	&__more{
+		@include font(normal, normal, 1.4rem, 1.4, $color-orange);
+		letter-spacing: 1px;
+	}
+}
+
+.review-item{
+	padding: 30px 32px 34px;
+
+	&:not(:last-child){border-bottom: 1px solid #e5e6f0;}
+
+	&__top{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 22px;
+	}
+
+	&__author{
+		display: inline-flex;
+		align-items: center;
+		margin-right: 16px;
+	}
+
+	&__icon{
+		flex: 0 0 18px;
+		width: 18px;
+		margin-right: 12px;
+
+		.icon{fill: $color-orange;}
+	}
+
+	&__name{
+		@include font(normal, normal, 1.4rem, 1.4, $color-orange);
+	}
+
+	&__mark{
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+	}
+
+	&__count{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 24px;
+		width: 24px;
+		height: 24px;
+		background: $color-dark-grey;
+		border-radius: 50%;
+		@include font(normal, 600, 1.2rem, 1, #fff);
+		margin-left: 12px;
+	}
+
+	&__sect:not(:last-child){margin-bottom: 16px;}
+
+	&__sect{
+		@include font(normal, normal, 1.4rem, 1.7, $color-dark-grey);
+	}
+
+	&__label{
+		color: $color-text;
+		font-weight: 600;
+	}
+}

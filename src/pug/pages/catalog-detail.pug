@@ -35,8 +35,8 @@ block content
 									+svg('ic-heart','ic-heart', '22', '18')
 								.cat-action-link__text Добавить в избранное
 
-						.cat-detail-action__item.active
-							a(href="#").cat-action-link
+						.cat-detail-action__item
+							a(href="#").cat-action-link.active
 								.cat-action-link__icon
 									+svg('ic-compare','ic-compare', '23', '18')
 								.cat-action-link__text Удалить из сравнения
@@ -93,9 +93,8 @@ block content
 												{color:'#f0d90a'},
 											]
 										each item in list
-											.cat-offers-colors__item(style="background:"+item.color)
+											.cat-offers-colors__item(style="background:"+item.color, class=item.status?'active':'')
 												+svg('ic-tick','ic-tick', '12', '8')
-
 
 							.cat-main-params
 								-
@@ -140,23 +139,24 @@ block content
 									+svg('ic-cart-add','ic-cart-add', '22', '18')
 									span Добавить в корзину
 
-								a.btn.btn_medium(href='#')
+								a.btn.btn_medium.btn_border(href='#')
 									+svg('ic-click','ic-click', '22', '16')
-									span Добавить в корзину
+									span Купить в 1 клик!
 
-								a.btn.btn_medium.btn_white.btn_sb(href='#')
-									span Добавить в корзину
+								a.btn-info(href='#')
+									span Купить в кредит
 
-									.btn-info
-										.btn-info__icon
+									span.btn-info__icon-wrap
+										span.btn-info__icon
 											+svg('ic-info','ic-info', '2', '10')
 											+svg('ic-close','ic-close', '8', '8')
 
-										.btn-info__popup
-											.btn-info__text Кредит от 333 ₽ в месяц от банка Ренессанс Кредит
-											.btn-info__time
-												+svg('ic-time','ic-time', '14', '14')
-												|Перейти к оформлению
+										.btn-info__popup-wrap
+											.btn-info__popup
+												.btn-info__text Кредит от 333 ₽ в месяц от банка Ренессанс Кредит
+												.btn-info__time
+													+svg('ic-time','ic-time', '14', '14')
+													|Перейти к оформлению
 
 						.datail-card__bottom
 							.datail-card__bottom-icon
@@ -172,14 +172,14 @@ block content
 							.other-products
 								-
 									var list=[
-										{img:'accessories1.jpg', title:'Антибактериальное средство (антисептик 70% защиты)', price:'560'},
+										{img:'accessories1.jpg', title:'Антибактериальное средство (антисептик 70% защиты от бактерий)', price:'560'},
 										{img:'accessories2.jpg', title:'Антибактериальное средство (антисептик 70% защиты)', price:'2 210', in_cart:'true'},
 										{img:'accessories3.jpg', title:'Антибактериальное средство (антисептик 70% защиты)', price:'160'},
 									]
 								each item in list
 									.other-products__item
-										.other-products__img-wrap
-											a(href="#").other-products__img
+										a(href="#").other-products__img-wrap
+											.other-products__img
 												img(src="assets/img/"+item.img, alt="")
 										
 										.other-products__content
@@ -200,7 +200,7 @@ block content
 								span.btn-more__text Показать все аксессуары 
 									span.btn-more__count (11)
 
-						.tabs-page.js-tabs-page
+						.tabs-page.tabs-page_white.js-tabs-page
 							ul.tabs-page__list.js-tabs-page-list
 								li.tabs-page__item.js-tabs-page-item(data-item='params') Характеристики
 								li.tabs-page__item.js-tabs-page-item(data-item='desc') Описание
@@ -322,25 +322,24 @@ block content
 													.review-item__content
 														if(item.advant)
 															.review-item__sect
-																.review-item__label Достоинства: 
-																.review-item__val= item.advant
+																span.review-item__label Достоинства: 
+																span.review-item__val= item.advant
 														
 														if(item.disadvant)
 															.review-item__sect
-																.review-item__label Недостатки: 
-																.review-item__val= item.disadvant
+																span.review-item__label Недостатки: 
+																span.review-item__val= item.disadvant
 														
 														if(item.comment)
 															.review-item__sect
-																.review-item__label Комментарий: 
-																.review-item__val= item.comment
+																span.review-item__label Комментарий: 
+																span.review-item__val= item.comment
 														
 						.notice
 							.notice__icon
 								+svg('ic-info','ic-info', '2', '10')
 
 							.notice__text Согласно п. 16 постановления Правительства РФ от 31.12.2020 N 2463, Продавец определил, что данный товар не предназначен для осуществления продажи дистанционным способом. Также, Продавец обращает внимание Потребителя: - «Перед покупкой необходимо уточнять наличие товара, стоимость товара и доступное количество к продаже».
-
 
 						.short-info
 							.short-info__content
@@ -358,15 +357,15 @@ block content
 										.short-time__label Выходные
 										.short-time__text <span class="short-time__hour">12</span>:00–<span class="short-time__hour">19</span>:00
 
-							a.btn.btn_white(href='#')
+							a.btn.btn_white.btn_medium(href='#')
 								+svg('ic-incoming','ic-incoming', '16', '16')
 								span Заказать обратный звонок
 								
 				.col-3
-					.dilivery-wrap
+					.delivery-wrap
 						.h4 Доставка
 
-						.dilivery-list
+						.delivery-list
 							-
 								var list=[
 									{title:'Доставка курьером:', text:'290 ₽, 30 апреля'},
@@ -378,12 +377,14 @@ block content
 									{title:'Самовывоз:', text:'150 ₽ 1 мая 15-22 ч. (предзаказ) по адресу: ТРЦ Леомолл, ул. Планерная, 59, Салон связи Йота'},
 								]
 							each item in list
-								.dilivery-list__item
-									.dilivery-list__top
-										.dilivery-list__title= item.title
+								.delivery-list__item
+									.delivery-list__top
+										.delivery-list__title= item.title
 
-										a(href="#").dilivery-list__arr
+										a(href="#").delivery-list__arr
 											+svg('ic-arrow-right','ic-arrow-right', '8', '16')
+
+									.delivery-list__text= item.text
 
 						.info-new-wrap
 							.h4 COVID19

@@ -176,6 +176,24 @@ block content
 
 				br
 				br
+				.tabs-page.tabs-page_white.js-tabs-page
+					ul.tabs-page__list.js-tabs-page-list
+						li.tabs-page__item.js-tabs-page-item(data-item='tab5') Tab1
+						li.tabs-page__item.js-tabs-page-item(data-item='tab6') Tab2
+						li.tabs-page__item.js-tabs-page-item(data-item='tab7') Tab3
+						li.tabs-page__item.js-tabs-page-item(data-item='tab8') Tab4
+					.tabs-page__content.js-tabs-page-content
+						#tab5.tabs-page__content-item.js-tabs-page-content-item
+							| Первый контент
+						#tab6.tabs-page__content-item.js-tabs-page-content-item
+							| Второй контент
+						#tab7.tabs-page__content-item.js-tabs-page-content-item
+							| Третий контент
+						#tab8.tabs-page__content-item.js-tabs-page-content-item
+							| Четвёртый контент
+
+				br
+				br
 				div.h2 Иконки
 				.type-icon
 					.type-icon__item
@@ -277,6 +295,16 @@ block content
 						.type-icon__img
 							+svg('ic-arrow-down','ic-arrow-down', '20', '10')
 						.type-icon__name ic-arrow-down
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-arrow-up-thin','ic-arrow-up-thin', '20', '10')
+						.type-icon__name ic-arrow-up-thin
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-arrow-down-thin','ic-arrow-down-thin', '20', '10')
+						.type-icon__name ic-arrow-down-thin
 
 					.type-icon__item
 						.type-icon__img

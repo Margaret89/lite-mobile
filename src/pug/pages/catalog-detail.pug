@@ -21,28 +21,30 @@ block content
 			.row
 				.col-12
 					.cat-detail-action
-						.cat-detail-action__item
-							span.cat-detail-action__label Модель: 
-							span.cat-detail-action__val WILDFARE E2
+						.cat-detail-action__sect
+							.cat-detail-action__item
+								span.cat-detail-action__label Модель: 
+								span.cat-detail-action__val WILDFARE E2
 
-						.cat-detail-action__item
-							span.cat-detail-action__label Код товара: 
-							span.cat-detail-action__val 00227267
+							.cat-detail-action__item
+								span.cat-detail-action__label Код товара: 
+								span.cat-detail-action__val 00227267
 
-						.cat-detail-action__item
-							a(href="#").cat-action-link
-								.cat-action-link__icon
-									+svg('ic-heart','ic-heart', '22', '18')
-								.cat-action-link__text Добавить в избранное
+						.cat-detail-action__sect
+							.cat-detail-action__item
+								a(href="#").cat-action-link
+									.cat-action-link__icon
+										+svg('ic-heart','ic-heart', '22', '18')
+									.cat-action-link__text Добавить в избранное
 
-						.cat-detail-action__item
-							a(href="#").cat-action-link.active
-								.cat-action-link__icon
-									+svg('ic-compare','ic-compare', '23', '18')
-								.cat-action-link__text Удалить из сравнения
-			
+							.cat-detail-action__item
+								a(href="#").cat-action-link.active
+									.cat-action-link__icon
+										+svg('ic-compare','ic-compare', '23', '18')
+									.cat-action-link__text Удалить из сравнения
+				
 			.row
-				.col-9
+				.col-lg-9
 					.cat-detail-main
 						.product-slider-wrap
 							.product-thumb-slider.js-product-thumb-slider
@@ -121,25 +123,25 @@ block content
 										if(item.tag)
 											span.cat-main-params__tag= item.tag
 
-				.col-3
-					.datail-card
-						.datail-card__content
-							.datail-card__info
-								.datail-card__status Товар в наличии на складе
+				.col-lg-3
+					.detail-card
+						.detail-card__content
+							.detail-card__info
+								.detail-card__status Товар в наличии на складе
 
-								.datail-card__price
-									.datail-card__price-cur 9 100 ₽
-									.datail-card__price-old 20 580 ₽
+								.detail-card__price
+									.detail-card__price-cur 9 100 ₽
+									.detail-card__price-old 20 580 ₽
 
-								.datail-card__text Цена товара не окончательная, просим Вас уточнять информацию в магазине.
-								.datail-card__note Цена указана с учетом промокода, цена без промокода составляет 9555 ₽.
+								.detail-card__text Цена товара не окончательная, просим Вас уточнять информацию в магазине.
+								.detail-card__note Цена указана с учетом промокода, цена без промокода составляет 9555 ₽.
 
-							.datail-card__btn
+							.detail-card__btn
 								a.btn(href='#')
 									+svg('ic-cart-add','ic-cart-add', '22', '18')
 									span Добавить в корзину
 
-								a.btn.btn_medium.btn_border(href='#')
+								a(data-fancybox='' data-src='#one-click' href='javascript:;').btn.btn_medium.btn_border
 									+svg('ic-click','ic-click', '22', '16')
 									span Купить в 1 клик!
 
@@ -158,13 +160,13 @@ block content
 													+svg('ic-time','ic-time', '14', '14')
 													|Перейти к оформлению
 
-						.datail-card__bottom
-							.datail-card__bottom-icon
+						.detail-card__bottom
+							.detail-card__bottom-icon
 								+svg('ic-change','ic-change', '22', '12')
-							.datail-card__bottom-text Еще дешевле с системой Trade In!
+							.detail-card__bottom-text Еще дешевле с системой Trade In!
 
 			.row
-				.col-9
+				.col-lg-9
 					.cat-detail-content
 						.other-products-wrap
 							.h4 Аксессуары
@@ -361,7 +363,7 @@ block content
 								+svg('ic-incoming','ic-incoming', '16', '16')
 								span Заказать обратный звонок
 								
-				.col-3
+				.col-lg-3
 					.delivery-wrap
 						.h4 Доставка
 
@@ -398,3 +400,32 @@ block content
 									span.btn-icon__text Перейти в раздел
 
 	include ../components/catalog-offers
+
+	#one-click.one-click(style='display: none;')
+		.popup
+			.popup__title Купить в 1 клик!
+
+			.one-click-form
+				.js-valid-form(data-success='Ваша заявка отправлена!')
+					form.form-site
+						.form-site__text Оставьте свой номер телефона, и мы свяжемся с вами для уточнения деталей заказа.
+
+						.form-site__content
+							.form-site__item.js-form-site-item
+								.form-site__field
+									input.js-phone(type="text", placeholder="Введите телефон...", required="required")
+
+						.form-site__note Уважаемые покупатели! Мы ценим ваше здоровье, поэтому, если курьер пришел к вам без защитной маски и перчаток, обязательно сообщите нам!
+
+						.form-site__bottom
+							.input-check
+								input#polit-click(type='checkbox', checked="checked")
+								label.input-check__label(for='polit-click')
+									span.input-check__mark
+									span.input-check__text Принимаю условия 
+										a(href="#") пользовательского&nbsp;соглашения
+
+							button(type="submit").btn-icon.js-btn-submit
+								span.btn-icon__img
+									+svg('ic-tick','ic-tick', '18', '12')
+								span.btn-icon__text Отправить

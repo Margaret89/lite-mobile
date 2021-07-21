@@ -1,0 +1,62 @@
+/*-------------- one-click -----------------*/
+.one-click{
+	.popup{
+		width: 492px;
+		max-width: 100%;
+		padding: 0;
+
+		&__title{
+			padding: 32px 40px;
+			border-bottom: 1px solid #e5e6f0;
+			margin: 0;
+		}
+	}
+
+	.form-site{
+		&__text{
+			color: $color-text;
+			margin-bottom: 24px;
+		}
+
+		&__bottom{
+			margin: 32px -32px -32px;
+
+			.input-check{
+				max-width: calc(100% - 180px);
+
+				&__text{
+					font-size: 1.2rem;
+					line-height: 1.5;
+					margin-left: 12px;
+					padding-left: 12px;
+					border-left: 1px solid #e5e6f0;
+				}
+			}
+		}
+	}
+}
+
+.one-click-form{padding: 32px;}
+
+@media (max-width: 767px) {
+	.one-click{
+		.popup{
+			&__title{padding: 24px;}
+		}
+
+		.form-site{
+			&__text{margin-bottom: 15px;}
+	
+			&__bottom{
+				margin: 24px -17px -24px;
+	
+				.input-check{
+					max-width: none;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.one-click-form{padding: 24px;}
+}

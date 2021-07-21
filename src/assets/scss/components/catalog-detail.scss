@@ -10,11 +10,20 @@
 	margin-bottom: 24px;
 	padding: 5px 8px;
 
+	&__sect{
+		display: flex;
+		align-items: center;
+	}
+
 	&__item{
 		@include font(normal, normal, 1.4rem, 1.4, $color-text);
 	}
 
-	&__item:not(:last-child){margin-right: 24px;}
+	&__sect:not(:last-child),
+	&__item:not(:last-child){
+		margin-right: 24px;
+	}
+
 	&__label{color: $color-dark-grey;}
 }
 
@@ -44,7 +53,7 @@
 }
 
 .cat-detail-main,
-.datail-card{
+.detail-card{
 	height: calc(100% - 38px);
 	margin-bottom: 38px;
 }
@@ -248,7 +257,7 @@
 	}
 }
 
-.datail-card{
+.detail-card{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -634,6 +643,7 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
+		width: calc(100% - 250px);
 		margin-right: 8px;
 	}
 
@@ -727,4 +737,97 @@
 	}
 
 	.btn-icon{margin-top: 16px;}
+}
+
+@media (max-width: 1349px) {
+	.cat-detail-content,
+	.cat-detail-main{
+		margin-right: 0;
+	}
+
+	.short-info{align-items: flex-end;}
+
+	.short-info-phone{
+		width: 100%;
+		padding-right: 0;
+		border-right: 0;
+		margin-right: 0;
+		margin-bottom: 24px;
+	}
+
+	.other-products{
+		&__img-wrap{
+			flex: 0 0 80px;
+			width: 80px;
+		}
+	}
+
+	.detail-card{
+		&__content{padding: 16px;}
+		&__price-cur{font-size: 4rem;}
+		&__price-old{font-size: 1.8rem;}
+
+		.btn,
+		button.btn,
+		input[type="submit"].btn{
+			height: 4.8rem;
+			font-size: 1.4rem;
+			line-height: 4.6rem;
+			padding: 0 15px;
+		}
+
+		.btn-info{font-size: 1.4rem;}
+	}
+}
+
+@media (max-width: 991px) {
+	.cat-action-link{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border: 1px solid $color-orange;
+		border-radius: 50%;
+
+		&__text{display: none;}
+		&__icon{margin: 0;}
+		&.active{background: $color-orange;}
+		&.active &__icon .icon{fill: #fff;}
+	}
+
+	.cat-detail-action{justify-content: space-between;}
+
+	.detail-card{
+		&__btn{max-width: 300px;}
+	}
+
+	.cat-detail-content{margin-bottom: 32px;}
+}
+
+@media (max-width: 767px) {
+	.cat-detail-action{
+		padding-left: 16px;
+		margin-bottom: 16px;
+
+		&__label,
+		&__val{
+			display: block;
+		}
+
+		&__item{font-size: 1.2rem;}
+		&__item:not(:last-child){margin-right: 17px;}
+		&__sect:last-child &__item:not(:last-child){margin-right: 10px;}
+	}
+
+	.cat-detail-main{display: block;}
+
+	.product-slider-wrap,
+	.cat-detail-main__info{
+		width: 100%;
+	}
+
+	.product-slider-wrap{
+		flex-direction: column-reverse;
+	}
 }

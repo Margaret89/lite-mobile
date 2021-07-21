@@ -13,6 +13,12 @@
 		margin-bottom: 8px;
 	}
 
+	&__note{
+		@include font(normal, normal, 1.4rem, 1.4, $color-dark-grey);
+		padding: 0 8px;
+		margin-top: 6px;
+	}
+
 	&__item{
 		width: calc(100% - 16px);
 		margin: 0 8px 18px;
@@ -79,6 +85,14 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-top: 25px;
+	}
+
+	&__bottom{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-top: 1px solid #e5e6f0;
+		padding: 24px;
 	}
 
 	&__item.error{
@@ -172,11 +186,19 @@
 
 		&__btn{margin-top: 0;}
 
-		&__text{
+		&__text,
+		&__note{
 			font-size: 1.2rem;
 			line-height: 1.5;
 		}
 
+		&__note{margin-top: -2px;}
 		&__item_half{width: calc(100% - 16px);}
+
+		&__bottom{
+			flex-wrap: wrap;
+
+			.btn-icon{margin-top: 24px;}
+		}
 	}
 }

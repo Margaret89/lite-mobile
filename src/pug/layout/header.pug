@@ -519,3 +519,16 @@ header.header
 						a(href="#").social__item
 							+svg(item, item, '24', '24')
 
+
+if(catlog_nav)
+	.cat-panel
+		-
+			var list=[
+				{text:'Характеристики', link:'#detail-tabs', js:'params'},
+				{text:'Описание', link:'#detail-tabs', js:'desc'},
+				{text:'Отзывы', link:'#detail-tabs', js:'reviews'},
+				{text:'Доставка', link:'#delivery'},
+				{text:'Аксессуары', link:'#accessories'},
+			]
+		each item in list
+			a(href=item.link, class='cat-panel__item js-cat-panel-item', data-click=item.js)= item.text

@@ -1,0 +1,361 @@
+/*-------------- cart -----------------*/
+.cart-page{margin-top: 27px;}
+
+.cart{
+	width: 100%;
+	background: #fff;
+	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+
+	&__cell{
+		vertical-align: middle;
+		padding: 16px 24px;
+	}
+
+	&__cell:first-child{padding-left: 16px;}
+	&__cell:last-child{padding-right: 48px;}
+
+	&__cell_img{width: 92px;}
+	&__cell_price{width: 100px;}
+	&__cell_count{width: 150px;}
+	&__cell_sum{width: 155px;}
+	&__cell_del{width: 85px;}
+
+	&__content{
+		display: flex;
+		align-items: center;
+	}
+
+	&__img-wrap{
+		flex: 0 0 68px;
+		width: 68px;
+		margin-right: 16px;
+		border: 1px solid #e5e6f0;
+		position: relative;
+		transition: border 0.2s ease 0s;
+	}
+
+	&__img-wrap:hover{border-color: $color-orange;}
+
+	&__img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding-bottom: 100%;
+
+		img{
+			max-height: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%)
+		}
+	}
+
+	&__title{
+		@include font(normal, normal, 1.6rem, 1.5, $color-text);
+
+		a{
+			color: $color-text;
+			text-decoration: none;
+			transition: color 0.2s ease 0s;
+		}
+
+		a:hover{color: $color-dark-grey;}
+	}
+
+	&__info{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 8px;
+	}
+
+	&__status{
+		display: inline-block;
+		vertical-align: top;
+		min-width: 144px;
+		@include font(normal, normal, 1.2rem, 2.2rem, $color-orange);
+		text-align: center;
+		padding: 0 12px;
+		border: 1px solid $color-orange;
+		border-radius: 1.2rem;
+		margin-right: 16px;
+	}
+
+	&__status_grey{
+		color: $color-dark-grey;
+		border-color: $color-dark-grey;
+	}
+
+	&__article{
+		@include font(normal, normal, 1.2rem, 1.2, $color-dark-grey);
+	}
+
+	&__price{
+		@include font(normal, 600, 1.6rem, 1.5, $color-text);
+		text-align: right;
+		white-space: nowrap;
+	}
+
+	&__sum{
+		@include font(normal, 600, 2.4rem, 1.5, $color-text);
+		text-align: right;
+		white-space: nowrap;
+	}
+
+	&__row{border-bottom: 1px solid #e5e6f0;}
+
+	&__del{
+		display: inline-block;
+		vertical-align: middle;
+
+		.icon{
+			display: block;
+			fill: $color-orange;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__del:hover .icon{fill: $color-dark-grey;}
+
+	&__total{
+		background: #e5e6f0;
+	}
+
+	&__total &__del .icon{fill: $color-dark-grey;}
+	&__total &__del:hover .icon{fill: $color-orange;}
+
+	&__count{
+		@include font(normal, normal, 1.6rem, 1.2, color-text);
+		text-align: center;
+	}
+
+	&__label{
+		@include font(normal, 600, 1.6rem, 1.2, $color-text);
+		text-align: right;
+	}
+}
+
+.cart-action{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 32px;
+
+	&__link{
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+		padding-left: 8px;
+		margin-right: 16px;
+	}
+
+	&__btn{
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		.btn:not(:last-child){margin-right: 16px;}
+	}
+}
+
+.cart-action-link{
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	margin-top: 8px;
+	margin-bottom: 8px;
+
+	&__icon{
+		margin-right: 8px;
+
+		.icon{
+			fill: $color-orange;
+			transition: all 0.2s ease 0s;
+		}
+
+		.ic-cart{flex: 0 0 18px}
+		.ic-edit{flex: 0 0 14px}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.2, $color-orange);
+		transition: color 0.2s ease 0s;
+	}
+
+	&:hover &__icon .icon{fill: $color-dark-grey;}
+	&:hover &__text{color: $color-dark-grey;}
+	&:not(:last-child){margin-right: 32px;}
+
+	&_grey &__icon .icon{fill: $color-dark-grey;}
+	&_grey &__text{color: $color-dark-grey;}
+	&_grey:hover &__icon .icon{fill: $color-orange;}
+	&_grey:hover &__text{color: $color-orange;}
+}
+
+.cart-delivery{
+	border: 1px solid #e5e6f0;
+	padding: 32px;
+	margin-top: 32px;
+
+	&__title{
+		@include font(normal, 600, 2rem, 1.2, $color-text);
+		margin-bottom: 2rem;
+	}
+
+	&__item{
+		@include font(normal, normal, 1.4rem, 1.2, $color-text);
+	}
+
+	&__item:not(:last-child){margin-bottom: 8px;}
+	&__label{color: $color-dark-grey;}
+}
+
+@media (max-width: 991px) {
+	.cart{
+		&,
+		td,
+		thead,
+		tfoot{
+			display: block;
+		}
+
+		tr{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			position: relative;
+		}
+
+		&__cell{padding: 16px;}
+
+		&__cell_del{
+			width: auto;
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			padding: 0;
+		}
+
+		&__cell:last-child{padding-right: 0;}
+		&__cell_content{width: 100%;}
+		&__content{padding-right: 30px;}
+
+		&__cell_count{width: 132px;}
+
+		&__cell_price,
+		&__cell_sum,
+		&__cell_label{
+			width: calc(50% - 66px);
+		}
+
+		&__price,
+		&__label{
+			text-align: left;
+		}
+
+		&__total &__sum{padding-right: 30px;}
+
+		&__total &__cell_del{
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	.cart-action{flex-direction: column-reverse;}
+}
+
+@media (max-width: 767px) {
+	.cart-page{margin-top: 22px;}
+
+	.cart{
+		&__content{
+			align-items: flex-start;
+			padding-right: 16px;
+			margin-bottom: -18px;
+		}
+
+		&__img-wrap{
+			flex: 0 0 80px;
+			width: 80px;
+		}
+
+		&__title{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+
+		&__info{flex-wrap: nowrap;}
+
+		&__status{
+			min-width: auto;
+			border: 0;
+			padding: 0;
+			text-align: left;
+			line-height: 1.5;
+			white-space: normal;
+		}
+
+		&__article{line-height: 1.5;}
+
+		&__price,
+		&__sum{
+			font-size: 1.4rem;
+		}
+
+		&__price{font-weight: normal;}
+		&__label{font-size: 1.4rem;}
+		&__count{font-size: 1.2rem;}
+		&__total .cart__sum{font-size: 2rem;}
+
+		&__total &__cell_label,
+		&__total &__cell_sum{
+			width: calc(50% - 40px);
+		}
+
+		&__total &__cell_count{width: 80px;}
+		&__total &__cell{padding: 8px;}
+		&__total &__cell:first-child{padding-left: 16px;}
+		&__total &__cell_del{padding: 0;}
+	}
+
+	.cart-action{
+		margin-top: 16px;
+
+		&__btn{
+			.btn{width: 100%;}
+
+			.btn:not(:last-child){
+				margin-right: 0;
+				margin-bottom: 16px;
+			}
+		}
+
+		&__link{
+			margin-right: 0;
+			margin-top: 10px;
+			padding-left: 0;
+		}
+	}
+
+	.cart-action-link{
+		&:not(:last-child){margin-right: 16px;}
+		&__text{font-size: 1.2rem;}
+	}
+
+	.cart-delivery{
+		padding: 12px 16px 16px;
+		margin-top: 24px;
+
+		&__title{margin-bottom: 14px;}
+
+		&__item{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+}

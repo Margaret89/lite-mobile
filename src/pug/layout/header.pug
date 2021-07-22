@@ -1,170 +1,171 @@
-header.header
-	.header-top.js-header-top
-		.header-top__info
-			.header-top__menu.js-header-top-menu.d-lg-none
-				+svg('ic-burger','ic-burger', '22', '16')
+header.header(class=sort_header==true?'header_short':'')
+	if(sort_header != true)
+		.header-top.js-header-top
+			.header-top__info
+				.header-top__menu.js-header-top-menu.d-lg-none
+					+svg('ic-burger','ic-burger', '22', '16')
 
-			a(href="#").header-top__logo.d-lg-none
-				img(src="assets/img/logo.svg", alt="")
+				a(href="#").header-top__logo.d-lg-none
+					img(src="assets/img/logo.svg", alt="")
 
-			.social.d-none.d-xl-flex
-				.social__list
-					-
-						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
-					
-					each item in list
-						a(href="#").social__item
-							+svg(item, item, '24', '24')
+				.social.d-none.d-xl-flex
+					.social__list
+						-
+							var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+						
+						each item in list
+							a(href="#").social__item
+								+svg(item, item, '24', '24')
 
-			ul.top-menu.d-none.d-lg-inline-flex
-				-
-					var list=[
-						{text:'О магазине'},
-						{text:'Как купить?', status:'active'},
-						{text:'Вопросы и ответы'},
-						{text:'Доставка'},
-						{text:'Контакты'},
-					]
-
-				each item in list
-					li.top-menu__item(class=item.status?'active':'')
-						a(href="#").top-menu__link= item.text
-
-			a(href="#").warning.d-none.d-lg-inline-flex
-				span.warning__icon
-					+svg('ic-info','ic-info', '2', '10')
-				span.warning__text Опасайтесь мошенников!
-
-		.header-top__action
-			
-
-			.header-top__btn.d-none.d-lg-block
-				.header-auth
-					if(auth == true)
-						.header-auth__content-wrap
-							.header-auth__content
-								.header-auth__top
-									.header-auth__ava
-										+svg('ic-user','ic-user', '18', '18')
-									.header-auth__name Анастасия
-									.header-auth__arr
-										+svg('ic-arrow-down','ic-arrow-down', '8', '4')
-
-								.header-auth__popup
-									-
-										var list=[
-											{icon:'ic-setting', icon_width:'20', icon_height:'20', text:'Личный кабинет'},
-											{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина', num:'1'},
-											{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', num:'0', status:'inactive'},
-											{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению', num:'3'},
-											{icon:'ic-history', icon_width:'19', icon_height:'19', text:'История'},
-											{icon:'ic-power', icon_width:'19', icon_height:'19', text:'Выход'},
-										]
-
-									each item in list
-										a(href="#").header-auth__item(class=item.status?item.status:'')
-											.header-auth__info
-												.header-auth__icon
-													+svg(item.icon, item.icon, item.icon_width, item.icon_height)
-												.header-auth__text= item.text
-
-											if(item.num)
-												.header-auth__count= item.num
-
-					else
-						a(data-fancybox='' data-src='#auth' href='javascript:;').header-auth__btn
-							+svg('ic-user','ic-user', '18', '18')
-
-			.header-top__btn.d-none.d-lg-block
-				a(href="#").header-top__icon
-					+svg('ic-heart','ic-heart', '22', '18')
-
-			.header-top__btn.active.d-lg-none
-				a(data-fancybox='' data-src='#feadback-form' href='javascript:;').header-top__icon
-					+svg('ic-call','ic-call ic-stroke', '16', '16')
-
-			.header-top__btn.active
-				a(href="#").header-top__icon
-					+svg('ic-compare','ic-compare', '23', '18')
-					.header-top__count 3
-
-				.header-compare
+				ul.top-menu.d-none.d-lg-inline-flex
 					-
 						var list=[
-							{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)'},
-							{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key'},
-							{img:'comp-mini3.png', text:'Телевизор Telefunken 23.6" TF-LED24S22T2 (Цвет: Black)'},
+							{text:'О магазине'},
+							{text:'Как купить?', status:'active'},
+							{text:'Вопросы и ответы'},
+							{text:'Доставка'},
+							{text:'Контакты'},
 						]
 
 					each item in list
-						.basket-product
-							a(href="#").basket-product__img-wrap
-								.basket-product__img
-									img(src="assets/img/"+item.img, alt="")
+						li.top-menu__item(class=item.status?'active':'')
+							a(href="#").top-menu__link= item.text
 
-							.basket-product__content
-								.basket-product__info
-									.basket-product__text
-										a(href="#")= item.text
-									a(href="#").basket-product__del
-										+svg('ic-bin','ic-bin', '12', '14')
+				a(href="#").warning.d-none.d-lg-inline-flex
+					span.warning__icon
+						+svg('ic-info','ic-info', '2', '10')
+					span.warning__text Опасайтесь мошенников!
 
-					a(href="#").header-compare__bottom
-						+svg('ic-compare','ic-compare', '19', '14')
-						| Сравнить эти товары
+			.header-top__action
+				
 
-			.header-top__btn.active
-				a(href="#").header-top__icon
-					+svg('ic-cart','ic-cart', '22', '18')
-					.header-top__count 1
+				.header-top__btn.d-none.d-lg-block
+					.header-auth
+						if(auth == true)
+							.header-auth__content-wrap
+								.header-auth__content
+									.header-auth__top
+										.header-auth__ava
+											+svg('ic-user','ic-user', '18', '18')
+										.header-auth__name Анастасия
+										.header-auth__arr
+											+svg('ic-arrow-down','ic-arrow-down', '8', '4')
 
-				.header-basket
-					-
-						var list=[
-							{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)', price:'16 160 ₽', count:'1 шт', sum:'16 160 ₽'},
-							{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key', price:'2 650 ₽', count:'1 шт', sum:'2 650 ₽'},
-						]
+									.header-auth__popup
+										-
+											var list=[
+												{icon:'ic-setting', icon_width:'20', icon_height:'20', text:'Личный кабинет'},
+												{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина', num:'1'},
+												{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', num:'0', status:'inactive'},
+												{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению', num:'3'},
+												{icon:'ic-history', icon_width:'19', icon_height:'19', text:'История'},
+												{icon:'ic-power', icon_width:'19', icon_height:'19', text:'Выход'},
+											]
 
-					each item in list
-						.basket-product
-							a(href="#").basket-product__img-wrap
-								.basket-product__img
-									img(src="assets/img/"+item.img, alt="")
+										each item in list
+											a(href="#").header-auth__item(class=item.status?item.status:'')
+												.header-auth__info
+													.header-auth__icon
+														+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+													.header-auth__text= item.text
 
-							.basket-product__content
-								.basket-product__info
-									.basket-product__text
-										a(href="#")= item.text
-									a(href="#").basket-product__del
-										+svg('ic-bin','ic-bin', '12', '14')
+												if(item.num)
+													.header-auth__count= item.num
 
-								.basket-product__data
-									.basket-product__price= item.price
+						else
+							a(data-fancybox='' data-src='#auth' href='javascript:;').header-auth__btn
+								+svg('ic-user','ic-user', '18', '18')
 
-									.basket-product__sum-wrap
-										.basket-product__count= item.count
-										.basket-product__sum= item.sum
+				.header-top__btn.d-none.d-lg-block
+					a(href="#").header-top__icon
+						+svg('ic-heart','ic-heart', '22', '18')
 
-					.header-basket__total
-						.header-basket__label Итого:
+				.header-top__btn.active.d-lg-none
+					a(data-fancybox='' data-src='#feadback-form' href='javascript:;').header-top__icon
+						+svg('ic-call','ic-call ic-stroke', '16', '16')
 
-						.header-basket__sum-wrap
-							.header-basket__count 2 шт
-							.header-basket__sum 18 810 ₽
+				.header-top__btn.active
+					a(href="#").header-top__icon
+						+svg('ic-compare','ic-compare', '23', '18')
+						.header-top__count 3
 
-					.header-basket-bottom
+					.header-compare
 						-
 							var list=[
-								{icon:'ic-edit', icon_width:'14', icon_height:'14', text:'Черновик'},
-								{icon:'ic-cart', icon_width:'18', icon_height:'14', text:'Перейти в корзину'},
-								{icon:'ic-tick', icon_width:'18', icon_height:'12', text:'Оформить заказ', color:'orange'},
+								{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)'},
+								{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key'},
+								{img:'comp-mini3.png', text:'Телевизор Telefunken 23.6" TF-LED24S22T2 (Цвет: Black)'},
 							]
 
 						each item in list
-							a(href="#").header-basket-bottom__item(class=item.color?'header-basket-bottom__item_'+item.color:'')
-								.header-basket-bottom__icon
-									+svg(item.icon, item.icon, item.icon_width, item.icon_height)
-								.header-basket-bottom__text= item.text
+							.basket-product
+								a(href="#").basket-product__img-wrap
+									.basket-product__img
+										img(src="assets/img/"+item.img, alt="")
+
+								.basket-product__content
+									.basket-product__info
+										.basket-product__text
+											a(href="#")= item.text
+										a(href="#").basket-product__del
+											+svg('ic-bin','ic-bin', '12', '14')
+
+						a(href="#").header-compare__bottom
+							+svg('ic-compare','ic-compare', '19', '14')
+							| Сравнить эти товары
+
+				.header-top__btn.active
+					a(href="#").header-top__icon
+						+svg('ic-cart','ic-cart', '22', '18')
+						.header-top__count 1
+
+					.header-basket
+						-
+							var list=[
+								{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)', price:'16 160 ₽', count:'1 шт', sum:'16 160 ₽'},
+								{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key', price:'2 650 ₽', count:'1 шт', sum:'2 650 ₽'},
+							]
+
+						each item in list
+							.basket-product
+								a(href="#").basket-product__img-wrap
+									.basket-product__img
+										img(src="assets/img/"+item.img, alt="")
+
+								.basket-product__content
+									.basket-product__info
+										.basket-product__text
+											a(href="#")= item.text
+										a(href="#").basket-product__del
+											+svg('ic-bin','ic-bin', '12', '14')
+
+									.basket-product__data
+										.basket-product__price= item.price
+
+										.basket-product__sum-wrap
+											.basket-product__count= item.count
+											.basket-product__sum= item.sum
+
+						.header-basket__total
+							.header-basket__label Итого:
+
+							.header-basket__sum-wrap
+								.header-basket__count 2 шт
+								.header-basket__sum 18 810 ₽
+
+						.header-basket-bottom
+							-
+								var list=[
+									{icon:'ic-edit', icon_width:'14', icon_height:'14', text:'Черновик'},
+									{icon:'ic-cart', icon_width:'18', icon_height:'14', text:'Перейти в корзину'},
+									{icon:'ic-tick', icon_width:'18', icon_height:'12', text:'Оформить заказ', color:'orange'},
+								]
+
+							each item in list
+								a(href="#").header-basket-bottom__item(class=item.color?'header-basket-bottom__item_'+item.color:'')
+									.header-basket-bottom__icon
+										+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+									.header-basket-bottom__text= item.text
 
 	.header-middle.js-header-middle
 		.header-middle__logo-wrap
@@ -173,216 +174,10 @@ header.header
 
 			.header-middle__slogan Цифровая и бытовая техника
 
-		form.form-search
-			.form-search__content
-				input(type="text", placeholder="Введите название или бренд. Найдем все!", title="Введите название или бренд. Найдем все!")
-				button(type="submit")
-					+svg('ic-search','ic-search', '18', '18')
-
-			.form-search__popup
-				-
-					var list=[
-						{title:'Категории'},
-						{text:'ASUS'},
-						{text:'ASUS Tab'},
-						{title:'Товары'},
-						{text:'Смартфон ASUS Zenfone 7 ZS670KS 8/128Gb (Цвет: Aurora Black)'},
-						{text:'Монитор Asus 24.5" VG258QR (Цвет: Black)'},
-						{text:'Видеокарта ASUS GeForce GT 1030 1228MHz PCI-E 3.0 2048MB 6008MHz 1030 1228MHz PCI-E 3.0'},
-						{text:'Wi-Fi роутер Asus RT-AC66U'},
-						{text:'Роутер беспроводной Asus RT-AC86U AC2900'},
-					]
-				each item in list
-					if(item.title)
-						.form-search__title= item.title
-
-					if(item.text)
-						a(href="#").form-search__item= item.text
-
-
-				.form-search__res
-					a(href="#").form-search__more
-						+svg('ic-link','ic-link', '14', '14')
-						span.form-search__more-text Показать все результаты
-
-					.form-search__count 83
-
-		.header-msg
-			a(href="#").header-msg__item
-				+svg('ic-whatsapp','ic-whatsapp', '20', '20')
-
-		.header-middle__contact
-			.header-middle__phone
-				a(href="tel:+78123325432") 8 812 332-54-32
-			.header-middle__address СПб, ул. Рубинштейна, 23, оф. 98
-
-		a(data-fancybox='' data-src='#feadback-form' href='javascript:;').btn-callback
-			span.btn-callback__icon
-				+svg('ic-incoming','ic-incoming', '16', '16')
-			span.btn-callback__text Заказать обратный звонок
-
-		.header-time.d-none.d-xl-flex
-			.header-time__item
-				.header-time__label Будние дни
-				.header-time__text <span class="header-time__hour">9</span>:00–<span class="header-time__hour">20</span>:00
-
-			.header-time__item
-				.header-time__label Выходные
-				.header-time__text <span class="header-time__hour">12</span>:00–<span class="header-time__hour">19</span>:00
-
-	nav.main-menu
-		-
-			var list=[
-				{icon:'ic-menu', icon_width:'26', icon_height:'26', text:'Каталог', color:'orange', catalog:'true'},
-				{icon:'ic-phone', icon_width:'20', icon_height:'32', text:'Телефоны'},
-				{
-					icon:'ic-tv',
-					icon_width:'38',
-					icon_height:'30',
-					text:'Телевизоры',
-					sect:[
-						'BBK',
-						'Samsung',
-						'Hisense',
-						'Sony',
-						'Hyundai',
-						'TCL',
-						'LG',
-						'Thomson',
-						'Philips',
-						'Другие',
-					]
-				},
-				{icon:'ic-tablet', icon_width:'26', icon_height:'32', text:'Планшеты'},
-				{icon:'ic-components', icon_width:'32', icon_height:'32', text:'Комплектующие для ПК'},
-				{icon:'ic-watch', icon_width:'20', icon_height:'34', text:'Умные часы'},
-				{icon:'ic-accessories', icon_width:'21', icon_height:'28', text:'Аксессуары'},
-				{icon:'ic-laptop', icon_width:'40', icon_height:'28', text:'Ноутбуки'},
-				{icon:'ic-conditioner', icon_width:'36', icon_height:'26', text:'Климатическая техника'},
-				{icon:'ic-washer', icon_width:'26', icon_height:'32', text:'Техника для дома'},
-				{icon:'ic-scissors', icon_width:'26', icon_height:'26', text:'Уценка', color:'dark-grey'},
-				{icon:'ic-sale', icon_width:'26', icon_height:'26', text:'Распродажа', color:'grey'},
-				{icon:'ic-time', icon_width:'30', icon_height:'30', text:'Сливы', color:'red'},
-			]
-		ul.main-menu__list
-			each item in list
-				li.main-menu__item(class=item.color?'main-menu__item_'+item.color:'')
-					if(item.catalog)
-						.main-menu__link.js-main-menu-cat
-							.main-menu__icon
-								+svg(item.icon, item.icon, item.icon_width, item.icon_height)
-							.main-menu__text= item.text
-					else
-						a(href="#").main-menu__link
-							.main-menu__icon
-								+svg(item.icon, item.icon, item.icon_width, item.icon_height)
-							.main-menu__text= item.text
-
-					if(item.sect)
-						ul.main-menu__sub
-							each sub in item.sect
-								li.main-menu__sub-item
-									a(href="#").main-menu__sub-link= sub
-
-	nav.cat-menu.inactive.js-cat-menu
-		.cat-menu__close.js-cat-menu-close
-			+svg('ic-close','ic-close', '20', '20')
-
-		-
-			var list=[
-				{
-					text:'Телефоны',
-					sub:{
-						icon:'ic-phone',
-						icon_width:'40',
-						icon_height:'64',
-						sect:[
-							{text:'iphone'},
-							{text:'android'},
-						]
-					}
-				},
-				{
-					text:'Планшеты',
-					sub:{
-						icon:'ic-tablet',
-						icon_width:'52',
-						icon_height:'64',
-						sect:[
-							{
-								text:'Apple iPad',
-								subsect:[
-									'iPad (2020)',
-									'iPad Air (2019)',
-									'iPad Air (2020)',
-									'iPad mini (2019)',
-									'iPad Pro (2020)',
-								]
-							},
-							{text:'Huawei Tab'},
-							{text:'Samsung Tab'},
-							{text:'Другие планшеты'},
-						]
-					}
-				},
-				{text:'Ноутбуки'},
-				{text:'Гаджеты'},
-				{text:'Видео и медиа'},
-				{text:'Аудио, Hi-Fi'},
-				{text:'Фото и видео техника'},
-				{text:'Компьютеры'},
-				{text:'Оргтехника и периферия'},
-				{text:'Сетевое оборудование'},
-				{text:'Компьютерные комплектующие'},
-				{text:'Кухонная техника'},
-				{text:'Техника для дома'},
-				{text:'Красота и здоровье'},
-				{text:'Климатическая техника'},
-				{text:'Детские товары'},
-				{text:'Активный отдых'},
-				{text:'Товары для дачи'},
-				{text:'Электроинструмент'},
-				{text:'Автотовары'},
-				{text:'Аксессуары'},
-				{text:'Умный дом'},
-				{text:'Уценка'},
-			]
-
-		ul.cat-menu__list
-			each item in list
-				li.cat-menu__item.js-cat-menu-item
-					a(href="#").cat-menu__link= item.text
-						if(item.sub)
-							span.cat-menu__arr.js-cat-menu-arr
-								+svg('ic-arrow-right','ic-arrow-right', '6', '12')
-		
-					if(item.sub)
-						ul.cat-menu__sect.js-cat-menu-sect
-							li.cat-menu__back.js-cat-menu-back
-								+svg('ic-arrow-left','ic-arrow-left', '6', '12')
-								= item.text
-								
-							li.cat-menu__sect-icon
-								+svg(item.sub.icon, item.sub.icon, item.sub.icon_width, item.sub.icon_height)
-
-							each sub in item.sub.sect
-								li.cat-menu__sect-item
-									a(href="#").cat-menu__sect-link= sub.text
-
-									if(sub.subsect)
-										ul.cat-menu__sub
-											each subsect in sub.subsect
-												li.cat-menu__sub-item
-													a(href="#").cat-menu__sub-link= subsect
-
-	.top-panel.js-top-panel
-		.top-panel__info
-			.top-panel__menu.js-main-menu-cat
-				+svg('ic-menu','ic-menu', '26', '26')
-
-			form.form-search.form-search_white
+		if(sort_header != true)
+			form.form-search
 				.form-search__content
-					input(type="text", placeholder="Поиск по каталогу...", title="Поиск по каталогу")
+					input(type="text", placeholder="Введите название или бренд. Найдем все!", title="Введите название или бренд. Найдем все!")
 					button(type="submit")
 						+svg('ic-search','ic-search', '18', '18')
 
@@ -413,111 +208,320 @@ header.header
 							span.form-search__more-text Показать все результаты
 
 						.form-search__count 83
+		else
+			.form-search
+		.header-msg
+			a(href="#").header-msg__item
+				+svg('ic-whatsapp','ic-whatsapp', '20', '20')
 
-			.tp-msg.d-none.d-xl-flex
-				a(href="#").tp-msg__item
-					+svg('ic-whatsapp','ic-whatsapp', '20', '20')
-
-			.top-panel__phone.d-none.d-xl-block
+		.header-middle__contact
+			.header-middle__phone
 				a(href="tel:+78123325432") 8 812 332-54-32
+			.header-middle__address СПб, ул. Рубинштейна, 23, оф. 98
 
-			a(href="#").tp-callback.d-none.d-xl-flex
-				span.tp-callback__icon
-					+svg('ic-incoming','ic-incoming', '16', '16')
-				span.tp-callback__text Обратный звонок
+		a(data-fancybox='' data-src='#feadback-form' href='javascript:;').btn-callback
+			span.btn-callback__icon
+				+svg('ic-incoming','ic-incoming', '16', '16')
+			span.btn-callback__text Заказать обратный звонок
 
-		.tp-action
+		.header-time.d-none.d-xl-flex
+			.header-time__item
+				.header-time__label Будние дни
+				.header-time__text <span class="header-time__hour">9</span>:00–<span class="header-time__hour">20</span>:00
+
+			.header-time__item
+				.header-time__label Выходные
+				.header-time__text <span class="header-time__hour">12</span>:00–<span class="header-time__hour">19</span>:00
+
+	if(sort_header != true)
+		nav.main-menu
 			-
 				var list=[
-					{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет', status:'active', class_name:"d-none d-md-inline-flex"},
-					{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', class_name:"d-none d-md-inline-flex"},
-					{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению:', count:'3', status:'active', class_name:"d-none d-md-inline-flex"},
-					{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина:', count:'1', status:'active'},
+					{icon:'ic-menu', icon_width:'26', icon_height:'26', text:'Каталог', color:'orange', catalog:'true'},
+					{icon:'ic-phone', icon_width:'20', icon_height:'32', text:'Телефоны'},
+					{
+						icon:'ic-tv',
+						icon_width:'38',
+						icon_height:'30',
+						text:'Телевизоры',
+						sect:[
+							'BBK',
+							'Samsung',
+							'Hisense',
+							'Sony',
+							'Hyundai',
+							'TCL',
+							'LG',
+							'Thomson',
+							'Philips',
+							'Другие',
+						]
+					},
+					{icon:'ic-tablet', icon_width:'26', icon_height:'32', text:'Планшеты'},
+					{icon:'ic-components', icon_width:'32', icon_height:'32', text:'Комплектующие для ПК'},
+					{icon:'ic-watch', icon_width:'20', icon_height:'34', text:'Умные часы'},
+					{icon:'ic-accessories', icon_width:'21', icon_height:'28', text:'Аксессуары'},
+					{icon:'ic-laptop', icon_width:'40', icon_height:'28', text:'Ноутбуки'},
+					{icon:'ic-conditioner', icon_width:'36', icon_height:'26', text:'Климатическая техника'},
+					{icon:'ic-washer', icon_width:'26', icon_height:'32', text:'Техника для дома'},
+					{icon:'ic-scissors', icon_width:'26', icon_height:'26', text:'Уценка', color:'dark-grey'},
+					{icon:'ic-sale', icon_width:'26', icon_height:'26', text:'Распродажа', color:'grey'},
+					{icon:'ic-time', icon_width:'30', icon_height:'30', text:'Сливы', color:'red'},
 				]
-			each item in list
-				a(href="#").tp-action__item(class=item.status?'active':'', class=item.class_name?item.class_name:'')
-					.tp-action__icon
-						+svg(item.icon, item.icon, item.icon_width, item.icon_height)
-					.tp-action__text= item.text
-						if(item.count)
-							| 
-							span.tp-action__count= item.count
+			ul.main-menu__list
+				each item in list
+					li.main-menu__item(class=item.color?'main-menu__item_'+item.color:'')
+						if(item.catalog)
+							.main-menu__link.js-main-menu-cat
+								.main-menu__icon
+									+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+								.main-menu__text= item.text
+						else
+							a(href="#").main-menu__link
+								.main-menu__icon
+									+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+								.main-menu__text= item.text
 
-	.mobile-sidebar.js-mobile-sidebar
-		ul.mobile-menu
+						if(item.sect)
+							ul.main-menu__sub
+								each sub in item.sect
+									li.main-menu__sub-item
+										a(href="#").main-menu__sub-link= sub
+
+		nav.cat-menu.inactive.js-cat-menu
+			.cat-menu__close.js-cat-menu-close
+				+svg('ic-close','ic-close', '20', '20')
+
 			-
 				var list=[
-					{text:'Как купить?', status:'active'},
-					{text:'О магазине'},
-					{text:'Доставка'},
-					{text:'Вопросы и ответы'},
-					{text:'Скидка 300 ₽'},
-					{text:'Контакты'},
-					{text:'Новости'},
-					{text:'Обратная связь'},
-					{text:'Обзоры'},
-					{text:'Обратный звонок'},
-					{text:'Условия приема в трейд-ин'},
-					{text:'Пользовательское соглашение'},
+					{
+						text:'Телефоны',
+						sub:{
+							icon:'ic-phone',
+							icon_width:'40',
+							icon_height:'64',
+							sect:[
+								{text:'iphone'},
+								{text:'android'},
+							]
+						}
+					},
+					{
+						text:'Планшеты',
+						sub:{
+							icon:'ic-tablet',
+							icon_width:'52',
+							icon_height:'64',
+							sect:[
+								{
+									text:'Apple iPad',
+									subsect:[
+										'iPad (2020)',
+										'iPad Air (2019)',
+										'iPad Air (2020)',
+										'iPad mini (2019)',
+										'iPad Pro (2020)',
+									]
+								},
+								{text:'Huawei Tab'},
+								{text:'Samsung Tab'},
+								{text:'Другие планшеты'},
+							]
+						}
+					},
+					{text:'Ноутбуки'},
+					{text:'Гаджеты'},
+					{text:'Видео и медиа'},
+					{text:'Аудио, Hi-Fi'},
+					{text:'Фото и видео техника'},
+					{text:'Компьютеры'},
+					{text:'Оргтехника и периферия'},
+					{text:'Сетевое оборудование'},
+					{text:'Компьютерные комплектующие'},
+					{text:'Кухонная техника'},
+					{text:'Техника для дома'},
+					{text:'Красота и здоровье'},
+					{text:'Климатическая техника'},
+					{text:'Детские товары'},
+					{text:'Активный отдых'},
+					{text:'Товары для дачи'},
+					{text:'Электроинструмент'},
+					{text:'Автотовары'},
+					{text:'Аксессуары'},
+					{text:'Умный дом'},
+					{text:'Уценка'},
 				]
 
-			each item in list
-				li.mobile-menu__item(class=item.status?'active':'')
-					a(href="#").mobile-menu__link= item.text
+			ul.cat-menu__list
+				each item in list
+					li.cat-menu__item.js-cat-menu-item
+						a(href="#").cat-menu__link= item.text
+							if(item.sub)
+								span.cat-menu__arr.js-cat-menu-arr
+									+svg('ic-arrow-right','ic-arrow-right', '6', '12')
+			
+						if(item.sub)
+							ul.cat-menu__sect.js-cat-menu-sect
+								li.cat-menu__back.js-cat-menu-back
+									+svg('ic-arrow-left','ic-arrow-left', '6', '12')
+									= item.text
+									
+								li.cat-menu__sect-icon
+									+svg(item.sub.icon, item.sub.icon, item.sub.icon_width, item.sub.icon_height)
 
-		.mobile-bar-action
-			-
-				var list=[
-					{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет'},
-					{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', count:'(0)', status:'inactive'},
-					{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению', count:'(3)'},
-					{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина', count:'(1)'},
-				]
-			each item in list
-				a(href="#").mobile-bar-action__item
-					.mobile-bar-action__icon
-						+svg(item.icon, item.icon, item.icon_width, item.icon_height)
-					.mobile-bar-action__text= item.text
-						if(item.count)
-							| 
-							span.mobile-bar-action__count(class=item.status?'inactive':'')= item.count
+								each sub in item.sub.sect
+									li.cat-menu__sect-item
+										a(href="#").cat-menu__sect-link= sub.text
 
-		.mobile-sidebar__item
-			a(data-fancybox='' data-src='#feadback-form' href='javascript:;').btn-callback
-				span.btn-callback__icon
-					+svg('ic-incoming','ic-incoming', '16', '16')
-				span.btn-callback__text Заказать обратный звонок
+										if(sub.subsect)
+											ul.cat-menu__sub
+												each subsect in sub.subsect
+													li.cat-menu__sub-item
+														a(href="#").cat-menu__sub-link= subsect
 
-		.mobile-sidebar__item
-			.mobile-sidebar__content-wrap
-				.mobile-sidebar__contact
-					.mobile-sidebar__phone
-						a(href="tel:+78123325432") 8 812 332-54-32
-					.mobile-sidebar__address СПб, ул. Рубинштейна, 23, оф. 98
+		.top-panel.js-top-panel
+			.top-panel__info
+				.top-panel__menu.js-main-menu-cat
+					+svg('ic-menu','ic-menu', '26', '26')
 
-				.header-msg
-					a(href="#").header-msg__item
+				form.form-search.form-search_white
+					.form-search__content
+						input(type="text", placeholder="Поиск по каталогу...", title="Поиск по каталогу")
+						button(type="submit")
+							+svg('ic-search','ic-search', '18', '18')
+
+					.form-search__popup
+						-
+							var list=[
+								{title:'Категории'},
+								{text:'ASUS'},
+								{text:'ASUS Tab'},
+								{title:'Товары'},
+								{text:'Смартфон ASUS Zenfone 7 ZS670KS 8/128Gb (Цвет: Aurora Black)'},
+								{text:'Монитор Asus 24.5" VG258QR (Цвет: Black)'},
+								{text:'Видеокарта ASUS GeForce GT 1030 1228MHz PCI-E 3.0 2048MB 6008MHz 1030 1228MHz PCI-E 3.0'},
+								{text:'Wi-Fi роутер Asus RT-AC66U'},
+								{text:'Роутер беспроводной Asus RT-AC86U AC2900'},
+							]
+						each item in list
+							if(item.title)
+								.form-search__title= item.title
+
+							if(item.text)
+								a(href="#").form-search__item= item.text
+
+
+						.form-search__res
+							a(href="#").form-search__more
+								+svg('ic-link','ic-link', '14', '14')
+								span.form-search__more-text Показать все результаты
+
+							.form-search__count 83
+
+				.tp-msg.d-none.d-xl-flex
+					a(href="#").tp-msg__item
 						+svg('ic-whatsapp','ic-whatsapp', '20', '20')
 
-		.mobile-sidebar__item
-			.header-time
-				.header-time__item
-					.header-time__label Будние дни
-					.header-time__text <span class="header-time__hour">9</span>:00–<span class="header-time__hour">20</span>:00
+				.top-panel__phone.d-none.d-xl-block
+					a(href="tel:+78123325432") 8 812 332-54-32
 
-				.header-time__item
-					.header-time__label Выходные
-					.header-time__text <span class="header-time__hour">12</span>:00–<span class="header-time__hour">19</span>:00
+				a(href="#").tp-callback.d-none.d-xl-flex
+					span.tp-callback__icon
+						+svg('ic-incoming','ic-incoming', '16', '16')
+					span.tp-callback__text Обратный звонок
 
-		.mobile-sidebar__item
-			.social
-				.social__list
-					-
-						var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
-					
-					each item in list
-						a(href="#").social__item
-							+svg(item, item, '24', '24')
+			.tp-action
+				-
+					var list=[
+						{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет', status:'active', class_name:"d-none d-md-inline-flex"},
+						{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', class_name:"d-none d-md-inline-flex"},
+						{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению:', count:'3', status:'active', class_name:"d-none d-md-inline-flex"},
+						{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина:', count:'1', status:'active'},
+					]
+				each item in list
+					a(href="#").tp-action__item(class=item.status?'active':'', class=item.class_name?item.class_name:'')
+						.tp-action__icon
+							+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+						.tp-action__text= item.text
+							if(item.count)
+								| 
+								span.tp-action__count= item.count
+
+		.mobile-sidebar.js-mobile-sidebar
+			ul.mobile-menu
+				-
+					var list=[
+						{text:'Как купить?', status:'active'},
+						{text:'О магазине'},
+						{text:'Доставка'},
+						{text:'Вопросы и ответы'},
+						{text:'Скидка 300 ₽'},
+						{text:'Контакты'},
+						{text:'Новости'},
+						{text:'Обратная связь'},
+						{text:'Обзоры'},
+						{text:'Обратный звонок'},
+						{text:'Условия приема в трейд-ин'},
+						{text:'Пользовательское соглашение'},
+					]
+
+				each item in list
+					li.mobile-menu__item(class=item.status?'active':'')
+						a(href="#").mobile-menu__link= item.text
+
+			.mobile-bar-action
+				-
+					var list=[
+						{icon:'ic-user', icon_width:'18', icon_height:'18', text:'Личный кабинет'},
+						{icon:'ic-heart', icon_width:'22', icon_height:'18', text:'Избранное', count:'(0)', status:'inactive'},
+						{icon:'ic-compare', icon_width:'23', icon_height:'18', text:'К сравнению', count:'(3)'},
+						{icon:'ic-cart', icon_width:'22', icon_height:'18', text:'Корзина', count:'(1)'},
+					]
+				each item in list
+					a(href="#").mobile-bar-action__item
+						.mobile-bar-action__icon
+							+svg(item.icon, item.icon, item.icon_width, item.icon_height)
+						.mobile-bar-action__text= item.text
+							if(item.count)
+								| 
+								span.mobile-bar-action__count(class=item.status?'inactive':'')= item.count
+
+			.mobile-sidebar__item
+				a(data-fancybox='' data-src='#feadback-form' href='javascript:;').btn-callback
+					span.btn-callback__icon
+						+svg('ic-incoming','ic-incoming', '16', '16')
+					span.btn-callback__text Заказать обратный звонок
+
+			.mobile-sidebar__item
+				.mobile-sidebar__content-wrap
+					.mobile-sidebar__contact
+						.mobile-sidebar__phone
+							a(href="tel:+78123325432") 8 812 332-54-32
+						.mobile-sidebar__address СПб, ул. Рубинштейна, 23, оф. 98
+
+					.header-msg
+						a(href="#").header-msg__item
+							+svg('ic-whatsapp','ic-whatsapp', '20', '20')
+
+			.mobile-sidebar__item
+				.header-time
+					.header-time__item
+						.header-time__label Будние дни
+						.header-time__text <span class="header-time__hour">9</span>:00–<span class="header-time__hour">20</span>:00
+
+					.header-time__item
+						.header-time__label Выходные
+						.header-time__text <span class="header-time__hour">12</span>:00–<span class="header-time__hour">19</span>:00
+
+			.mobile-sidebar__item
+				.social
+					.social__list
+						-
+							var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+						
+						each item in list
+							a(href="#").social__item
+								+svg(item, item, '24', '24')
 
 
 if(catlog_nav)

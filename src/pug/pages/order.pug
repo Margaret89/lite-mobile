@@ -1,0 +1,210 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Оформление заказа';
+	- var h1 = 'Оформление заказа';
+	- var sort_header = true;
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Корзина'},
+			{href:'#',name:'Оформление заказа'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.order-page
+		.container
+			.row
+				.col-8
+					form.order
+						.order__sect
+							.order__title Доставка
+
+							.order__content
+								.order-delivery
+									-
+										var list=[
+											{title:'Самовывоз', text:'Пункт выдачи по адресу: ул. Воздухоплавательная, 19', status:'active'},
+											{title:'Доставка курьером', text:'Привезем товар в удобное время домой или в офис'},
+											{title:'Отправка по России', text:'Доставки в регионы, отличные от Санкт-Петербурга'},
+										]
+									each item, index in list
+										.order-delivery__item
+											.order-delivery__content
+												.input-radio
+													if(item.status)
+														input(type='radio' name='param1', id='radio'+index, checked='checked')
+													else
+														input(type='radio' name='param1', id='radio'+index)
+													label.input-radio__label(for='radio'+index)
+														span.input-radio__mark
+														span.input-radio__text= item.title
+				
+												.order-delivery__text= item.text
+
+						.order-note
+							.order-note__icon i
+							.order-note__text Уважаемые покупатели! Мы ценим ваше здоровье, поэтому, если курьер пришел к вам без защитной маски и перчаток, обязательно сообщите нам!
+			
+						.order__sect
+							.order__title Личные данные
+
+							.order__content
+								.form-site
+									.form-site__content
+										.form-site__item
+											.form-site__label Ваше имя
+											.form-site__field
+												input(type="text", placeholder="Введите имя...", required="required")
+
+										.form-site__item
+											.form-site__label Фамилия
+											.form-site__field
+												input(type="text", placeholder="Введите фамилию...")
+
+										.form-site__item
+											.form-site__label E-mail
+											.form-site__field
+												input(type="email", placeholder="Введите e-mail...")
+
+										.form-site__item
+											.form-site__label Телефон
+											.form-site__field
+												input.js-phone(type="text", placeholder="Введите телефон...", required="required")
+
+										.form-site__item
+											.form-site__label Город
+											.form-site__field
+												input(type="text", placeholder="Введите город...")
+
+										.form-site__item
+											.form-site__label Адрес доставки
+											.form-site__field
+												input(type="text", placeholder="Введите адрес...")
+						
+						.order__sect
+							.order__title Оплата
+
+							.order__content
+								.order-pay
+									.order-pay__item
+										.input-radio
+											input(type='radio' name='param2', id='pay1')
+											label.input-radio__label(for='pay1')
+												span.input-radio__mark
+												span.input-radio__text Оплата наличными
+
+									.order-pay__item
+										.input-radio
+											input(type='radio' name='param2', id='pay2', checked='checked')
+											label.input-radio__label(for='pay2')
+												span.input-radio__mark
+												span.input-radio__text Оплата по счету (для юр.лиц, без НДС)
+
+							.order__text Возможно выставление счета (без НДС) и оплата юридическим лицом для приобретения товара не в коммерческих целях и не в целях перепродажи.
+
+						.order__sect
+							.order__title Способ доставки
+
+							.order__content
+								.method-delivery
+									.method-delivery__item
+										.input-radio
+											input(type='radio' name='param3', id='delivery1', checked='checked')
+											label.input-radio__label(for='delivery1')
+												span.input-radio__mark
+												span.input-radio__text-wrap
+													span.input-radio__text Самовывоз по адресу:  ул. Воздухоплавательная, 19
+													span.input-radio__text Бесплатно
+
+									.method-delivery__item
+										.input-radio
+											input(type='radio' name='param3', id='delivery2')
+											label.input-radio__label(for='delivery2')
+												span.input-radio__mark
+												span.input-radio__text-wrap
+													span.input-radio__text Самовывоз по адресу:  пр. Александровской Фермы, 29 лит 2Г
+													span.input-radio__text 150 ₽
+
+						.order__coupon
+							.coupon
+								.coupon__label Купон
+
+								.coupon__field
+									input(type="text", placeholder="Введите номер...")
+									.coupon__btn 
+										span Применить
+
+							.coupon.inactive
+								.coupon__label Промокод на скидку 5%
+
+								.coupon__field
+									input(type="text", value="VM7ZY5Z", disabled='disabled')
+									.coupon__btn
+										span Применить
+
+						.order__bottom
+							.order-total
+								.order-total__item
+									.order-total__label Стоимость товара:
+									.order-total__val 18 810 &#8381;
+
+								.order-total__item
+									.order-total__label Самовывоз или консультация:
+									.order-total__val 0 &#8381;
+
+								.order-total__res
+									.order-total__label Итого:
+									.order-total__val 18 810 &#8381;
+
+							.order__action
+								a.btn.btn_medium(href='#')
+									+svg('ic-tick','ic-tick', '18', '12')
+									span Оформить заказ
+
+								.input-check
+									input#polit-order(type='checkbox', checked="checked")
+									label.input-check__label(for='polit-order')
+										span.input-check__mark
+										span.input-check__text Принимаю условия 
+											a(href="#") пользовательского&nbsp;соглашения
+				.col-4
+					.order-list
+						-
+							var list=[
+								{img:'comp-mini1.png', text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)', price:'16 160 ₽', count:'1 шт', sum:'16 160 ₽'},
+								{img:'comp-mini2.png', text:'Модем 3G Alcatel Link Key', price:'2 650 ₽', count:'1 шт', sum:'2 650 ₽'},
+							]
+
+						each item in list
+							.basket-product
+								a(href="#").basket-product__img-wrap
+									.basket-product__img
+										img(src="assets/img/"+item.img, alt="")
+
+								.basket-product__content
+									.basket-product__info
+										.basket-product__text
+											a(href="#")= item.text
+										a(href="#").basket-product__del
+											+svg('ic-bin','ic-bin', '12', '14')
+
+									.basket-product__data
+										.basket-product__count= item.count
+										.basket-product__price= item.price
+						
+						.order-list__total
+							.order-list__label Итого:
+
+							.order-list__sum-wrap
+								.order-list__count 2 шт
+								.order-list__sum 18 810 ₽
+
+						.order-list__edit
+							a(href="#").order-list__edit-link
+								+svg('ic-cart','ic-cart', '18', '14')
+								|Редактировать заказ

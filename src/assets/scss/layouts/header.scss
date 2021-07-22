@@ -1,3 +1,14 @@
+.header{
+	background: #fff;
+	border-bottom: 1px solid #e5e6f0;
+
+	&_short .header-middle{
+		max-width: 1312px;
+		margin: 0 auto;
+		border-bottom: 0;
+	}
+}
+
 .header-top{
 	display: flex;
 	justify-content: space-between;

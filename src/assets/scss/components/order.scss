@@ -1,0 +1,306 @@
+/*-------------- order -----------------*/
+.order-page{margin-top: 28px;}
+
+.order{
+	background: #fff;
+	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+
+	&__sect{
+		padding: 40px;
+		border-bottom: 1px solid #e5e6f0;
+
+		.input-radio{
+			&__text{font-size: 1.6rem;}
+		}
+
+		input[type="radio"]:checked + .input-radio__label .input-radio__text{font-weight: 600;}
+	}
+
+	&__title{
+		@include font(normal, 600, 2.4rem, 1.2, $color-text);
+		margin-bottom: 20px;
+	}
+
+	.form-site{
+		margin-top: 34px;
+		margin-bottom: -16px;
+		&__item{width: calc(33.33% - 16px);}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.4, $color-dark-grey);
+		margin-top: 16px;
+	}
+
+	&__coupon{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 40px;
+		background: #fafafe;
+		border-bottom: 1px solid #e5e6f0;
+
+		.coupon:not(:last-child){margin-right: 16px;}
+	}
+
+	&__bottom{
+		display: flex;
+		justify-content: space-between;
+		padding: 40px;
+	}
+
+	&__action{
+		.input-check{
+			max-width: 228px;
+			margin-top: 32px;
+
+			&__text{
+				padding-left: 16px;
+				margin-left: 16px;
+				border-left: 1px solid #e5e6f0;
+				font-size: 1.2rem;
+				line-height: 1.5;
+			}
+		}
+	}
+}
+
+.order-delivery{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -16px -16px;
+
+	&__item{
+		width: calc(33.33% - 32px);
+		margin: 16px;
+	}
+
+	&__content{max-width: 195px;}
+
+	&__text{
+		@include font(normal, normal, 1.2rem, 1.5, $color-dark-grey);
+		margin-top: 10px;
+		padding: 0 4px;
+	}
+}
+
+.order-note{
+	display: flex;
+	align-items: flex-start;
+	padding: 16px 40px;
+	background: #fafafe;
+	border-bottom: 1px solid #e5e6f0;
+
+	&__icon{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 20px;
+		width: 20px;
+		height: 20px;
+		background: $color-dark-grey;
+		border-radius: 50%;
+		margin-right: 16px;
+		@include font(normal, 600, 1.5rem, 1.2, #fff);
+
+		.icon{fill: #fff;}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+	}
+}
+
+.order-pay{
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -16px;
+	margin-right: -16px;
+
+	&__item{margin: 16px;}
+	&__item:not(:last-child){margin-right: 75px;}
+}
+
+.method-delivery{
+	margin-top: 35px;
+	&__item:not(:last-child){margin-bottom: 20px;}
+
+	.input-radio{
+		&__text-wrap{
+			display: flex;
+			justify-content: space-between;
+			width: calc(100% - 20px);
+		}
+
+		&__text:first-child{margin-right: 16px;}
+	}
+}
+
+.coupon{
+	width: 248px;
+
+	&__label{
+		@include font(normal, normal, 1.2rem, 1.5, $color-text);
+		margin-bottom: 6px;
+		padding: 0 8px;
+	}
+
+	&__field{position: relative;}
+
+	input[type="text"]{
+		display: inline-block;
+		height: 4rem;
+		width: 100%;
+		font-family: $font-site;
+		@include font(normal, 500, 1.4rem, 3.8rem, $color-text);
+		padding: 0 90px 0 20px;
+		border-radius: 2rem;
+		border: 1px solid #e5e6f0;
+		outline: 0;
+		margin: 0;
+		background: #fff;
+		box-shadow: none;
+		transition: border 0.2s ease 0s;
+	}
+
+	input[type="text"]:focus{border-color: $color-orange;}
+	input[type="text"]::placeholder{color: $color-grey;}
+	input[type="text"].disabled{color: $color-dark-grey;}
+
+	&__btn{
+		display: inline-flex;
+		height: 2rem;
+		background: $color-orange;
+		border: none;
+		outline: none;
+		border-radius: 1rem;
+		@include font(normal, normal, 1rem, 1.8rem, #fff);
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		box-shadow: none;
+		transition: all 0.2s ease 0s;
+		overflow: hidden;
+		position: relative;
+		padding: 0 5px;
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%);
+		cursor: pointer;
+
+		span{position: relative;}
+	}
+
+	&__btn::before{
+		content: '';
+		display: block;
+		width: 0;
+		height: 100%;
+		background: $color-light-orange;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: width 0.2s ease 0s;
+	}
+
+	&__btn:hover::before{width: 100%;}
+
+	&.inactive &__btn{
+		cursor: auto;
+		background: #fefefa;
+		color: $color-grey;
+		border: 1px solid $color-grey;
+	}
+
+	&.inactive &__btn::before{display: none;}
+
+	&.inactive input[type="text"]{
+		color: $color-dark-grey;
+		background: transparent;
+	}
+}
+
+.order-total{
+	width: 320px;
+	margin-right: 16px;
+
+	&__item:not(:last-child){margin-bottom: 16px;}
+
+	&__item{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include font(normal, normal, 1.6rem, 1.5, $color-text);
+	}
+
+	&__label{margin-right: 16px;}
+	&__val{font-weight: 600;}
+
+	&__res{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include font(normal, normal, 3.2rem, 1.2, $color-text);
+	}
+
+	&__res &__label{font-weight: 600;}
+}
+
+.order-list{
+	background: #fff;
+	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+
+	&__total{
+		display: flex;
+		align-items: center;
+		background: #fafafe;
+		padding: 15px;
+	}
+
+	&__label{
+		width: 66px;
+		@include font(normal, normal, 1.4rem, 1.2, color-text);
+		margin-right: 16px;
+	}
+
+	&__sum{
+		@include font(normal, 600, 1.4rem, 1.2, $color-text);
+		text-align: right;
+	}
+
+	&__count{
+		@include font(normal, normal, 1.4rem, 1.2, $color-text);
+	}
+
+	&__sum-wrap{
+		display: flex;
+		justify-content: space-between;
+		width: calc(100% - 82px);
+		margin-left: 15px;
+	}
+
+	&__edit{
+		padding: 9px 16px;
+		background: #fff;
+		border-top: 1px solid #e5e6f0;
+	}
+
+	&__edit-link{
+		display: inline-flex;
+		align-items: center;
+		@include font(normal, normal, 1.4rem, 1.2, $color-orange);
+
+		.icon{
+			flex: 0 0 18px;
+			fill: $color-orange;
+			transition: fill 0.2s ease 0s;
+			margin-right: 8px;
+		}
+	}
+
+	&__edit-link:hover{
+		color: $color-dark-grey;
+		.icon{fill: $color-dark-grey;}
+	}
+}

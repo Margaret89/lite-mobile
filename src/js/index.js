@@ -35,8 +35,10 @@ $(window).on('resize', function(){
 $(window).on('scroll', function(){
 	if($(this).scrollTop()>300){
 		$('.js-move-up').addClass('visible');
+		$('.js-cat-panel').addClass('fixed');
 	}else{
 		$('.js-move-up').removeClass('visible');
+		$('.js-cat-panel').removeClass('fixed');
 	}
 });
 $('.js-move-up').on('click', function(){$('body,html').animate({scrollTop:0},800);return false;});
@@ -515,40 +517,22 @@ if($('.js-product-slider').length){
 		focusOnSelect: true,
 		prevArrow: '<button id="prev" type="button" class="product-arr product-arr_up"><svg class="icon ic-arrow-up-thin" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-up-thin"></use></svg></button>',
 		nextArrow: '<button id="next" type="button" class="product-arr product-arr_down"><svg class="icon ic-arrow-down-thin" width="16" height="8"><use xlink:href="/assets/sprites/sprite.svg#ic-arrow-down-thin"></use></svg></button>',
-		// responsive: [
-		// 	{
-		// 		breakpoint: 1260,
-		// 		settings: {
-		// 			slidesToShow: 3,
-		// 			vertical: true,
-		// 			arrows: true,
-		// 		}
-		// 	},
-		// 	{
-		// 		breakpoint: 992,
-		// 		settings: {
-		// 			slidesToShow: 4,
-		// 			vertical: true,
-		// 			arrows: true,
-		// 		}
-		// 	},
-		// 	{
-		// 		breakpoint: 768,
-		// 		settings: {
-		// 			slidesToShow: 4,
-		// 			vertical: false,
-		// 			arrows: false,
-		// 		}
-		// 	},
-		// 	{
-		// 		breakpoint: 480,
-		// 		settings: {
-		// 			slidesToShow: 3,
-		// 			vertical: false,
-		// 			arrows: false,
-		// 		}
-		// 	},
-		// ]
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 6,
+					vertical: false,
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 5,
+					vertical: false,
+				}
+			},
+		]
 	});
 
 
@@ -556,6 +540,24 @@ if($('.js-product-slider').length){
 
 	$('.js-product-slider').on("afterChange", function(event, slick, currentSlide, nextSlide){
 		$('.js-product-slider-count-cur').text(currentSlide);
+	});
+}
+
+// Плавный переход к ссылке
+if ($('.js-link-move').length) {
+	$('body').on('click','.js-link-move', function (event) {
+		event.preventDefault();
+
+		var id  = $(this).attr('href'),
+		top = $(id).offset().top - 100;
+		
+		if($(this).data('tab')){
+			$('.js-tabs-page-item[data-item='+$(this).data('tab')+']').trigger('click');
+		}
+		$('body,html').animate({scrollTop: top}, 1000);
+
+		// Проверка наличия анимации
+		productAnim(1);
 	});
 }
 

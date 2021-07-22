@@ -77,3 +77,28 @@
 		font-weight: 600;
 	}
 }
+
+@media (max-width: 767px) {
+	.reviews{
+		&__info,
+		&__more{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+
+		&__top{padding: 8px 16px 16px;}
+	}
+
+	.review-item{
+		padding: 16px;
+		&__name,
+		&__mark,
+		&__sect{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+
+		&__count{margin-left: 8px;}
+		&__top{margin-bottom: 16px;}
+	}
+}

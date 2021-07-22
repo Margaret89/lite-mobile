@@ -92,5 +92,12 @@
 			margin-bottom: 5px;
 			h2, .h2{margin-top: 0;}
 		}
+
+		&_white &__item{
+			font-size: 1.4rem;
+			padding: 20px 10px 14px;
+		}
+		&_white &__content{padding: 24px 16px;}
+		&_white .reviews{margin: - 16px;}
 	}
 }

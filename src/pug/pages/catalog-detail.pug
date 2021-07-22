@@ -18,6 +18,15 @@ block breadcrumb
 
 block content
 	.catalog-detail
+		.fix-cat-btn.d-md-none
+			.fix-cat-btn__price 9 100 ₽
+
+			a(href="#").fix-cat-btn__link
+				span.fix-cat-btn__link-icon
+					+svg('ic-cart-add','ic-cart-add', '22', '18')
+
+				span.fix-cat-btn__link-text В корзину
+	
 		.container
 			.row
 				.col-12
@@ -80,7 +89,7 @@ block content
 										a.product-slider__link(href="assets/img/"+item.img, data-fancybox='images')
 											img(src="assets/img/"+item.img, alt="")
 					
-							.product-slider__count <span class="product-slider__count-cur js-product-slider-count-cur">1</span> / <span class="js-product-slider-count">1</span>
+							.product-slider__count.d-none.d-md-block <span class="product-slider__count-cur js-product-slider-count-cur">1</span> / <span class="js-product-slider-count">1</span>
 				
 						.cat-detail-main__info
 							.cat-offers
@@ -128,11 +137,12 @@ block content
 					.detail-card
 						.detail-card__content
 							.detail-card__info
-								.detail-card__status Товар в наличии на складе
+								.detail-card__info-top
+									.detail-card__status Товар в наличии на складе
 
-								.detail-card__price
-									.detail-card__price-cur 9 100 ₽
-									.detail-card__price-old 20 580 ₽
+									.detail-card__price
+										.detail-card__price-cur 9 100 ₽
+										.detail-card__price-old 20 580 ₽
 
 								.detail-card__text Цена товара не окончательная, просим Вас уточнять информацию в магазине.
 								.detail-card__note Цена указана с учетом промокода, цена без промокода составляет 9555 ₽.
@@ -169,6 +179,7 @@ block content
 			.row
 				.col-lg-9
 					.cat-detail-content
+						#accessories
 						.other-products-wrap
 							.h4 Аксессуары
 
@@ -202,6 +213,8 @@ block content
 									+svg('ic-layers','ic-layers', '14', '14')
 								span.btn-more__text Показать все аксессуары 
 									span.btn-more__count (11)
+
+						#detail-tabs
 
 						.tabs-page.tabs-page_white.js-tabs-page
 							ul.tabs-page__list.js-tabs-page-list
@@ -365,6 +378,7 @@ block content
 								span Заказать обратный звонок
 								
 				.col-lg-3
+					#delivery
 					.delivery-wrap
 						.h4 Доставка
 

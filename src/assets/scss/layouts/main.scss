@@ -195,6 +195,13 @@ button.btn_white::before{
 	background: $color-orange;
 }
 
+
+.btn_white:hover,
+button.btn_white:hover,
+input[type="submit"].btn_white:hover{
+	.icon{fill: #fff;}
+}
+
 .btn_medium,
 input[type="submit"].btn_medium,
 button.btn_medium{
@@ -450,7 +457,13 @@ button.btn-icon_grey::before{
 	}
 
 	h3,.h3{font-size: 1.6rem;}
-	h4,.h4{font-size: 1.5rem;}
+
+	h4,.h4{
+		font-size: 2rem;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
 	h5,.h5{font-size: 1.4rem;}
 
 	.page-header{

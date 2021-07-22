@@ -521,14 +521,15 @@ header.header
 
 
 if(catlog_nav)
-	.cat-panel
-		-
-			var list=[
-				{text:'Характеристики', link:'#detail-tabs', js:'params'},
-				{text:'Описание', link:'#detail-tabs', js:'desc'},
-				{text:'Отзывы', link:'#detail-tabs', js:'reviews'},
-				{text:'Доставка', link:'#delivery'},
-				{text:'Аксессуары', link:'#accessories'},
-			]
-		each item in list
-			a(href=item.link, class='cat-panel__item js-cat-panel-item', data-click=item.js)= item.text
+	.cat-panel-wrap
+		.cat-panel.js-cat-panel
+			-
+				var list=[
+					{text:'Характеристики', link:'#detail-tabs', js:'params'},
+					{text:'Описание', link:'#detail-tabs', js:'desc'},
+					{text:'Отзывы', link:'#detail-tabs', js:'reviews'},
+					{text:'Доставка', link:'#delivery'},
+					{text:'Аксессуары', link:'#accessories'},
+				]
+			each item in list
+				a(href=item.link, class='cat-panel__item js-link-move', data-tab=item.js)= item.text

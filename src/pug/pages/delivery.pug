@@ -1,0 +1,147 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Доставка';
+	- var h1 = 'Доставка';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Полезная информация'},
+			{href:'#',name:'Доставка'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.container
+		.row
+			.col-lg-3
+				.left-menu-wrap
+					.left-menu-btn.d-lg-none.js-left-menu-btn
+						.left-menu-btn__text Другие разделы
+						.left-menu-btn__arr
+							+svg('ic-arrow-down-thin','ic-arrow-down-thin', '12', '6')
+
+					ul.left-menu.js-left-menu
+						-
+							var list=[
+								{text:'Новости', note:'Свежие обновления обо всем'},
+								{text:'Обзоры', note:'Узнайте больше о новинках от обзорщиков'},
+								{text:'Документы', note:'Пользовательское соглашение'},
+								{text:'О магазине', note:'Почему стоит покупать у нас'},
+								{text:'Контакты', note:'Все способы с нами связаться'},
+								{text:'Скидка 300 ₽', note:'Оставьте отзыв и получите скидку!'},
+								{text:'Как купить', note:'Подробно обо всех способах покупки'},
+								{text:'Доставка', note:'Способы доставки и пункты самовывоза', status:'active'},
+								{text:'Внимание! Мошенники!', note:'Как обезопасить себя и свой кошелек'},
+								{text:'Вопросы и ответы', note:'Спросите и мы ответим'},
+								{text:'О трейд-ин', note:'Условия приема товара и не только'},
+							]
+						each item in list
+							li.left-menu__item(class=item.status?'active':'')
+								a(href="#").left-menu__link= item.text
+								.left-menu__note= item.note
+
+			.col-lg-9
+				.tabs-page.tabs-page_box.js-tabs-page
+					ul.tabs-page__list.js-tabs-page-list
+						li.tabs-page__item.js-tabs-page-item(data-item='tab1') По Санкт-Петербургу
+						li.tabs-page__item.js-tabs-page-item(data-item='tab2') По Лен. области
+						li.tabs-page__item.js-tabs-page-item(data-item='tab3') В регионы
+						li.tabs-page__item.js-tabs-page-item(data-item='tab4') VIP доставка
+						li.tabs-page__item.js-tabs-page-item(data-item='tab5') Самовывоз
+
+					.tabs-page__content.js-tabs-page-content
+						#tab1.tabs-page__content-item.js-tabs-page-content-item
+							.delivery
+								.delivery__sect
+									.delivery__top
+										.delivery__info
+											.delivery__title Главный магазин
+
+											.delivery-time.d-md-none
+												.delivery-time__item
+													span.delivery-time__label Пн-Пт: 
+													span.delivery-time__val 9:00-20:00
+
+												.delivery-time__item
+													span.delivery-time__label Сб-Вс: 
+													span.delivery-time__val 12:00-19:00
+													
+											.delivery-address
+												.delivery-address__icon
+													+svg('ic-address','ic-address', '14', '14')
+												.delivery-address__text Санкт-Петербург, улица Рубинштейна, дом 23, офис 98.
+
+										.delivery-time.d-none.d-md-block
+											.delivery-time__item
+												span.delivery-time__label Пн-Пт: 
+												span.delivery-time__val 9:00-20:00
+
+											.delivery-time__item
+												span.delivery-time__label Сб-Вс: 
+												span.delivery-time__val 12:00-19:00
+
+									.delivery__content
+										p <b>На общественном транспорте:</b> выходите из метро "Достоевская" выходите на Щербаковский переулок, сворачиваете на Рубинштейна, переходите к дому 23, мы находимся в офисе 98 (первый этаж).
+
+										p <b>На личном транспорте:</b> из центра города с Невского сворачиваете на Литейный, разворачиваетесь у поворота на улицу Жуковского, далее едете по Владимирскому и Загородному, затем сворачиваете на Рубинштейна и едете до дома 23.
+
+										p
+											b Внимание! При самовывозе рекомендуем забронировать товар, не забудьте связаться с нами перед приездом.
+
+										p 
+											b Ул. Рубинштейна входит в зону платной парковки с 01.12.2020. Учитывайте это, пожалуйста, при планировании маршрута.
+									
+									.delivery__map
+										iframe(src='https://yandex.ru/map-widget/v1/?um=constructor%3Ad0f156d32726d6d8ba9f90ce2d31b9332cfff7e38842001b5a7439ac9f46d634&source=constructor' width='100%' height='320' frameborder='0')
+								
+								.delivery__sect
+									.delivery__top
+										.delivery__info
+											.delivery__title Крупногабаритные товары
+
+											.delivery-time.d-md-none
+												.delivery-time__item
+													span.delivery-time__label Пн-Пт: 
+													span.delivery-time__val 9:00-20:00
+
+												.delivery-time__item
+													span.delivery-time__label Сб-Вс: 
+													span.delivery-time__val 12:00-19:00
+
+											.delivery-address
+												.delivery-address__icon
+													+svg('ic-address','ic-address', '14', '14')
+												.delivery-address__text Санкт-Петербург, улица Воздухоплавательная, дом 19.
+
+										.delivery-time.d-none.d-md-block
+											.delivery-time__item
+												span.delivery-time__label Пн-Пт: 
+												span.delivery-time__val 9:00-20:00
+
+											.delivery-time__item
+												span.delivery-time__label Сб-Вс: 
+												span.delivery-time__val 12:00-19:00
+
+									.delivery__content
+										p <b>На общественном транспорте:</b> от станции "Московские ворота" автобусы 3, 26, 64 до Лиговский 254И. От остановки пешком 5 минут до Воздухоплавательной улицы, 19.
+
+										p <b>На личном транспорте:</b> из центра города по улице Марата. Затем едете по Боровой и Новорыбинской улицам. Выезжаете на Витебский проспект, следом на Воздухоплавательную.
+
+										p
+											b Внимание! Погрузка и размещение товара в ваш личный автомобиль осуществляется силами покупателя.
+									
+									.delivery__map
+										iframe(src='https://yandex.ru/map-widget/v1/?um=constructor%3A6b0a93d2464d9dfc69cb9f58a3d7b70a09360c11da909196414a8f5a2e5e3159&source=constructor' width='100%' height='320' frameborder='0')
+
+						#tab2.tabs-page__content-item.js-tabs-page-content-item
+							|Текст
+						#tab3.tabs-page__content-item.js-tabs-page-content-item
+							|Текст
+						#tab4.tabs-page__content-item.js-tabs-page-content-item
+							|Текст
+						#tab5.tabs-page__content-item.js-tabs-page-content-item
+							|Текст

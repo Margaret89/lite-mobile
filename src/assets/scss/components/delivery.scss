@@ -1,0 +1,99 @@
+/*-------------- delivery -----------------*/
+.delivery{
+	&__sect{padding: 40px;}
+
+	&__sect:not(:last-child){border-bottom: 1px solid #e5e6f0;}
+
+	&__top{
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-bottom: 27px;
+	}
+
+	&__info{margin-right: 32px;}
+
+	&__title{
+		@include font(normal, 600, 3.2rem, 1.2, $color-text);
+	}
+
+	&__map{
+		border: 6px solid $color-grey;
+		margin: 27px -6px -6px
+	}
+
+	&__content{
+		@include font(normal, normal, 1.4rem, 1.7, $color-dark-grey);
+		b{color: $color-text;}
+	}
+}
+
+.delivery-address{
+	display: inline-flex;
+	align-items: flex-start;
+	margin-top: 8px;
+
+	&__icon{
+		flex: 0 0 14px;
+		width: 14px;
+		margin-right: 8px;
+		padding: 3px 0;
+
+		.icon{
+			display: block;
+			fill: $color-orange;
+		}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+	}
+}
+
+.delivery-time{
+	@include font(normal, normal, 1.4rem, 1.4, $color-text);
+	text-align: right;
+
+	&__val{font-weight: 600;}
+	&__item{margin-bottom: 8px;}
+}
+
+@media (max-width: 767px) {
+	.delivery{
+		&__title{
+			font-size: 2rem;
+			margin-bottom: 12px;
+		}
+
+		&__sect{padding: 16px;}
+
+		&__content{
+			font-size: 1.2rem;
+			line-height: 1.67;
+		}
+
+		&__info{margin-right: 0;}
+		&__top{margin-bottom: 16px;}
+		&__map{margin: 16px -6px 0;}
+		&__map iframe{height: 240px;}
+	}
+
+	.delivery-time{
+		display: flex;
+		flex-wrap: wrap;
+		font-size: 1.2rem;
+		line-height: 1.5;
+		text-align: left;
+
+		&__item:not(:last-child){margin-right: 10px;}
+	}
+
+	.delivery-address{
+		margin-top: 6px;
+
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+}

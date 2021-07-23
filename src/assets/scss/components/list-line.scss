@@ -1,0 +1,20 @@
+/*-------------- list-line -----------------*/
+.list-line{
+	list-style: none;
+
+	li{
+		padding-left: 24px;
+		margin-bottom: 16px;
+	}
+
+	li::before{
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		width: 12px;
+		height: 2px;
+		background: $color-orange;
+		margin-right: 12px;
+		margin-left: -24px;
+	}
+}

@@ -41,7 +41,8 @@ h1,.h1,
 h2,.h2,
 h3,.h3,
 h4,.h4,
-h5,.h5
+h5,.h5,
+h6,.h6
 {
 	line-height: 1.4;
 	color: $color-text;
@@ -74,11 +75,19 @@ h4,.h4{
 
 h5,.h5{
 	font-size: 1.8rem;
-	margin-bottom: 1rem;
+	margin-bottom: 2.7rem;
+}
+
+h6,.h6{
+	font-size: 1.6rem;
+	margin-bottom: 2.7rem;
 }
 
 h2+p, .h2+p{margin-top: 4rem;}
 p+h3, p+.h3{margin-top: 4rem;}
+p+h6, p+.h6{margin-top: 2.5rem;}
+
+ul, ol{list-style-position: inside;}
 
 .page-header{
 	margin-bottom: 2.5rem;
@@ -87,6 +96,13 @@ p+h3, p+.h3{margin-top: 4rem;}
 		margin-bottom: 0;
 		padding: 0 8px;
 	}
+}
+
+.page-content{
+	background: #fff;
+	padding: 40px;
+	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+	@include font(normal, normal, 1.4rem, 1.7, $color-dark-grey);
 }
 
 .wrapper{
@@ -464,9 +480,19 @@ button.btn-icon_grey::before{
 		padding-right: 16px;
 	}
 
-	h5,.h5{font-size: 1.4rem;}
+	h5,.h5,
+	h6,.h6{
+		font-size: 1.4rem;
+		margin-bottom: 1.6rem;
+	}
 
 	.page-header{
 		h1,.h1{padding: 0 16px;}
+	}
+
+	.page-content{
+		padding: 16px;
+		font-size: 1.2rem;
+		line-height: 1.67;
 	}
 }

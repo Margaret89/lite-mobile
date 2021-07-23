@@ -1,0 +1,250 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Сравнение товаров';
+	- var h1 = 'Сравнение товаров';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Сравнение товаров'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.compare-page
+		.container
+			.row
+				.col-lg-12
+					.compare
+						.compare-head
+							.compare-head__item.js-compare-head-item(data-item="0")
+
+							.compare-head__sect.js-compare-head-item(data-item="1") Описание
+
+							.compare-head__item.js-compare-head-item(data-item="2") Товар
+							.compare-head__item.js-compare-head-item(data-item="3") Изображение
+							.compare-head__item.js-compare-head-item(data-item="4") Цена
+							.compare-head__item.js-compare-head-item(data-item="5") Модель
+							.compare-head__item.js-compare-head-item(data-item="6") Краткое описание	
+							
+							.compare-head__sect.js-compare-head-item(data-item="7") Мультимедийные возможности
+
+							.compare-head__item.js-compare-head-item(data-item="8") Аудио
+							.compare-head__item.js-compare-head-item(data-item="9") Диафрагмы основных (тыловых) камер	
+							.compare-head__item.js-compare-head-item(data-item="10") Воспроизведение аудио
+
+							.compare-head__sect.js-compare-head-item(data-item="11") Память и процессор
+
+							.compare-head__item.js-compare-head-item(data-item="12") Видеопроцессор
+							.compare-head__item.js-compare-head-item(data-item="13") Количество ядер процессора
+							.compare-head__item.js-compare-head-item(data-item="14") Процессор
+							.compare-head__item.js-compare-head-item(data-item="15")
+
+						.compare-list.js-compare-list
+							.compare-list__item
+								-
+									var list=[
+										{index:'1'},
+										{index:'2'},
+										{index:'3'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="0")
+										.compare-list__btn
+											a.btn-icon(href='#')
+												span.btn-icon__img.d-lg-none(class=item.index=='1'?'in-cart':'')
+													+svg('ic-tick','ic-tick', '18', '12')
+												span.btn-icon__img
+													+svg('ic-cart-add','ic-cart-add', '22', '18')
+												span.btn-icon__text В корзину
+
+											a(href="#").compare-list-link
+												span.compare-list-link__icon
+													+svg('ic-compare','ic-compare', '23', '18')
+												span.compare-list-link__text Удалить <span class="d-none d-lg-inline">из сравнения</span>
+
+							.compare-list__item.compare-list__item_empty
+								.compare-list__cell.js-compare-list-cell(data-item="1")
+								.compare-list__cell.js-compare-list-cell(data-item="1")
+								.compare-list__cell.js-compare-list-cell(data-item="7")
+								
+							.compare-list__label Товар
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'Смартфон Samsung Galaxy M21 SM-M215F/DSN 4/64Gb (Цвет: Raven Black)'},
+										{text:'Умные часы Samsung Galaxy Watch Active2 40mm (Цвет: Vanilla)'},
+										{text:'Модем 3G Alcatel Link Key'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="2")
+										.compare-list__title
+											a(href="#")= item.text
+
+							.compare-list__label Изображение
+
+							.compare-list__item
+								-
+									var list=[
+										{img:'compare1.jpg'},
+										{img:'compare2.jpg'},
+										{img:'compare3.jpg'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="3")
+										a(href="#").compare-list__img-wrap
+											.compare-list__img
+												img(src="assets/img/"+item.img, alt="")
+
+							.compare-list__label Цена
+
+							.compare-list__item
+								-
+									var list=[
+										{old_price:'17 490', price:'16 240'},
+										{price:'16 160'},
+										{price:'2 650'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="4")
+										.compare-list__price
+											if(item.old_price)
+												span.compare-list__old-price= item.old_price 
+													| 
+													| &#8381;
+
+											span.compare-list__cur-price= item.price 
+												| 
+												| &#8381;
+
+							.compare-list__label Модель
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'SM-M215FZKUSER'},
+										{text:'SM-R830NZDASER'},
+										{text:'IK40V-2AALRU1'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="5")= item.text
+										
+							.compare-list__label Краткое описание
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'Тип SIM-карты: nano SIM Емкость аккумулятора: 6000 мА⋅ч Процессор: Samsung Exynos 9611 Видеопроцессор: Mali-G72 MP3 Объем внутренней памяти: 64 Гб Объем оперативной памяти: 4 Гб Разрешение: 2340x1080..'},
+										{text:'Тип: умные часы Минимальная поддерживаемая версия Android: 5.0 Минимальная поддерживаемая версия iOS: 9 Наличие экрана: есть Уведомления с просмотром или ответом: SMS, почта, календарь, Facebook, Twi..	'},
+										{text:'Тип: внешний ..'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="6")= item.text
+										
+							.compare-list__item.compare-list__item_empty
+								.compare-list__cell.js-compare-list-cell(data-item="7")
+								.compare-list__cell.js-compare-list-cell(data-item="7")
+								.compare-list__cell.js-compare-list-cell(data-item="7")
+
+							.compare-list__label Аудио
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'MP3, AAC, WAV, WMA'},
+										{text:'–'},
+										{text:'–'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="8")= item.text
+										
+							.compare-list__label Диафрагмы основных (тыловых) камер	
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'F/2, F/2.20, F/2.20	'},
+										{text:'–'},
+										{text:'–'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="9")= item.text
+										
+							.compare-list__label Воспроизведение аудио
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'–'},
+										{text:'MP3,M4A,3GA,AAC,OGG,OGA,WAV,WMA,AMR,AWB'},
+										{text:'–'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="10")= item.text
+										
+							.compare-list__item.compare-list__item_empty
+								.compare-list__cell.js-compare-list-cell(data-item="11")
+								.compare-list__cell.js-compare-list-cell(data-item="11")
+								.compare-list__cell.js-compare-list-cell(data-item="11")
+
+							.compare-list__label Видеопроцессор
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'Mali-G72 MP3'},
+										{text:'–'},
+										{text:'–'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="12")= item.text
+										
+							.compare-list__label Количество ядер процессора
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'8'},
+										{text:'2'},
+										{text:'–'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="13")= item.text
+										
+							.compare-list__label Процессор
+
+							.compare-list__item
+								-
+									var list=[
+										{text:'Samsung Exynos 9611'},
+										{text:'Exynos 9110, 1150 МГц	'},
+										{text:'–'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="14")= item.text
+
+							.compare-list__item
+								-
+									var list=[
+										{index:'1'},
+										{index:'2'},
+										{index:'3'},
+									]
+								each item in list
+									.compare-list__cell.js-compare-list-cell(data-item="15")
+										.compare-list__btn
+											a.btn-icon(href='#')
+												span.btn-icon__img.d-lg-none(class=item.index=='1'?'in-cart':'')
+													+svg('ic-tick','ic-tick', '18', '12')
+												span.btn-icon__img
+													+svg('ic-cart-add','ic-cart-add', '22', '18')
+												span.btn-icon__text В корзину
+
+											a(href="#").compare-list-link
+												span.compare-list-link__icon
+													+svg('ic-compare','ic-compare', '23', '18')
+												span.compare-list-link__text Удалить <span class="d-none d-lg-inline">из сравнения</span>

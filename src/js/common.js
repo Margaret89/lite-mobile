@@ -6,5 +6,6 @@ import 'clamps/dist/clamps.min.js';
 import 'select2';
 import Inputmask from "inputmask";
 import noUiSlider from 'nouislider';
+import Scrollbar from 'smooth-scrollbar';
 
-export {$, Inputmask, noUiSlider};
+export {$, Inputmask, noUiSlider, Scrollbar};

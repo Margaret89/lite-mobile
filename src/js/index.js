@@ -1,4 +1,4 @@
-import {$, Inputmask, noUiSlider} from './common';
+import {$, Inputmask, noUiSlider, Scrollbar} from './common';
 
 var widthWindow = $(window).width();
 var heightWindow = $(window).height();
@@ -560,6 +560,42 @@ if ($('.js-link-move').length) {
 		productAnim(1);
 	});
 }
+
+// Выравниваем строки параметров сравнения
+var arrHeights=[];
+heightCompare();
+
+function heightCompare(){
+	$('.js-compare-head-item').each(function() {
+		var idElem =  $(this).data('item');
+	
+		arrHeights[idElem]=$(this).outerHeight();
+	
+		$('.js-compare-list-cell[data-item='+idElem+']').each(function() {
+			var tempHeights = $(this).outerHeight();
+			if (arrHeights[idElem]< tempHeights) {
+				arrHeights[idElem] = tempHeights;
+			}
+		});
+	});
+	
+	for (let index = 0; index < arrHeights.length; index++) {
+		$('.js-compare-head-item[data-item='+index+']').css('height',arrHeights[index]+'px');
+		$('.js-compare-list-cell[data-item='+index+']').css('height',arrHeights[index]+'px');
+	}
+}
+
+$(window).on('resize', function(){
+	arrHeights=[];
+	$('.js-compare-head-item').css('height','auto');
+	$('.js-compare-list-cell').css('height','auto');
+	heightCompare();
+});
+
+Scrollbar.init(document.querySelector('.js-compare-list'),{
+	alwaysShowTracks: true,
+});
+
 
 // Обрезание текста
 // Clamps($('.js-catalog-item-title'));

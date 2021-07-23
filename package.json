@@ -71,6 +71,7 @@
     "jquery": "^3.6.0",
     "nouislider": "^15.2.0",
     "select2": "^4.0.13",
-    "slick-slider": "^1.8.2"
+    "slick-slider": "^1.8.2",
+    "smooth-scrollbar": "^8.6.2"
   }
 }

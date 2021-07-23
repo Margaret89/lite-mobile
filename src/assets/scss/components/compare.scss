@@ -1,0 +1,250 @@
+/*-------------- compare -----------------*/
+.compare-page{margin-top: 25px;}
+
+.compare{
+	background: #fff;
+	box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+	position: relative;
+	background: #fafafe;
+}
+
+.compare-head{
+	position: absolute;
+	top: 24px;
+	left: 0;
+
+	&__item{
+		width: 200px;
+		background: #fafafe;
+		padding: 16px 16px 16px 32px;
+		border-right: 1px solid #e5e6f0;
+		border-top: 1px solid #e5e6f0;
+		@include font(normal, normal, 1.4rem, 1.4, $color-dark-grey);
+	}
+
+	&__sect{
+		width: 100%;
+		background: #fff;
+		padding: 16px 16px 16px 32px;
+		border-top: 1px solid #e5e6f0;
+		border-bottom: 1px solid #e5e6f0;
+		@include font(normal, 600, 1.6rem, 1.5, $color-text);
+		position: relative;
+		z-index: 10;
+	}
+
+	&__sect + &__item{border-top: 0;}
+}
+
+.compare-list{
+	width: calc(100% - 200px);
+	overflow-x: auto;
+	margin-left: 200px;
+	padding-top: 24px;
+	font-size: 0;
+
+	&__item{white-space: nowrap;}
+	&__item_empty +&__label + &__item &__cell{border-top: 0;}
+
+	&__cell{
+		display: inline-block;
+		vertical-align: top;
+		width: 37%;
+		padding: 16px;
+		position: relative;
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+		white-space: normal;
+		background: #fff;
+		border-top: 1px solid #e5e6f0;
+	}
+
+	&__cell:not(:last-child){border-right: 1px solid #e5e6f0;}
+
+	&__btn{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__title{
+		@include font(normal, 600, 1.4rem, 1.4, $color-text);
+
+		a{
+			color: $color-text;
+			text-decoration: none;
+			transition: color 0.2s ease 0s;
+		}
+
+		a:hover{color: $color-dark-grey}
+	}
+
+	&__img-wrap{
+		display: block;
+		flex: 0 0 120px;
+		width: 120px;
+		border: 1px solid #e5e6f0;
+		position: relative;
+		transition: border 0.2s ease 0s;
+	}
+
+	&__img-wrap:hover{border-color: $color-orange;}
+
+	&__img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		padding-bottom: 100%;
+
+		img{
+			max-height: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%)
+		}
+	}
+
+	&__price{
+		@include font(normal, normal, 1.4rem, 1.4, $color-text);
+	}
+
+	&__old-price{
+		text-decoration: line-through;
+		margin-right: 17px;
+	}
+
+	&__cur-price{font-weight: 600;}
+
+	.scrollbar-track-x{
+		bottom: auto;
+		top: 8px;
+	}
+	
+	.scrollbar-track{background: transparent;}
+	.scrollbar-thumb{background: $color-orange;}
+}
+
+.compare-list-link{
+	display: inline-flex;
+	align-items: center;
+
+	&__icon{
+		flex: 0 0 23px;
+		width: 23px;
+		margin-right: 8px;
+
+		.icon{
+			fill: $color-dark-grey;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__text{
+		@include font(normal, normal, 1.4rem, 1.4, $color-dark-grey);
+		transition: color 0.2s ease 0s;
+	}
+
+	&:hover &__icon .icon{fill: $color-orange;}
+	&:hover &__text{color: $color-orange;}
+}
+
+@media (min-width: 1350px) {
+	.compare-head{
+		&__sect{width: 1280px;}
+	}
+}
+
+@media (max-width: 1349px) {
+	.compare-list{
+		&__cell{width: 51%;}
+	}
+}
+
+@media (min-width: 992px) {
+	.compare-head{
+		&__sect{width: 944px;}
+	}
+}
+
+@media (max-width: 991px) {
+	.compare-list{
+		&__btn{
+			.btn-icon{
+				box-shadow: none;
+				background: transparent;
+				border-radius: 0;
+				
+				&__text{display: none;}
+
+				&__img{
+					flex: 0 0 40px;
+					width: 40px;
+					padding: 5px;
+					background: transparent;
+					border-radius: 0;
+
+					.icon{fill: $color-orange;}
+				}
+
+				&__img.in-cart{
+					background: $color-orange;
+					.icon{fill: #fff;}
+				}
+
+				&::before{display: none;}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.compare-head{
+		&__sect{width: 704px;}
+	}
+
+	.compare-list{
+		&__label{display: none;}
+	}
+}
+
+@media (max-width: 767px) {
+	.compare{
+		margin-left: -8px;
+		margin-right: -8px;
+	}
+
+	.compare-head{display: none;}
+
+	.compare-list{
+		width: 100%;
+		margin-left: 0;
+
+		&__item_empty{display: none;}
+		&__item_empty + &__item &__cell{border-top: 1px solid #e5e6f0;}
+		&__cell{width: 50%;}
+
+		&__label{
+			background: #fafafe;
+			padding: 7px 16px;
+			@include font(normal, normal, 1.2rem, 1.5, $color-dark-grey);
+			border-top: 1px solid #e5e6f0;
+			border-bottom: 1px solid #e5e6f0;
+		}
+
+		&__label + &__item &__cell{border-top: 0;}
+
+		&__title,
+		&__price,
+		&__cell{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+
+		&__btn{margin: -16px 0 -16px -16px;}
+	}
+
+	.compare-list-link{
+		&__text{font-size: 1.2rem;}
+	}
+}

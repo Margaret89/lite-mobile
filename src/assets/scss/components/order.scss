@@ -131,7 +131,10 @@
 			width: calc(100% - 20px);
 		}
 
-		&__text:first-child{margin-right: 16px;}
+		&__text:first-child{
+			max-width: 70%;
+			margin-right: 16px;
+		}
 	}
 }
 
@@ -223,7 +226,7 @@
 
 .order-total{
 	width: 320px;
-	margin-right: 16px;
+	margin-right: 32px;
 
 	&__item:not(:last-child){margin-bottom: 16px;}
 
@@ -302,5 +305,187 @@
 	&__edit-link:hover{
 		color: $color-dark-grey;
 		.icon{fill: $color-dark-grey;}
+	}
+
+	&__del{display: none;}
+}
+
+@media (max-width: 991px) {
+	.order-list{margin-bottom: 16px;}
+}
+
+@media (max-width: 767px) {
+	.order-page{margin-top: 20px;}
+
+	.order-list{
+		margin-bottom: 8px;
+
+		.basket-product{
+			padding: 16px;
+
+			&__content{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				height: 100%;
+				min-height: 80px;
+			}
+
+			&__img-wrap{
+				flex: 0 0 80px;
+				width: 80px;
+			}
+
+			&__info{
+				min-height: auto;
+				padding-left: 96px;
+				padding-top: 8px;
+				margin-bottom: 0;
+			}
+
+			&__data{
+				padding-left: 96px;
+				margin-top: 10px;
+				padding-bottom: 8px;
+			}
+
+			&__del{margin-left: 8px;}
+			&__price{font-weight: bold;}
+
+			&__count{
+				font-size: 1.2rem;
+				margin-right: 8px;
+			}
+		}
+
+		&__del{
+			display: block;
+			width: 20px;
+		}
+
+		&__edit{padding: 14px 16px;}
+		&__edit-link{font-size: 1.2rem;}
+	}
+
+	.order{
+		&__title{
+			font-size: 2rem;
+			margin-bottom: 14px;
+		}
+
+		&__sect{
+			padding: 23px 16px;
+			
+			.input-radio{
+				&__text{
+					font-size: 1.2rem;
+					line-height: 1.5;
+					padding-top: 1px;
+				}
+
+				&__label{align-items: flex-start;}
+			}
+		}
+
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+			margin-top: 8px;
+		}
+
+		.form-site{
+			margin-top: 24px;
+			padding: 0 8px;
+
+			&__item{
+				width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+
+		&__coupon{
+			display: block;
+			padding: 25px 16px;
+
+			.coupon{width: 100%;}
+
+			.coupon:not(:last-child){
+				margin-right: 0;
+				margin-bottom: 16px;
+			}
+		}
+
+		&__bottom{
+			display: block;
+			padding: 20px 16px;
+		}
+
+		&__action{
+			.btn{
+				width: 100%;
+				max-width: 320px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.input-check{margin: 16px auto 0;}
+		}
+	}
+
+	.order-total{
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 16px;
+
+		&__item{font-size: 1.4rem;}
+		&__res{font-size: 2.4rem;}
+	}
+
+	.order-delivery{
+		margin: 0 0 -8px;
+
+		&__item{
+			width: 100%;
+			margin: 8px 0;
+		}
+
+		&__content{max-width: none;}
+
+		&__text{
+			padding: 0;
+			margin-top: 8px;
+		}
+
+		.input-radio{
+			&__text{
+				font-size: 1.4rem;
+				padding-top: 0;
+			}
+		}
+	}
+
+	.order-note{
+		padding: 16px;
+
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+	}
+
+	.order-pay{
+		margin-left: 0;
+		margin-right: 0;
+
+		&__item{
+			width: 100%;
+			margin: 8px 0;
+		}
+	}
+
+	.method-delivery{
+		margin-top: 21px;
+		&__item:not(:last-child){margin-bottom: 14px;}
 	}
 }

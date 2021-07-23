@@ -1,0 +1,52 @@
+/*-------------- page-error -----------------*/
+.page-error{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 120px);
+
+	&__content{
+		max-width: 384px;
+		padding: 16px;
+	}
+
+	&__logo{display: inline-block;}
+
+	&__logo,
+	&__img,
+	&__text{
+		margin-bottom: 64px;
+	}
+
+	&__text{@include font(normal, normal, 1.6rem, 1.5, $color-text);}
+}
+
+@media (max-width: 991px) {
+	.page-error{height: calc(100vh - 110px);}
+}
+
+@media (max-width: 767px) {
+	.page-error{
+		&__img{max-width: 176px;}
+		&__content{max-width: 288px;}
+	
+		&__logo,
+		&__img,
+		&__text{
+			margin-bottom: 32px;
+		}
+	
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.5;
+		}
+
+		.btn_medium,
+		button.btn_medium,
+		input[type="submit"].btn_medium{
+			height: 4rem;
+			line-height: 3.8rem;
+			padding: 0 16px;
+		}
+	}
+}

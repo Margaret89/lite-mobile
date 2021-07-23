@@ -1,295 +1,295 @@
-footer.footer
-	.footer__menu.d-none.d-lg-block
-		.container
-			.row
-				.col-3
-					ul.footer-menu
-						li.footer-menu__item
-							a(href="#").footer-menu__link Покупателям
-							-
-								var list=[
-									{text:'Скидка 300 ₽ за отзыв на Google'},
-									{text:'Как купить?'},
-									{text:'Доставка'},
-									{text:'Пользовательское соглашение'},
-								]
+if(error_page!=true)
+	footer.footer
+		.footer__menu.d-none.d-lg-block
+			.container
+				.row
+					.col-3
+						ul.footer-menu
+							li.footer-menu__item
+								a(href="#").footer-menu__link Покупателям
+								-
+									var list=[
+										{text:'Скидка 300 ₽ за отзыв на Google'},
+										{text:'Как купить?'},
+										{text:'Доставка'},
+										{text:'Пользовательское соглашение'},
+									]
 
-							ul.footer-menu__sub
+								ul.footer-menu__sub
+									each item in list
+										li.footer-menu__sub-item
+											a(href="#").footer-menu__sub-link= item.text
+
+					.col-3
+						ul.footer-menu
+							li.footer-menu__item
+								a(href="#").footer-menu__link Полезная информация
+								-
+									var list=[
+										{text:'Внимание! Мошенники!'},
+										{text:'Новости'},
+										{text:'Обзоры'},
+										{text:'О магазине'},
+										{text:'Контакты'},
+									]
+								ul.footer-menu__sub
+									each item in list
+										li.footer-menu__sub-item
+											a(href="#").footer-menu__sub-link= item.text
+
+					.col-3
+						ul.footer-menu
+							li.footer-menu__item
+								a(href="#").footer-menu__link Поддержка
+								-
+									var list=[
+										{text:'Вопросы и ответы'},
+										{text:'Обратная связь'},
+										{text:'Заказать обратный звонок'},
+										{text:'Почему нам доверяют'},
+										{text:'Условия приема в трейд-ин'},
+									]
+								ul.footer-menu__sub
+									each item in list
+										li.footer-menu__sub-item
+											a(href="#").footer-menu__sub-link= item.text
+
+					.col-3
+						ul.footer-menu
+							li.footer-menu__item
+								a(href="#").footer-menu__link Личный кабинет
+								-
+									var list=[
+										{text:'Корзина'},
+										{text:'Избранное'},
+										{text:'Товары к сравнению'},
+										{text:'История заказов'},
+										{text:'Рассылка'},
+									]
+								ul.footer-menu__sub
+									each item in list
+										li.footer-menu__sub-item
+											a(href="#").footer-menu__sub-link= item.text
+
+		.footer__info
+			.container
+				.row
+					.col-lg-3
+						a(href="#").footer__logo
+							img(src="assets/img/logo.svg", alt="")
+
+						.footer__copyright © 2021 Lite-mobile.ru
+					
+					.col-lg-3
+						.footer__contacts
+							.footer__phone
+								a(href="tel:+78123325432") 8 812 332-54-32
+
+							.footer__address СПб, ул. Рубинштейна, 23, оф. 98
+
+					.col-lg-3
+						.social
+							.social__list
+								-
+									var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+								
 								each item in list
-									li.footer-menu__sub-item
-										a(href="#").footer-menu__sub-link= item.text
+									a(href="#").social__item
+										+svg(item, item, '24', '24')
+							
+							.social__label.d-none.d-lg-block Lite Mobile в соцсетях
 
-				.col-3
-					ul.footer-menu
-						li.footer-menu__item
-							a(href="#").footer-menu__link Полезная информация
-							-
-								var list=[
-									{text:'Внимание! Мошенники!'},
-									{text:'Новости'},
-									{text:'Обзоры'},
-									{text:'О магазине'},
-									{text:'Контакты'},
-								]
-							ul.footer-menu__sub
-								each item in list
-									li.footer-menu__sub-item
-										a(href="#").footer-menu__sub-link= item.text
+					.col-lg-3.d-none.d-lg-block
+						form.form-search
+							.form-search__content
+								input(type="text", placeholder="Поиск по сайту...", title="Поиск по сайту")
+								button(type="submit")
+									+svg('ic-search','ic-search', '18', '18')
 
-				.col-3
-					ul.footer-menu
-						li.footer-menu__item
-							a(href="#").footer-menu__link Поддержка
-							-
-								var list=[
-									{text:'Вопросы и ответы'},
-									{text:'Обратная связь'},
-									{text:'Заказать обратный звонок'},
-									{text:'Почему нам доверяют'},
-									{text:'Условия приема в трейд-ин'},
-								]
-							ul.footer-menu__sub
-								each item in list
-									li.footer-menu__sub-item
-										a(href="#").footer-menu__sub-link= item.text
+							//- .form-search__popup
+							//- 	-
+							//- 		var list=[
+							//- 			{title:'Категории'},
+							//- 			{text:'ASUS'},
+							//- 			{text:'ASUS Tab'},
+							//- 			{title:'Товары'},
+							//- 			{text:'Смартфон ASUS Zenfone 7 ZS670KS 8/128Gb (Цвет: Aurora Black)'},
+							//- 			{text:'Монитор Asus 24.5" VG258QR (Цвет: Black)'},
+							//- 			{text:'Видеокарта ASUS GeForce GT 1030 1228MHz PCI-E 3.0 2048MB 6008MHz 1030 1228MHz PCI-E 3.0'},
+							//- 			{text:'Wi-Fi роутер Asus RT-AC66U'},
+							//- 			{text:'Роутер беспроводной Asus RT-AC86U AC2900'},
+							//- 		]
+							//- 	each item in list
+							//- 		if(item.title)
+							//- 			.form-search__title= item.title
 
-				.col-3
-					ul.footer-menu
-						li.footer-menu__item
-							a(href="#").footer-menu__link Личный кабинет
-							-
-								var list=[
-									{text:'Корзина'},
-									{text:'Избранное'},
-									{text:'Товары к сравнению'},
-									{text:'История заказов'},
-									{text:'Рассылка'},
-								]
-							ul.footer-menu__sub
-								each item in list
-									li.footer-menu__sub-item
-										a(href="#").footer-menu__sub-link= item.text
+							//- 		if(item.text)
+							//- 			a(href="#").form-search__item= item.text
 
-	.footer__info
-		.container
-			.row
-				.col-lg-3
-					a(href="#").footer__logo
-						img(src="assets/img/logo.svg", alt="")
 
-					.footer__copyright © 2021 Lite-mobile.ru
-				
-				.col-lg-3
-					.footer__contacts
-						.footer__phone
-							a(href="tel:+78123325432") 8 812 332-54-32
+							//- 	.form-search__res
+							//- 		a(href="#").form-search__more
+							//- 			+svg('ic-link','ic-link', '14', '14')
+							//- 			span.form-search__more-text Показать все результаты
 
-						.footer__address СПб, ул. Рубинштейна, 23, оф. 98
+							//- 		.form-search__count 83
+		.footer__bottom
+			.container
+				.row
+					.col-12
+						.footer__text Фирма-производитель оставляет за собой право на внесение изменений в программное обеспечение, дизайн и комплектацию приборов без предварительного уведомления. Во избежание недоразумений при покупке приборов уточняйте информацию о комплектации, наличию и цене у продавцов. Вся информация на сайте носит справочный характер и не является публичной офертой. Сайт является маркет-плейсом и может содержать предложения сторонних продавцов или товары, отсутствующие на складе магазина.
 
-				.col-lg-3
+	.move-up.js-move-up
+		+svg('ic-arrow-up','ic-arrow-up', '20', '10')
+
+	#feadback-form(style='display: none;')
+		.popup
+			.popup__title Обратный звонок
+
+			.js-valid-form
+				form.form-site
+					.form-site__content
+						.form-site__item.js-form-site-item
+							.form-site__label Номер вашего телефона
+							.form-site__field
+								input.js-phone(type="text", placeholder="Телефон", required="required")
+
+						.form-site__item.js-form-site-item
+							.form-site__label Комментарий
+							.form-site__field
+								textarea(placeholder="Время, в которое вам будет удобно, прочие комментарии...")
+
+					.form-site__btn
+						button(type="submit").btn-icon.js-btn-submit
+							span.btn-icon__img
+								+svg('ic-incoming','ic-incoming', '16', '16')
+							span.btn-icon__text Позвоните мне
+
+	#auth(style='display: none;')
+		.popup.js-popup
+			.popup-error.js-popup-error
+				.popup-error__icon
+					+svg('ic-warning','ic-warning', '20', '18')
+				.popup-error__text Неправильный пароль. Если вы забыли данные для входа, нажмите на ссылку “Я не могу войти”.
+
+			.popup__title Авторизация
+
+			.auth-form
+				.js-valid-form(data-success='Вы успешно авторизовались!', data-text='none')
+					form.form-site
+						.form-site__content
+							.form-site__item.js-form-site-item
+								.form-site__label E-mail
+								.form-site__field
+									input.js-auth(type="email", placeholder="Введите e-mail...", required="required")
+
+							.form-site__item.js-form-site-item
+								.form-site__label Пароль
+								.form-site__field
+									input.js-auth(type="password", placeholder="Введите пароль", required="required")
+
+						.form-site__btn
+							.form-site-link.js-btn-foget
+								span.form-site-link__icon
+									+svg('ic-info','ic-info', '2', '10')
+								span.form-site-link__text Я не могу войти
+
+							button(type="submit").btn-icon.js-btn-submit
+								span.btn-icon__img
+									+svg('ic-tick','ic-tick', '18', '12')
+								span.btn-icon__text Войти
+
+				.auth-form__social
 					.social
+						.social__label Или войдите с помощью соцсети:
+
 						.social__list
 							-
 								var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
 							
 							each item in list
 								a(href="#").social__item
-									+svg(item, item, '24', '24')
-						
-						.social__label.d-none.d-lg-block Lite Mobile в соцсетях
+									+svg(item, item, '32', '32')
 
-				.col-lg-3.d-none.d-lg-block
-					form.form-search
-						.form-search__content
-							input(type="text", placeholder="Поиск по сайту...", title="Поиск по сайту")
-							button(type="submit")
-								+svg('ic-search','ic-search', '18', '18')
+				.auth-form__bottom
+					.auth-form__note Первый раз у нас? Зарегистрируйтесь, это займет буквально минуту:
 
-						//- .form-search__popup
-						//- 	-
-						//- 		var list=[
-						//- 			{title:'Категории'},
-						//- 			{text:'ASUS'},
-						//- 			{text:'ASUS Tab'},
-						//- 			{title:'Товары'},
-						//- 			{text:'Смартфон ASUS Zenfone 7 ZS670KS 8/128Gb (Цвет: Aurora Black)'},
-						//- 			{text:'Монитор Asus 24.5" VG258QR (Цвет: Black)'},
-						//- 			{text:'Видеокарта ASUS GeForce GT 1030 1228MHz PCI-E 3.0 2048MB 6008MHz 1030 1228MHz PCI-E 3.0'},
-						//- 			{text:'Wi-Fi роутер Asus RT-AC66U'},
-						//- 			{text:'Роутер беспроводной Asus RT-AC86U AC2900'},
-						//- 		]
-						//- 	each item in list
-						//- 		if(item.title)
-						//- 			.form-search__title= item.title
-
-						//- 		if(item.text)
-						//- 			a(href="#").form-search__item= item.text
-
-
-						//- 	.form-search__res
-						//- 		a(href="#").form-search__more
-						//- 			+svg('ic-link','ic-link', '14', '14')
-						//- 			span.form-search__more-text Показать все результаты
-
-						//- 		.form-search__count 83
-	.footer__bottom
-		.container
-			.row
-				.col-12
-					.footer__text Фирма-производитель оставляет за собой право на внесение изменений в программное обеспечение, дизайн и комплектацию приборов без предварительного уведомления. Во избежание недоразумений при покупке приборов уточняйте информацию о комплектации, наличию и цене у продавцов. Вся информация на сайте носит справочный характер и не является публичной офертой. Сайт является маркет-плейсом и может содержать предложения сторонних продавцов или товары, отсутствующие на складе магазина.
-
-
-.move-up.js-move-up
-	+svg('ic-arrow-up','ic-arrow-up', '20', '10')
-
-#feadback-form(style='display: none;')
-	.popup
-		.popup__title Обратный звонок
-
-		.js-valid-form
-			form.form-site
-				.form-site__content
-					.form-site__item.js-form-site-item
-						.form-site__label Номер вашего телефона
-						.form-site__field
-							input.js-phone(type="text", placeholder="Телефон", required="required")
-
-					.form-site__item.js-form-site-item
-						.form-site__label Комментарий
-						.form-site__field
-							textarea(placeholder="Время, в которое вам будет удобно, прочие комментарии...")
-
-				.form-site__btn
-					button(type="submit").btn-icon.js-btn-submit
+					a.btn-icon.js-btn-registr
 						span.btn-icon__img
-							+svg('ic-incoming','ic-incoming', '16', '16')
-						span.btn-icon__text Позвоните мне
+							+svg('ic-add-user','ic-add-user', '16', '16')
+						span.btn-icon__text Перейти к регистрации
 
-#auth(style='display: none;')
-	.popup.js-popup
-		.popup-error.js-popup-error
-			.popup-error__icon
-				+svg('ic-warning','ic-warning', '20', '18')
-			.popup-error__text Неправильный пароль. Если вы забыли данные для входа, нажмите на ссылку “Я не могу войти”.
+	#registr.registr(style='display: none;')
+		.popup
+			.popup__title Регистрация
 
-		.popup__title Авторизация
+			.registr-form
+				.js-valid-form(data-success='Вы успешно зарегистрированы!', data-text='none')
+					form.form-site
+						.form-site__content
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label Ваше имя
+								.form-site__field
+									input(type="text", placeholder="Введите имя...", required="required")
+									
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label Фамилия
+								.form-site__field
+									input(type="text", placeholder="Введите фамилию...")
+									
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label E-mail
+								.form-site__field
+									input(type="email", placeholder="Введите e-mail...", required="required")
 
-		.auth-form
-			.js-valid-form(data-success='Вы успешно авторизовались!', data-text='none')
-				form.form-site
-					.form-site__content
-						.form-site__item.js-form-site-item
-							.form-site__label E-mail
-							.form-site__field
-								input.js-auth(type="email", placeholder="Введите e-mail...", required="required")
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label Телефон
+								.form-site__field
+									input.js-phone(type="text", placeholder="Введите телефон...")
 
-						.form-site__item.js-form-site-item
-							.form-site__label Пароль
-							.form-site__field
-								input.js-auth(type="password", placeholder="Введите пароль", required="required")
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label Пароль
+								.form-site__field
+									input(type="password", placeholder="Придумайте пароль...", required="required")
 
-					.form-site__btn
-						.form-site-link.js-btn-foget
-							span.form-site-link__icon
-								+svg('ic-info','ic-info', '2', '10')
-							span.form-site-link__text Я не могу войти
+							.form-site__item.form-site__item_half.form-site__item_end
+								button(type="submit").btn-icon.js-btn-submit
+									span.btn-icon__img
+										+svg('ic-add-user','ic-add-user', '16', '16')
+									span.btn-icon__text Зарегистрироваться
 
-						button(type="submit").btn-icon.js-btn-submit
-							span.btn-icon__img
-								+svg('ic-tick','ic-tick', '18', '12')
-							span.btn-icon__text Войти
+				.popup-back
+					.popup-back__link.js-auth-form-back
+						+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+						|Назад ко входу
 
-			.auth-form__social
-				.social
-					.social__label Или войдите с помощью соцсети:
+	#foget(style='display: none;')
+		.popup.popup_grey
+			.popup__title Восстановление доступа
 
-					.social__list
-						-
-							var list=['ic-facebook', 'ic-instagram', 'ic-twitter', 'ic-vk', 'ic-foursquare']
+			.foget-form
+				.js-valid-form(data-success='Ваш пароль востановлен!', data-text='Проверьте почту.')
+					form.form-site
+						.form-site__text Введите e-mail, указанный при регистрации, и мы вышлем на него временный пароль, который можно будет сменить в личном кабинете после авторизации.
 						
-						each item in list
-							a(href="#").social__item
-								+svg(item, item, '32', '32')
+						.form-site__content
+							.form-site__item.js-form-site-item
+								.form-site__field
+									input(type="email", placeholder="Введите e-mail...", required="required")
 
-			.auth-form__bottom
-				.auth-form__note Первый раз у нас? Зарегистрируйтесь, это займет буквально минуту:
-
-				a.btn-icon.js-btn-registr
-					span.btn-icon__img
-						+svg('ic-add-user','ic-add-user', '16', '16')
-					span.btn-icon__text Перейти к регистрации
-
-#registr.registr(style='display: none;')
-	.popup
-		.popup__title Регистрация
-
-		.registr-form
-			.js-valid-form(data-success='Вы успешно зарегистрированы!', data-text='none')
-				form.form-site
-					.form-site__content
-						.form-site__item.form-site__item_half.js-form-site-item
-							.form-site__label Ваше имя
-							.form-site__field
-								input(type="text", placeholder="Введите имя...", required="required")
-								
-						.form-site__item.form-site__item_half.js-form-site-item
-							.form-site__label Фамилия
-							.form-site__field
-								input(type="text", placeholder="Введите фамилию...")
-								
-						.form-site__item.form-site__item_half.js-form-site-item
-							.form-site__label E-mail
-							.form-site__field
-								input(type="email", placeholder="Введите e-mail...", required="required")
-
-						.form-site__item.form-site__item_half.js-form-site-item
-							.form-site__label Телефон
-							.form-site__field
-								input.js-phone(type="text", placeholder="Введите телефон...")
-
-						.form-site__item.form-site__item_half.js-form-site-item
-							.form-site__label Пароль
-							.form-site__field
-								input(type="password", placeholder="Придумайте пароль...", required="required")
-
-						.form-site__item.form-site__item_half.form-site__item_end
+						.form-site__btn
 							button(type="submit").btn-icon.js-btn-submit
 								span.btn-icon__img
-									+svg('ic-add-user','ic-add-user', '16', '16')
-								span.btn-icon__text Зарегистрироваться
+									+svg('ic-tick','ic-tick', '18', '12')
+								span.btn-icon__text Отправить
 
-			.popup-back
-				.popup-back__link.js-auth-form-back
-					+svg('ic-arrow-left','ic-arrow-left', '8', '16')
-					|Назад ко входу
+				.popup-back
+					.popup-back__link.js-auth-form-back
+						+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+						|Назад ко входу
 
-#foget(style='display: none;')
-	.popup.popup_grey
-		.popup__title Восстановление доступа
-
-		.foget-form
-			.js-valid-form(data-success='Ваш пароль востановлен!', data-text='Проверьте почту.')
-				form.form-site
-					.form-site__text Введите e-mail, указанный при регистрации, и мы вышлем на него временный пароль, который можно будет сменить в личном кабинете после авторизации.
-					
-					.form-site__content
-						.form-site__item.js-form-site-item
-							.form-site__field
-								input(type="email", placeholder="Введите e-mail...", required="required")
-
-					.form-site__btn
-						button(type="submit").btn-icon.js-btn-submit
-							span.btn-icon__img
-								+svg('ic-tick','ic-tick', '18', '12')
-							span.btn-icon__text Отправить
-
-			.popup-back
-				.popup-back__link.js-auth-form-back
-					+svg('ic-arrow-left','ic-arrow-left', '8', '16')
-					|Назад ко входу
-
-#msg-success(style='display: none;')
-	.popup
-		.success-alert.js-success-alert
-			.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
-			.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер и обсудит все детали.
+	#msg-success(style='display: none;')
+		.popup
+			.success-alert.js-success-alert
+				.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
+				.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер и обсудит все детали.

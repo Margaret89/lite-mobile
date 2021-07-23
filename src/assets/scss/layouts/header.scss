@@ -817,6 +817,13 @@
 			.form-search__content{display: none;}
 		}
 	}
+
+	.header_error{
+		.header-top,
+		.header-middle{
+			display: none;
+		}
+	}
 }
 
 @media (max-width: 991px) {
@@ -1058,6 +1065,11 @@
 
 		&__count{color: $color-orange;}
 		&__count.inactive{color: $color-dark-grey;}
+	}
+
+	.header_error{
+		.header-top{display: none;}
+		.main-menu{top: 0;}
 	}
 }
 

@@ -606,6 +606,14 @@ if($('.js-compare-head-item').length){
 	});
 }
 
+// Открыть/Закрыть левое меню
+if($('.js-left-menu-btn').length){
+	$('.js-left-menu-btn').on('click', function() {
+		$(this).toggleClass('active');
+		$('.js-left-menu').slideToggle(300);
+	});
+}
+
 
 // Обрезание текста
 // Clamps($('.js-catalog-item-title'));

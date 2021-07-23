@@ -1,0 +1,97 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Новости';
+	- var h1 = 'Новости';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Полезная информация'},
+			{href:'#',name:'Новости'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.container
+		.row
+			.col-lg-3
+				.left-menu-wrap
+					.left-menu-btn.d-lg-none.js-left-menu-btn
+						.left-menu-btn__text Другие разделы
+						.left-menu-btn__arr
+							+svg('ic-arrow-down-thin','ic-arrow-down-thin', '12', '6')
+
+					ul.left-menu.js-left-menu
+						-
+							var list=[
+								{text:'Новости', note:'Свежие обновления обо всем', status:'active'},
+								{text:'Обзоры', note:'Узнайте больше о новинках от обзорщиков'},
+								{text:'Документы', note:'Пользовательское соглашение'},
+								{text:'О магазине', note:'Почему стоит покупать у нас'},
+								{text:'Контакты', note:'Все способы с нами связаться'},
+								{text:'Скидка 300 ₽', note:'Оставьте отзыв и получите скидку!'},
+								{text:'Как купить', note:'Подробно обо всех способах покупки'},
+								{text:'Доставка', note:'Способы доставки и пункты самовывоза'},
+								{text:'Внимание! Мошенники!', note:'Как обезопасить себя и свой кошелек'},
+								{text:'Вопросы и ответы', note:'Спросите и мы ответим'},
+								{text:'О трейд-ин', note:'Условия приема товара и не только'},
+							]
+						each item in list
+							li.left-menu__item(class=item.status?'active':'')
+								a(href="#").left-menu__link= item.text
+								.left-menu__note= item.note
+
+			.col-lg-9
+				.news-list
+					-
+						var list=[
+							{img:'news1.jpg', date:'12 / 02', text:'Xiaomi Mi TV Pro E32S - новый супер доступный телевизор с голосовым управлением и мощной начинкой.'},
+							{img:'news2.jpg', date:'10 / 02', text:'Представлен первый саундбар Redmi мощностью 30 Вт'},
+							{img:'news3.jpg', date:'6 / 02', text:'Представлены недорогие беспроводные наушники Realme Buds Air Neo'},
+							{img:'news4.jpg', date:'31 / 01', text:'Xiaomi представила новую камеру наблюдения Mi Camera SE'},
+							{img:'news5.jpg', date:'22 / 01', text:'Представлен смартфон Redmi K30i 5G за $262'},
+							{img:'news6.jpg', date:'10 / 01', text:'Дебютировал процессор Qualcomm Snapdragon 768G. Известен первый обладатель чипсета'},
+							{img:'news1.jpg', date:'12 / 02', text:'Xiaomi Mi TV Pro E32S - новый супер доступный телевизор с голосовым управлением и мощной начинкой.'},
+							{img:'news2.jpg', date:'10 / 02', text:'Представлен первый саундбар Redmi мощностью 30 Вт'},
+							{img:'news3.jpg', date:'6 / 02', text:'Представлены недорогие беспроводные наушники Realme Buds Air Neo'},
+							{img:'news4.jpg', date:'31 / 01', text:'Xiaomi представила новую камеру наблюдения Mi Camera SE'},
+							{img:'news5.jpg', date:'22 / 01', text:'Представлен смартфон Redmi K30i 5G за $262'},
+							{img:'news6.jpg', date:'10 / 01', text:'Дебютировал процессор Qualcomm Snapdragon 768G. Известен первый обладатель чипсета'},
+						]
+					each item in list
+						.news-list__item
+							a(href="#").news-list__img-wrap
+								.news-list__img
+									img(src="assets/img/"+item.img, alt="")
+							
+							.news-list__content
+								.news-list__info
+									.news-list__date= item.date
+									.news-list__text= item.text
+
+								a(href="#").news-list__more ...
+
+				.pager
+					.pager__list
+						a.pager__item(href='#') 1
+						a.pager__item.active(href='#') 2
+						a.pager__item(href='#') 3
+						a.pager__item.d-md-none(href='#') ...
+						a.pager__item.d-none.d-md-inline-flex(href='#') 4
+						a.pager__item.d-none.d-md-inline-flex(href='#') 5
+						a.pager__item.d-none.d-md-inline-flex(href='#') 6
+						a.pager__item.d-none.d-md-inline-flex(href='#') 7
+						a.pager__item.d-none.d-md-inline-flex(href='#') 8
+						a.pager__item.d-none.d-md-inline-flex(href='#') 9
+						a.pager__item.d-none.d-md-inline-flex(href='#') 10
+						a.pager__item.d-none.d-md-inline-flex(href='#') 11
+						a.pager__item(href='#') 12
+
+					.pager__nav
+						.pager__arr
+							+svg('ic-arrow-left','ic-arrow-left', '8', '16')
+						.pager__arr
+							+svg('ic-arrow-right','ic-arrow-right', '8', '16')

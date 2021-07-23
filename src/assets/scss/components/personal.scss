@@ -1,0 +1,64 @@
+/*-------------- personal -----------------*/
+.personal-page{
+	margin-top: 25px;
+	margin-bottom: 64px;
+}
+
+.personal{
+	display: flex;
+	flex-wrap: wrap;
+
+	.form-site{
+		&__item{width: calc(25% - 16px);}
+
+		&__content{
+			padding: 44px 32px 24px;
+			background: #fff;
+			box-shadow: 0px 4px 13px rgba(111, 113, 139, 0.15);
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		&__btn{
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		&__btn{margin-top: 30px;}
+	}
+}
+
+@media (max-width: 991px) {
+	.personal{
+		.form-site{
+			&__item{width: calc(50% - 16px);}
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.personal{
+		.form-site{
+			&__content{padding: 24px 16px 7px;}
+
+			&__item{
+				width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			&__btn{
+				justify-content: center;
+				margin-top: 16px;
+
+				.btn{
+					width: 100%;
+					max-width: 320px;
+					height: 4rem;
+					font-size: 1.4rem;
+					line-height: 3.8rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Личный кабинет';
+	- var h1 = 'Личный кабинет';
+
+block breadcrumb
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Главная'},
+			{href:'#',name:'Личный кабинет'},
+		];
+
+	+breadcrumbs(breadcrumbs)
+
+block content
+	.personal-page
+		.container
+			.row
+				.col-12
+					.personal
+						.js-valid-form(data-success='Ваши данные сохранены!', data-text='none')
+							form.form-site
+								.form-site__content
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Имя
+										.form-site__field.form-site__field_edit
+											input(type="text", placeholder="Введите имя...", value="Фил" required="required")
+											.form-site__edit
+												+svg('ic-edit','ic-edit', '14', '14')
+											.form-site__close.js-form-site-close
+												+svg('ic-close','ic-close', '14', '14')
+											
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Фамилия
+										.form-site__field.form-site__field_edit
+											input(type="text", placeholder="Введите фамилию...", value="Строгов")
+											.form-site__edit
+												+svg('ic-edit','ic-edit', '14', '14')
+											.form-site__close.js-form-site-close
+												+svg('ic-close','ic-close', '14', '14')
+											
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label E-mail
+										.form-site__field.form-site__field_edit
+											input(type="email", placeholder="Введите e-mail...", required="required", value="mail@domain.com")
+											.form-site__edit
+												+svg('ic-edit','ic-edit', '14', '14')
+											.form-site__close.js-form-site-close
+												+svg('ic-close','ic-close', '14', '14')
+
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Телефон
+										.form-site__field.form-site__field_edit
+											input.js-phone(type="text", placeholder="Введите телефон...", value="89803526587")
+											.form-site__edit
+												+svg('ic-edit','ic-edit', '14', '14')
+											.form-site__close.js-form-site-close
+												+svg('ic-close','ic-close', '14', '14')
+
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Город
+										.form-site__field.form-site__field_edit
+											input(type="text", placeholder="Введите город...", value="Санкт-Петербург")
+											.form-site__edit
+												+svg('ic-edit','ic-edit', '14', '14')
+											.form-site__close.js-form-site-close
+												+svg('ic-close','ic-close', '14', '14')
+
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Адрес доставки
+										.form-site__field.form-site__field_edit
+											input(type="text", placeholder="Не указан")
+											.form-site__edit
+												+svg('ic-edit','ic-edit', '14', '14')
+											.form-site__close.js-form-site-close
+												+svg('ic-close','ic-close', '14', '14')
+
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Изменить пароль
+										.form-site__field.form-site__field_edit
+											input(type="password", placeholder="Введите новый пароль...", required="required")
+
+									.form-site__item.form-site__item_half.js-form-site-item
+										.form-site__label Повторить новый пароль
+										.form-site__field.form-site__field_edit
+											input(type="password", placeholder="Введите новый пароль...", required="required")
+
+								.form-site__btn
+									button(type="submit").btn.btn_medium.js-btn-submit
+										+svg('ic-tick','ic-tick', '18', '12')
+										span Сохранить изменения
+
+	.d-none.d-md-block
+		include ../components/catalog-offers

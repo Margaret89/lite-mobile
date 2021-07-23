@@ -118,6 +118,66 @@
 		margin-right: 8px;
 		margin-left: 8px;
 	}
+
+	&__field_edit{
+		position: relative;
+
+		input[type="text"],
+		input[type="number"],
+		input[type="email"],
+		input[type="password"],
+		textarea{
+			padding-right: 50px;
+		}
+
+		input[type="text"]:focus ~ .form-site__edit,
+		input[type="number"]:focus ~ .form-site__edit,
+		input[type="email"]:focus ~ .form-site__edit,
+		input[type="password"]:focus ~ .form-site__edit,
+		textarea:focus ~ .form-site__edit{
+			display: none;
+		}
+
+		input[type="text"]:focus ~ .form-site__close,
+		input[type="number"]:focus ~ .form-site__close,
+		input[type="email"]:focus ~ .form-site__close,
+		input[type="password"]:focus ~ .form-site__close,
+		textarea:focus ~ .form-site__close{
+			opacity: 1;
+		}
+	}
+
+	&__edit,
+	&__close{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 13px;
+	}
+
+	&__edit{
+		.icon{
+			fill: $color-orange;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__edit:hover .icon{fill: $color-dark-grey;}
+
+	&__close{
+		opacity: 0;
+		cursor: pointer;
+
+		.icon{
+			fill: $color-dark-grey;
+			transition: fill 0.2s ease 0s;
+		}
+	}
+
+	&__close:hover .icon{fill: $color-orange;}
 }
 
 .success-alert{
